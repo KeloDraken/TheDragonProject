@@ -5,6 +5,7 @@
 | Codebase              |      Description          |
 | :-------------------- | :-----------------------: |
 | [vetkoek](vetkoek)    |      React frontend       |
+| [biltong](biltong)    |      Django API           |
 
 
 ## Branches
