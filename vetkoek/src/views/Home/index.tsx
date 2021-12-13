@@ -1,10 +1,10 @@
 import { Fragment } from "react"
-import Navbar from "../../components/navbar";
+import Header from "../../components/header";
 
 const HomeView = () => {
     return (
         <Fragment>
-            <Navbar />
+            <Header />
             <h1>This is home</h1>
         </Fragment>
     )

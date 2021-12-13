@@ -1,4 +1,4 @@
-const Navbar = () => {
+const Header = () => {
     return (
         <nav className="flex flex-row justify-between py-1 px-4 w-full border-b border-gray-800">
             <a href="/" title="Ett projekt av Samkelo Drakensberg" className="text-lg">KeloDraken</a>
@@ -15,4 +15,4 @@ const Navbar = () => {
     )
 }
 
-export default Navbar
+export default Header
