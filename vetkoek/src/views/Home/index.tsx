@@ -1,100 +1,16 @@
-import { Fragment } from "react"
+import { View } from "react-native";
+
+import Card from "../../components/card";
 import Header from "../../components/header";
 import Navbar from "../../components/navbar";
 
 const HomeView = () => {
     return (
-        <Fragment>
+        <View>
             <Header />
             <Navbar />
-            
-            <h1 className="mt-4">This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-            <h1>This is home</h1>
-        </Fragment>
+            <Card />
+        </View>
     )
 }
 export default HomeView;
