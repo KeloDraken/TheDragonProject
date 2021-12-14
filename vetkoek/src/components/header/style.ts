@@ -12,5 +12,8 @@ export const styles = StyleSheet.create({
         width: "100%",
         borderBottomWidth: 1,
         borderBottomColor: "rgba(31, 41, 55, 1)"
+    },
+    iconGroup:{
+        flexDirection:"row",
     }
 })
