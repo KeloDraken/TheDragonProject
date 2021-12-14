@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "react-native-responsive-screen": "^1.4.2"
+  }
+}
