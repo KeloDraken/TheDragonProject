@@ -10,7 +10,7 @@ const SearchForm = () => {
                         search
                     </i>
                 </View>
-                <TextInput style={styles.searchTextInput} placeholder="Search..." autoComplete="off" />
+                <TextInput style={styles.searchTextInput} placeholder="Search KeloDraken" autoCapitalize="none" autoCorrect={false} autoComplete="off" />
             </View>
         </View>
     )
