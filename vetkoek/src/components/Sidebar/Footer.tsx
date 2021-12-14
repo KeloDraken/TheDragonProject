@@ -1,6 +1,6 @@
 import { View } from "react-native"
 import { Link } from "react-router-dom"
-import { styles } from "./style"
+import { styles } from "../style"
 
 const Footer = () => {
     return (

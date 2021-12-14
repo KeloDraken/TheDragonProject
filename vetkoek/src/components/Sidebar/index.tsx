@@ -1,5 +1,5 @@
 import { View } from "react-native"
-import Footer from "../Footer"
+import Footer from "./Footer"
 import SearchForm from "./SearchForm"
 import SidebarCard from "./SidebarCard"
 
