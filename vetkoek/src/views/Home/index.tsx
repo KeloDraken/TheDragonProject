@@ -1,6 +1,7 @@
 import Card from "../../components/card";
 import Logo from "../../components/Logo";
 import Navbar from "../../components/Navbar";
+import SearchForm from "../../components/SearchForm";
 
 const HomeView = () => {
     return (
@@ -61,15 +62,8 @@ const HomeView = () => {
             </main>
 
             <aside className="h-auto sticky top-0 w-7/12 border-l border-gray-700">
+                <SearchForm />
                 <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <div className="sticky top-0">
-                    <Card />
-                </div>
             </aside>
         </div>
     )
