@@ -28,14 +28,15 @@
     background-color: var(--background);
 }
 
-.input {
-    background-color: var(--background);
-}
-
 .explore_card {
     background-color: var(--background);
 }
 
 .link_hover:hover {
     background-color: var(--hover);
+}
+
+.link_hover_last:hover {
+    border-bottom-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
 }

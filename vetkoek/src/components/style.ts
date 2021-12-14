@@ -49,6 +49,28 @@ export const styles = StyleSheet.create({
         fontSize: 16,
         borderRadius: 20,
         paddingHorizontal: "3.5rem",
-
+    },
+    sidebarCardContainer: {
+        backgroundColor: "rgb(19, 19, 19)",
+        marginHorizontal: "0.75rem",
+        marginBottom: "0.75rem",
+        paddingTop: "1rem",
+        borderRadius: 20,
+    },
+    sidebarCardHeading: {
+        fontWeight: "700",
+        fontSize: 23,
+        color: "#fff",
+        paddingHorizontal: "1rem",
+        marginBottom: "1rem",
+    },
+    sidebarLinkInfo:{
+        fontSize: 14,
+        color: "rgba(156, 163, 175, 1)"
+    },
+    sidebarLinkTitle:{
+        fontSize: 17,
+        fontWeight: "700",
+        color: "#fff"
     }
 })
