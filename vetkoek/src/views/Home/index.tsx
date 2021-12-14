@@ -15,7 +15,7 @@ const HomeView = () => {
                 <div className="flex sticky top-0 bg-black w-full py-3 px-4 border-b border-gray-700">
                     <Text style={styles.pageHeading}>Home</Text>
                 </div>
-                <div className="">
+                <div>
                     <h1>begin</h1>
                     <h1>Home</h1>
                     <h1>Home</h1>

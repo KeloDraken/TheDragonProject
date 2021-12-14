@@ -1,7 +1,7 @@
 import { View, Text } from "react-native"
 import { Link } from "react-router-dom"
 import Logo from "./Logo"
-import { styles } from "./style"
+import { styles } from "../style"
 
 const Navbar = () => {
     return (

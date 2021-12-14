@@ -1,6 +1,6 @@
 import { View, Image, Text } from "react-native"
 import { Link } from "react-router-dom"
-import { styles } from "./style"
+import { styles } from "../style"
 
 const Logo = () => {
     return (
