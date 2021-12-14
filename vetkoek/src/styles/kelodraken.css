@@ -8,3 +8,7 @@
 ::-webkit-scrollbar {
     width: 0;
 }
+
+.navlink:hover {
+    background-color: rgb(19, 19, 19);
+}
