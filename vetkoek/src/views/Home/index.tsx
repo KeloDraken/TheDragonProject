@@ -1,9 +1,9 @@
 import { Text } from "react-native";
-import ArticlesList from "../../components/ArticlesList";
+import ArticlesList from "../../components/SidebarCard";
 import Logo from "../../components/Logo";
 import Navbar from "../../components/Navbar";
 import SearchForm from "../../components/SearchForm";
-import UpcomingProjects from "../../components/UpcomingProjects";
+import SidebarCard from "../../components/SidebarCard";
 import { styles } from "./style";
 
 const HomeView = () => {
@@ -153,8 +153,9 @@ const HomeView = () => {
 
             <aside className="overflow-y-scroll h-screen sticky top-0 w-7/12 border-l pr-7 pl-3 border-gray-700">
                 <SearchForm />
-                <ArticlesList />
-                <UpcomingProjects />
+                <SidebarCard cardTitle="Latest stories" />
+                <SidebarCard cardTitle="Discussions" />
+                <SidebarCard cardTitle="Upcoming products" />
                 <div className="sticky top-0">
                     <p>bottom</p>
                 </div>
