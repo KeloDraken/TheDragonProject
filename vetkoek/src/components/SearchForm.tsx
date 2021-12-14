@@ -1,6 +1,6 @@
 const SearchForm = () => {
     return (
-        <div className="sticky top-0 bg-black mb-3">
+        <div className="bg-black mb-3">
             <form method="GET" action="/search" className="mx-3 mt-2">
                 <div className="relative text-gray-600 focus-within:text-gray-400">
                     <span className="absolute inset-y-0 left-0 flex items-center pl-3">

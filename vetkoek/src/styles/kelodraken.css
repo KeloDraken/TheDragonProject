@@ -2,23 +2,40 @@
     --primary: #000;
     --accent: rgba(156, 163, 175, 1);
     --background: rgb(19, 19, 19);
+    --hover: rgb(27, 27, 27);
     background-color: var(--primary);
     color: #ffffff;
 }
 
 ::-webkit-scrollbar {
-    width: 0;
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--primary);
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    background: var(--background);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--hover);
 }
 
 .navlink:hover {
     background-color: var(--background);
 }
+
 .input {
     background-color: var(--background);
 }
+
 .explore_card {
     background-color: var(--background);
 }
+
 .link_hover:hover {
-    background-color: rgb(27, 27, 27);
+    background-color: var(--hover);
 }
