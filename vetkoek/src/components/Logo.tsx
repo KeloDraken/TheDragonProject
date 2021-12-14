@@ -4,12 +4,14 @@ import { styles } from "./style"
 
 const Logo = () => {
     return (
-        <View style={styles.logoContainer}>
-            <Link title="Ett projekt av Samkelo Drackner" to="/" className="flex">
-                <Image source={{ uri: "https://i.imgur.com/yk842xK.png" }} style={styles.logoPNG} />
-                <Text style={styles.logoText}>KeloDraken</Text>
-            </Link>
-        </View>
+        <span className="hidden md:block lg:block xl:block 2xl:block">
+            <View style={styles.logoContainer}>
+                <Link title="Ett projekt av Samkelo Drackner" to="/" className="flex">
+                    <Image source={{ uri: "https://i.imgur.com/yk842xK.png" }} style={styles.logoPNG} />
+                    <Text style={styles.logoText}>KeloDraken</Text>
+                </Link>
+            </View>
+        </span>
     )
 }
 export default Logo

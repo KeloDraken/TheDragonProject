@@ -151,7 +151,7 @@ const HomeView = () => {
                 </div>
             </main>
 
-            <aside className="overflow-y-scroll h-screen sticky top-0 w-7/12 border-l pr-7 pl-3 border-gray-700">
+            <aside className="overflow-y-scroll h-screen hidden md:block lg:block xl:block 2xl:block sticky top-0 w-7/12 border-l pr-7 pl-3 border-gray-700">
                 <SearchForm />
                 <SidebarCard cardTitle="Latest stories" />
                 <SidebarCard cardTitle="Discussions" />
