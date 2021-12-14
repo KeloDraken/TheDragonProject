@@ -5,6 +5,7 @@ import Navbar from "../../components/Navbar";
 import SearchForm from "../../components/SearchForm";
 import SidebarCard from "../../components/SidebarCard";
 import { styles } from "./style";
+import Footer from "../../components/Footer";
 
 const HomeView = () => {
     return (
@@ -156,9 +157,7 @@ const HomeView = () => {
                 <SidebarCard cardTitle="Latest stories" />
                 <SidebarCard cardTitle="Discussions" />
                 <SidebarCard cardTitle="Upcoming products" />
-                <div className="sticky top-0">
-                    <p>bottom</p>
-                </div>
+                <Footer />
             </aside>
         </div>
     )

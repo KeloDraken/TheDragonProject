@@ -71,6 +71,14 @@ export const styles = StyleSheet.create({
     sidebarLinkTitle:{
         fontSize: 15,
         fontWeight: "700",
-        color: "#fff"
-    }
+        color: "#fff",
+    },
+    footerContainer:{
+        marginTop: "1rem",
+        marginLeft: "0.75rem",
+        display: "flex",
+        flexDirection: "row",
+        paddingLeft: "1rem"
+    },
+
 })
