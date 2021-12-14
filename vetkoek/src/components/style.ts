@@ -48,7 +48,7 @@ export const styles = StyleSheet.create({
         backgroundColor: "rgb(19, 19, 19)",
         fontSize: 16,
         borderRadius: 20,
-        paddingLeft: "3.5rem",
+        paddingHorizontal: "3.5rem",
 
     }
 })
