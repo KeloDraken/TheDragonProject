@@ -1,5 +1,27 @@
 :root {
-    background-color: #0E1217;
+    --primary: #0E1217;
+    --accent: rgba(156, 163, 175, 1);
+    background-color: var(--primary);
     color: #ffffff;
-    height: 1990px;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background:  var(--primary);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background: var(--accent);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #fff;
 }
