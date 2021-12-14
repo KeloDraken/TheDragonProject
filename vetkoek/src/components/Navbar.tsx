@@ -26,7 +26,7 @@ const Navbar = () => {
             <Link to="/community" className="flex rounded-3xl px-3 py-3 navlink">
                 <i className="material-icons-outlined pl-3">forums</i>
                 <span className="hidden md:block lg:block xl:block 2xl:block">
-                    <span className="text-xl -mt-1">Community</span>
+                    <Text style={[styles.navLinkText, styles.communityLinkText]}>Community</Text>
                 </span>
             </Link>
             <Link to="/account" className="flex rounded-3xl px-3 py-3 navlink">

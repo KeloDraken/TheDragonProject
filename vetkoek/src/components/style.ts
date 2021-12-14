@@ -1,25 +1,29 @@
 import { StyleSheet } from "react-native";
+import { widthPercentageToDP as wp } from "react-native-responsive-screen";
 
 export const styles = StyleSheet.create({
     logoContainer: {
         marginTop: "1rem",
     },
     logoPNG: {
-        width: 50,
+        width: wp("5"),
     },
     logoText: {
         fontWeight: "700",
-        fontSize: 30,
+        fontSize: wp("2"),
         color: "#fff",
         fontFamily: "IM Fell English SC",
         marginVertical: "0.75rem"
 
     },
     navLinkText: {
-        fontSize: 20,
+        fontSize: wp("1.5"),
         marginLeft: "1.5rem",
         marginTop: "-0.25rem",
         color: "#fff",
+    },
+    communityLinkText: {
+        marginLeft: "-0.1rem",
     },
     sidebarSearchFormContainer: {
         backgroundColor: "#000",
@@ -46,8 +50,8 @@ export const styles = StyleSheet.create({
         paddingVertical: "0.75rem",
         color: "#fff",
         backgroundColor: "rgb(19, 19, 19)",
-        fontSize: 16,
-        borderRadius: 20,
+        fontSize: wp("1.2"),
+        borderRadius: wp("1.3"),
         paddingHorizontal: "3.5rem",
     },
     sidebarCardContainer: {
@@ -55,21 +59,21 @@ export const styles = StyleSheet.create({
         marginHorizontal: "0.75rem",
         marginBottom: "0.75rem",
         paddingTop: "1rem",
-        borderRadius: 20,
+        borderRadius: wp("1.3"),
     },
     sidebarCardHeading: {
         fontWeight: "700",
-        fontSize: 21,
+        fontSize: wp("1.6"),
         color: "#fff",
         paddingHorizontal: "1rem",
         marginBottom: "1rem",
     },
     sidebarLinkInfo:{
-        fontSize: 13,
+        fontSize: wp("1"),
         color: "rgba(156, 163, 175, 1)"
     },
     sidebarLinkTitle:{
-        fontSize: 15,
+        fontSize: wp("1.2"),
         fontWeight: "700",
         color: "#fff",
     },
