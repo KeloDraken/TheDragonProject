@@ -1,10 +1,12 @@
 import { View, Text } from "react-native"
 import { Link } from "react-router-dom"
+import Logo from "./Logo"
 import { styles } from "./style"
 
 const Navbar = () => {
     return (
         <View>
+            <Logo />
             <Link to="/" className="flex rounded-3xl mt-7 pl-3 py-3 navlink">
                 <i className="material-icons-outlined pl-3">home</i>
                 <span className="hidden md:block lg:block xl:block 2xl:block">
