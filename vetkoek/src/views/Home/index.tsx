@@ -1,10 +1,11 @@
 import Card from "../../components/card";
+import Logo from "../../components/Logo";
 
 const HomeView = () => {
     return (
         <div className="flex">
-            <aside className="overflow-y-scroll h-screen sticky top-0 w-2/5 border-r border-gray-700 bg-green-400">
-                <Card />
+            <aside className="pl-20 pr-10 overflow-y-scroll h-screen sticky top-0 w-2/5 border-r border-gray-700">
+                <Logo />
                 <Card />
                 <Card />
                 <Card />
@@ -140,7 +141,9 @@ const HomeView = () => {
                 <Card />
                 <Card />
                 <Card />
-                <Card />
+                <div className="sticky top-0">
+                    <Card />
+                </div>
             </aside>
         </div>
     )
