@@ -1,12 +1,15 @@
+import { View } from "react-native"
+import { styles } from "./style"
+
 const Navbar = () => {
     return (
-        <div className="sticky top-0 justify-center flex flex-row pt-3 pl-5 pb-4 w-full">
-            <a title="Search" href="#" className="material-icons text-gray-400 hover:text-white mr-8">search</a>
-            <a href="/" className="text-normal mr-7 font-bold text-gray-400 hover:text-white">Frontpage</a>
-            <a href="/" className="text-normal mr-7 font-bold text-gray-400 hover:text-white">Upvoted</a>
-            <a href="/" className="text-normal mr-7 font-bold text-gray-400 hover:text-white">Community</a>
-            <a href="/" className="text-normal mr-7 font-bold text-gray-400 hover:text-white">Projects</a>
-        </div>
+        <View style={styles.headerContainer}>
+            <a title="Search" href="/" className="material-icons px-4 py-1 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800">search</a>
+            <a href="/" className="text-normal px-4 py-1 rounded-lg font-bold text-gray-400 hover:text-white hover:bg-gray-800">Frontpage</a>
+            <a href="/" className="text-normal px-4 py-1 rounded-lg font-bold text-gray-400 hover:text-white hover:bg-gray-800">Upvoted</a>
+            <a href="/" className="text-normal px-4 py-1 rounded-lg font-bold text-gray-400 hover:text-white hover:bg-gray-800">Community</a>
+            <a href="/" className="text-normal px-4 py-1 rounded-lg font-bold text-gray-400 hover:text-white hover:bg-gray-800">Projects</a>
+        </View>
     )
 }
 
