@@ -1,11 +1,12 @@
 import { Text } from "react-native";
-import ArticlesList from "../../components/SidebarCard";
+
+import Footer from "../../components/Footer";
 import Logo from "../../components/Logo";
 import Navbar from "../../components/Navbar";
 import SearchForm from "../../components/SearchForm";
 import SidebarCard from "../../components/SidebarCard";
+
 import { styles } from "./style";
-import Footer from "../../components/Footer";
 
 const HomeView = () => {
     return (
