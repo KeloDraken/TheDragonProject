@@ -1,8 +1,10 @@
+import { Text } from "react-native";
 import ArticlesList from "../../components/ArticlesList";
 import Logo from "../../components/Logo";
 import Navbar from "../../components/Navbar";
 import SearchForm from "../../components/SearchForm";
 import UpcomingProjects from "../../components/UpcomingProjects";
+import { styles } from "./style";
 
 const HomeView = () => {
     return (
@@ -14,7 +16,7 @@ const HomeView = () => {
 
             <main className="w-full overflow-y-scroll h-screen sticky top-0">
                 <div className="flex sticky top-0 bg-black w-full py-3 px-4 border-b border-gray-700">
-                    <h1 className="font-bold text-xl">Home</h1>
+                    <Text style={styles.pageHeading}>Home</Text>
                 </div>
                 <div className="">
                     <h1>begin</h1>
