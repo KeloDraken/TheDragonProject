@@ -6,7 +6,7 @@ import SearchForm from "../../components/SearchForm";
 const HomeView = () => {
     return (
         <div className="flex">
-            <aside className="pl-7 pr-10 overflow-y-scroll h-screen sticky top-0 w-2/5 border-r border-gray-700">
+            <aside className="pl-7 overflow-y-scroll h-screen sticky top-0 w-2/5 border-r border-gray-700">
                 <Logo />
                 <Navbar />
             </aside>

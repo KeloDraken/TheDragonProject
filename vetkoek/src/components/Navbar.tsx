@@ -3,7 +3,7 @@ import { Fragment } from "react"
 const Navbar = () => {
     return (
         <Fragment>
-            <a href="#" className="flex rounded-3xl mt-7 px-3 py-3 navlink">
+            <a href="#" className="flex rounded-3xl mt-7 pl-3 py-3 navlink">
                 <i className="material-icons-outlined pl-3">home</i>
                 <span className="text-xl ml-6 -mt-1">Home</span>
             </a>
