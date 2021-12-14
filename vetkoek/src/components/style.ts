@@ -59,17 +59,17 @@ export const styles = StyleSheet.create({
     },
     sidebarCardHeading: {
         fontWeight: "700",
-        fontSize: 23,
+        fontSize: 21,
         color: "#fff",
         paddingHorizontal: "1rem",
         marginBottom: "1rem",
     },
     sidebarLinkInfo:{
-        fontSize: 14,
+        fontSize: 13,
         color: "rgba(156, 163, 175, 1)"
     },
     sidebarLinkTitle:{
-        fontSize: 17,
+        fontSize: 15,
         fontWeight: "700",
         color: "#fff"
     }
