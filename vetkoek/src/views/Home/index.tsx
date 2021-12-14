@@ -1,4 +1,4 @@
-import Card from "../../components/card";
+import ArticlesList from "../../components/ArticlesList";
 import Logo from "../../components/Logo";
 import Navbar from "../../components/Navbar";
 import SearchForm from "../../components/SearchForm";
@@ -6,7 +6,7 @@ import SearchForm from "../../components/SearchForm";
 const HomeView = () => {
     return (
         <div className="flex">
-            <aside className="pl-7 overflow-y-scroll h-screen sticky top-0 w-2/5 border-r border-gray-700">
+            <aside className="pl-7 pr-3 overflow-y-scroll h-screen sticky top-0 w-2/5 border-r border-gray-700">
                 <Logo />
                 <Navbar />
             </aside>
@@ -61,9 +61,9 @@ const HomeView = () => {
 
             </main>
 
-            <aside className="h-auto sticky top-0 w-7/12 border-l border-gray-700">
+            <aside className="h-auto sticky top-0 w-7/12 border-l pr-7 pl-3 border-gray-700">
                 <SearchForm />
-                <Card />
+                <ArticlesList />
             </aside>
         </div>
     )
