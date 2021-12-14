@@ -1,17 +1,18 @@
+import { View, TextInput } from "react-native"
+import { styles } from "./style"
+
 const SearchForm = () => {
     return (
-        <div className="bg-black mb-3">
-            <form method="GET" action="/search" className="mx-3 mt-2">
-                <div className="relative text-gray-600 focus-within:text-gray-400">
-                    <span className="absolute inset-y-0 left-0 flex items-center pl-3">
-                        <i className="p-1 focus:outline-none focus:shadow-outline material-icons-outlined">
-                            search
-                        </i>
-                    </span>
-                    <input type="text" name="q" className="w-full py-2 text-sm text-white input rounded-3xl pl-14 py-3" placeholder="Search..." autoComplete="off" />
-                </div>
-            </form>
-        </div>
+        <View style={styles.sidebarSearchFormContainer}>
+            <View style={styles.searchForm}>
+                <View style={styles.searchIconContainer}>
+                    <i className="p-1 focus:outline-none focus:shadow-outline material-icons-outlined">
+                        search
+                    </i>
+                </View>
+                <TextInput style={styles.searchTextInput} placeholder="Search..." autoComplete="off" />
+            </View>
+        </View>
     )
 }
 
