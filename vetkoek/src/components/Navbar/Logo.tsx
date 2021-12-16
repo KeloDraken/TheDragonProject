@@ -7,8 +7,8 @@ const Logo = () => {
         <span className="hidden md:block lg:block xl:block 2xl:block">
             <View style={styles.logoContainer}>
                 <Link title="Ett projekt av Samkelo Drackner" to="/" className="flex">
-                    <Image source={{ uri: "https://i.imgur.com/yk842xK.png" }} style={styles.logoPNG} />
-                    <Text style={styles.logoText}>wtc24</Text>
+                    <Image source={{ uri: "https://i.imgur.com/YVvcEZT.png" }} style={styles.logoPNG} />
+                    <Text style={styles.logoText}>RUNE</Text>
                 </Link>
             </View>
         </span>

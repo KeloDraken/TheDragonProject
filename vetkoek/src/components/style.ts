@@ -11,16 +11,17 @@ export const styles = StyleSheet.create({
     logoText: {
         fontWeight: "700",
         fontSize: wp("2"),
-        color: "#fff",
+        color: "#000",
         fontFamily: "IM Fell English SC",
-        marginVertical: "0.75rem"
+        marginVertical: "1.3rem"
 
     },
     navLinkText: {
         fontSize: wp("1.5"),
+        fontWeight: "600",
         marginLeft: "1.5rem",
-        marginTop: "-0.25rem",
-        color: "#fff",
+        marginTop: "-0.85rem",
+        color: "#000",
     },
     communityLinkText: {
         marginLeft: "-0.1rem",
@@ -48,55 +49,55 @@ export const styles = StyleSheet.create({
     searchTextInput: {
         width: "100%",
         paddingVertical: "0.75rem",
-        color: "#fff",
-        backgroundColor: "rgb(19, 19, 19)",
+        color: "#000",
+        backgroundColor: "rgb(216, 216, 216)",
         fontSize: wp("1.2"),
-        borderRadius: wp("1.3"),
+        // borderRadius: wp("1.3"),
         paddingHorizontal: "3.5rem",
     },
     sidebarCardContainer: {
-        backgroundColor: "rgb(19, 19, 19)",
+        backgroundColor: "rgb(216, 216, 216)",
         marginHorizontal: "0.75rem",
         marginBottom: "0.75rem",
         paddingTop: "1rem",
-        borderRadius: wp("1.3"),
+        // borderRadius: wp("1.3"),
     },
     sidebarCardHeading: {
         fontWeight: "700",
         fontSize: wp("1.6"),
-        color: "#fff",
+        color: "#000",
         paddingHorizontal: "1rem",
         marginBottom: "1rem",
     },
-    sidebarLinkInfo:{
+    sidebarLinkInfo: {
         fontSize: wp("1"),
-        color: "rgba(156, 163, 175, 1)"
+        color: "#000"
     },
-    sidebarLinkTitle:{
+    sidebarLinkTitle: {
         fontSize: wp("1.2"),
         fontWeight: "700",
-        color: "#fff",
+        color: "#000",
     },
-    footerContainer:{
+    footerContainer: {
         marginTop: "1rem",
         marginLeft: "0.75rem",
         display: "flex",
         flexDirection: "row",
         paddingLeft: "1rem"
     },
-    postItemContainer:{
+    postItemContainer: {
         flex: 1,
         borderBottomWidth: 1,
         height: hp("45"),
         borderBottomColor: "rgba(55, 65, 81, 1)"
     },
-    postTitle:{
+    postTitle: {
         paddingHorizontal: wp("2"),
         fontSize: wp("1.4"),
         color: "#fff",
         fontWeight: "500"
     },
-    postCaption:{
+    postCaption: {
         color: "#fff",
         fontWeight: "400",
     }
