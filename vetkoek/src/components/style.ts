@@ -88,7 +88,7 @@ export const styles = StyleSheet.create({
     postItemContainer: {
         flex: 1,
         borderBottomWidth: 1,
-        height: hp("45"),
+        height: "auto",
         borderBottomColor: "rgba(55, 65, 81, 1)"
     },
     postTitle: {
@@ -100,5 +100,19 @@ export const styles = StyleSheet.create({
     postCaption: {
         color: "#fff",
         fontWeight: "400",
+    },
+    loadMoreBtn:{
+        display:"flex",
+        flexDirection:"column",
+        alignSelf: "center",
+        backgroundColor: "#000",
+        paddingVertical: hp("2"),
+        paddingHorizontal: wp("3"),
+        marginTop: hp("2"),
+        marginBottom: hp("4")
+    },
+    loadMoreBtnText:{
+        color: "#fff",
+        fontWeight: "600"
     }
 })

@@ -1,6 +1,8 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { View } from "react-native"
+import Masonry from "react-masonry-css"
+import { Text, TouchableOpacity, View } from "react-native"
+import { styles } from "../style"
 import Post from "./Post"
 
 const Feed = () => {
@@ -22,13 +24,18 @@ const Feed = () => {
 
     const renderPosts = () => {
         return (
-            posts.map((item: object, index: number) => {
-                return (
-                    <View key={index}>
-                        <Post item={item} />
-                    </View>
-                )
-            })
+            <Masonry
+                breakpointCols={2}
+                className="my-masonry-grid mt-2"
+                columnClassName="my-masonry-grid_column">
+                {posts.map((item: object, index: number) => {
+                    return (
+                        <View key={index}>
+                            <Post item={item} />
+                        </View>
+                    )
+                })}
+            </Masonry>
         )
     }
 
@@ -41,6 +48,9 @@ const Feed = () => {
                 :
                 renderPosts()
             }
+            <TouchableOpacity style={styles.loadMoreBtn}>
+                <Text style={styles.loadMoreBtnText}>Load more</Text>
+            </TouchableOpacity>
         </View>
     )
 }
