@@ -46,7 +46,7 @@ const Feed = view(() => {
   const renderPosts = () => {
     return (
       <Masonry
-        breakpointCols={1}
+        breakpointCols={2}
         className="my-masonry-grid mt-2"
         columnClassName="my-masonry-grid_column"
       >

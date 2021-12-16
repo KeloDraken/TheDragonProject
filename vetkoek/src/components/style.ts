@@ -27,7 +27,7 @@ export const styles = StyleSheet.create({
         marginLeft: "-0.1rem",
     },
     sidebarSearchFormContainer: {
-        backgroundColor: "#000",
+        backgroundColor: "#fff",
         marginBottom: "0.75rem",
         marginTop: "0.5rem",
         marginHorizontal: "0.75rem",
@@ -47,6 +47,7 @@ export const styles = StyleSheet.create({
         marginTop: "0.45rem",
     },
     searchTextInput: {
+        borderRadius: wp('2'),
         width: "100%",
         paddingVertical: "0.75rem",
         color: "#000",
@@ -60,7 +61,7 @@ export const styles = StyleSheet.create({
         marginHorizontal: "0.75rem",
         marginBottom: "0.75rem",
         paddingTop: "1rem",
-        // borderRadius: wp("1.3"),
+        borderRadius: wp('2'),
     },
     sidebarCardHeading: {
         fontWeight: "700",
@@ -87,9 +88,10 @@ export const styles = StyleSheet.create({
     },
     postItemContainer: {
         flex: 1,
-        borderBottomWidth: 1,
         height: "auto",
-        borderBottomColor: "rgba(55, 65, 81, 1)"
+        borderRadius: wp('2'),
+        marginRight: wp('1'),
+        overflow: 'hidden',
     },
     postTitle: {
         paddingHorizontal: wp("2"),
@@ -101,6 +103,9 @@ export const styles = StyleSheet.create({
         color: "#fff",
         fontWeight: "400",
     },
+    postImage: {
+        width: wp("4")
+    },
     loadMoreBtn: {
         display: "flex",
         flexDirection: "column",
@@ -108,6 +113,7 @@ export const styles = StyleSheet.create({
         backgroundColor: "#000",
         paddingVertical: hp("2"),
         paddingHorizontal: wp("3"),
+        borderRadius: wp("2"),
         marginTop: hp("2"),
         marginBottom: hp("4")
     },
