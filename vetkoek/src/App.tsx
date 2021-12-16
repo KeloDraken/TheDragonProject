@@ -6,6 +6,7 @@ import {
 
 import "./styles/kelodraken.css";
 
+import AboutView from "./views/About";
 import HomeView from "./views/Home";
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
     <Router>
       <Switch>
         <Route path="/" element={<HomeView />} />
+        <Route path="/about" element={<AboutView />} />
       </Switch>
     </Router>
   );
