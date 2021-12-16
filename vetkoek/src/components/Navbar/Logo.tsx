@@ -8,7 +8,7 @@ const Logo = () => {
             <View style={styles.logoContainer}>
                 <Link title="Ett projekt av Samkelo Drackner" to="/" className="flex">
                     <Image source={{ uri: "https://i.imgur.com/yk842xK.png" }} style={styles.logoPNG} />
-                    <Text style={styles.logoText}>KeloDraken</Text>
+                    <Text style={styles.logoText}>wtc24</Text>
                 </Link>
             </View>
         </span>

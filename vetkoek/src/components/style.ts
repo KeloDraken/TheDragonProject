@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { widthPercentageToDP as wp } from "react-native-responsive-screen";
+import { heightPercentageToDP as hp, widthPercentageToDP as wp } from "react-native-responsive-screen";
 
 export const styles = StyleSheet.create({
     logoContainer: {
@@ -84,5 +84,20 @@ export const styles = StyleSheet.create({
         flexDirection: "row",
         paddingLeft: "1rem"
     },
-
+    postItemContainer:{
+        flex: 1,
+        borderBottomWidth: 1,
+        height: hp("45"),
+        borderBottomColor: "rgba(55, 65, 81, 1)"
+    },
+    postTitle:{
+        paddingHorizontal: wp("2"),
+        fontSize: wp("1.4"),
+        color: "#fff",
+        fontWeight: "500"
+    },
+    postCaption:{
+        color: "#fff",
+        fontWeight: "400",
+    }
 })
