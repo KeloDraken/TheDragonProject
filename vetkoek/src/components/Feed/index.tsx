@@ -31,11 +31,7 @@ const Feed = view(() => {
         setPosts(newPostList);
         setLoadingMore(false);
         setStart(start + 20);
-        console.log(posts);
       })
-      .catch((e) => {
-        console.log(e);
-      });
   };
 
   const handlePostFetch = (): void => {
