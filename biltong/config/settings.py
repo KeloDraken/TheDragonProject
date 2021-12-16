@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "corsheaders",
     # Msukwini apps
     "core",
+    "core.products",
 ]
 
 MIDDLEWARE = [
