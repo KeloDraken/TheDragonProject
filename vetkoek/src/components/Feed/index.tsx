@@ -1,12 +1,13 @@
+import { view } from "@risingstack/react-easy-state"
 import axios from "axios"
 import { useEffect, useState } from "react"
 import Masonry from "react-masonry-css"
 import { Text, TouchableOpacity, View } from "react-native"
+import { postsList } from "../../store"
 import { styles } from "../style"
 import Post from "./Post"
 
-const Feed = () => {
-    const [posts, setPosts] = useState<Array<object>>([])
+const Feed = view(() => {
     const [loading, setLoading] = useState<boolean>(true)
 
     useEffect(() => {
@@ -17,7 +18,7 @@ const Feed = () => {
         const endpoint = "https://jsonplaceholder.typicode.com/photos?_start=0&_limit=11"
         axios.get(endpoint)
             .then(response => {
-                setPosts(response.data)
+                postsList.data = response.data  
                 setLoading(false)
             })
     }
@@ -28,7 +29,7 @@ const Feed = () => {
                 breakpointCols={2}
                 className="my-masonry-grid mt-2"
                 columnClassName="my-masonry-grid_column">
-                {posts.map((item: object, index: number) => {
+                {postsList.data.map((item: object, index: number) => {
                     return (
                         <View key={index}>
                             <Post item={item} />
@@ -53,6 +54,6 @@ const Feed = () => {
             </TouchableOpacity>
         </View>
     )
-}
+})
 
 export default Feed
