@@ -9,7 +9,7 @@ class Product(models.Model):
     short_description = models.CharField(max_length=1000, null=False, blank=False)
     updates = models.PositiveIntegerField(default=0)
     followers = models.PositiveIntegerField(default=0)
-    revenue = models.PositiveIntegerField(default=0)
+    revenue = models.FloatField(default=0.0)
     url = models.URLField(max_length=1000, null=False, blank=False)
     twitter = models.URLField(max_length=1000, null=True, blank=True)
     facebook = models.URLField(max_length=1000, null=True, blank=True)
