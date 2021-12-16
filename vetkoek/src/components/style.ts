@@ -10,10 +10,16 @@ export const styles = StyleSheet.create({
     },
     logoText: {
         fontWeight: "700",
-        fontSize: wp("2"),
+        fontSize: wp("2.5"),
         color: "#000",
-        fontFamily: "IM Fell English SC",
-        marginVertical: "1.3rem"
+        fontFamily: 'Lobster',
+
+    },
+    logoSlogan: {
+        fontWeight: "700",
+        fontSize: wp("0.5"),
+        color: "#000",
+        fontFamily: 'Lobster',
 
     },
     navLinkText: {

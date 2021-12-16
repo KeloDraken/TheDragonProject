@@ -5,7 +5,7 @@ import Sidebar from "../../components/Sidebar";
 const HomeView = () => {
   return (
     <div className="flex">
-      <aside className="pl-7 pr-3 overflow-y-scroll h-screen sticky top-0 w-2/5">
+      <aside className="pl-1 pr-3 overflow-y-scroll h-screen sticky top-0 w-2/5">
         <Navbar />
       </aside>
 

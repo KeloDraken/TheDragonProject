@@ -7,7 +7,7 @@ const Navbar = () => {
   return (
     <View>
       <Logo />
-      <Link to="/" className="flex mt-7 rounded-3xl pl-3 py-3 navlink">
+      <Link to="/" className="flex mt-3 rounded-3xl pl-3 py-3 navlink">
         <i className="material-icons-outlined pl-3 text-black">home</i>
         <span className="hidden md:block lg:block xl:block 2xl:block">
           <Text style={styles.navLinkText}>Home</Text>

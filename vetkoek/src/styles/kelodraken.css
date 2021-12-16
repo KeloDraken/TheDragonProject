@@ -33,6 +33,7 @@
 }
 
 .link_hover:hover {
+    overflow: hidden;
     background-color: var(--hover);
 }
 
