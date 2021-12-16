@@ -101,9 +101,9 @@ export const styles = StyleSheet.create({
         color: "#fff",
         fontWeight: "400",
     },
-    loadMoreBtn:{
-        display:"flex",
-        flexDirection:"column",
+    loadMoreBtn: {
+        display: "flex",
+        flexDirection: "column",
         alignSelf: "center",
         backgroundColor: "#000",
         paddingVertical: hp("2"),
@@ -111,7 +111,7 @@ export const styles = StyleSheet.create({
         marginTop: hp("2"),
         marginBottom: hp("4")
     },
-    loadMoreBtnText:{
+    loadMoreBtnText: {
         color: "#fff",
         fontWeight: "600"
     }

@@ -4,7 +4,7 @@ import {
   Route,
 } from "react-router-dom";
 
-import "./styles/kelodraken.css"
+import "./styles/kelodraken.css";
 
 import HomeView from "./views/Home";
 
