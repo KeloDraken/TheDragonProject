@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "rest_framework",
     # Msukwini apps
     "core",
+    "core.posts",
     "core.products",
 ]
 
