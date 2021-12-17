@@ -1,4 +1,4 @@
-import { Text, ImageBackground } from "react-native";
+import { Text, ImageBackground, View } from "react-native";
 import { Link } from "react-router-dom";
 import { styles } from "../style";
 
@@ -10,18 +10,19 @@ const Post: React.FC<PostProps> = ({ item }) => {
   return (
     <ImageBackground
       // source={{ uri: item.thumbnailUrl }}
-      source={{ uri: "https://picsum.photos/200/300"}}
+      source={{ uri: "https://picsum.photos/200/300" }}
       resizeMode="cover"
       style={styles.postItemContainer}
     >
-      <div className="post_author py-5">
-        <Link to="/user">
-          <Text style={styles.postTitle}>PostedByThisUser</Text>
-        </Link>
-      </div>
       <div className="post_caption">
-        <Text style={styles.postCaption}>{item.title}</Text>
-        {/* <Link></Link> */}
+        <View>
+          <Link to="/user">
+            <Text style={styles.postTitle}>PostedByThisUser</Text>
+          </Link>
+        </View>
+        <View>
+          <Text style={styles.postCaption}>{item.title}</Text>
+        </View>
       </div>
     </ImageBackground>
   );

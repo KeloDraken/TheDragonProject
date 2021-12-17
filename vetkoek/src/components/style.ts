@@ -100,13 +100,13 @@ export const styles = StyleSheet.create({
         overflow: 'hidden',
     },
     postTitle: {
-        paddingHorizontal: wp("1.6"),
-        fontSize: wp("1.2"),
+        fontSize: wp("1.1"),
         color: "#fff",
         fontWeight: "500"
     },
     postCaption: {
         color: "#fff",
+        fontSize: wp("1.1"),
         fontWeight: "400",
     },
     postImage: {
