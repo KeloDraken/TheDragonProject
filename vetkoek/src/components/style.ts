@@ -2,9 +2,6 @@ import { StyleSheet } from "react-native";
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from "react-native-responsive-screen";
 
 export const styles = StyleSheet.create({
-    logoContainer: {
-        marginTop: "1rem",
-    },
     logoPNG: {
         width: wp("5"),
     },

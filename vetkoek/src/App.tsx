@@ -16,8 +16,8 @@ function App() {
     <Router>
       <Switch>
         <Route path="/" element={<HomeView />} />
-        <Route path="/about" element={<AboutView />} />
-        <Route path="/blog" element={<PostView />} />
+        <Route path="/about/" element={<AboutView />} />
+        <Route path="/blog/" element={<PostView />} />
       </Switch>
     </Router>
   );

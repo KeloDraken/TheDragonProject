@@ -1,7 +1,7 @@
 from django.db import models
 
 from markdownfield.models import MarkdownField, RenderedMarkdownField
-from markdownfield.validators import VALIDATOR_STANDARD
+from markdownfield.validators import VALIDATOR_CLASSY
 
 
 class Post(models.Model):
@@ -12,7 +12,7 @@ class Post(models.Model):
         rendered_field="text_rendered",
         use_editor=False,
         use_admin_editor=True,
-        validator=VALIDATOR_STANDARD,
+        validator=VALIDATOR_CLASSY,
     )
     text_rendered = RenderedMarkdownField()
     date_created = models.DateField(auto_now_add=True)
