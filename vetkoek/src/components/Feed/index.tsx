@@ -24,14 +24,12 @@ const Feed = view(() => {
   const handleFetchMore = () => {
     setLoadingMore(true);
     const endpoint = `https://jsonplaceholder.typicode.com/photos?_start=${start}&_limit=20`;
-    axios
-      .get(endpoint)
-      .then((response) => {
-        const newPostList = posts.concat(response.data);
-        setPosts(newPostList);
-        setLoadingMore(false);
-        setStart(start + 20);
-      })
+    axios.get(endpoint).then((response) => {
+      const newPostList = posts.concat(response.data);
+      setPosts(newPostList);
+      setLoadingMore(false);
+      setStart(start + 20);
+    });
   };
 
   const handlePostFetch = (): void => {

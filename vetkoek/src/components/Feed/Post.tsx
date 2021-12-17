@@ -9,7 +9,8 @@ interface PostProps {
 const Post: React.FC<PostProps> = ({ item }) => {
   return (
     <ImageBackground
-      source={{ uri: item.thumbnailUrl }}
+      // source={{ uri: item.thumbnailUrl }}
+      source={{ uri: "https://picsum.photos/200/300"}}
       resizeMode="cover"
       style={styles.postItemContainer}
     >
