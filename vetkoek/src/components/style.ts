@@ -26,6 +26,14 @@ export const styles = StyleSheet.create({
         marginTop: "-0.85rem",
         color: "rgba(17, 24, 39, 1)",
     },
+    navBtnText: {
+        display: "flex",
+        flexDirection: "column",
+        textAlign: "center",
+        fontSize: wp("1.5"),
+        fontWeight: "600",
+        color: "#fff",
+    },
     communityLinkText: {
         marginLeft: "-0.1rem",
     },

@@ -47,6 +47,9 @@ const Navbar = () => {
           <Text style={styles.navLinkText}>About</Text>
         </span>
       </Link>
+      <Link to="/create/" className="bg-gray-900 rounded-3xl py-3 mt-2 mx-6">
+        <Text style={styles.navBtnText}>Create post</Text>
+      </Link>
     </View>
   );
 };

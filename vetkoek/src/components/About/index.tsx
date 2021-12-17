@@ -6,9 +6,9 @@ const About = () => {
     <View>
       <Text style={styles.pageHeading}>About KeloDraken</Text>
       <Text style={styles.pageContent}>
-        KeloDraken is a community of software developers getting together to help one
-        another out. The software industry relies on collaboration and networked
-        learning. We provide a place for that to happen.
+        KeloDraken is a community of software developers getting together to
+        help one another out. The software industry relies on collaboration and
+        networked learning. We provide a place for that to happen.
       </Text>
       <Text style={styles.pageContent}>
         KeloDraken is built on Forem: open source software designed to empower
