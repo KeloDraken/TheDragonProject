@@ -9,6 +9,7 @@ import "./styles/kelodraken.css";
 import AboutView from "./views/About";
 import HomeView from "./views/Home";
 
+// text.match(/!\[.*?\]\((.*?)\)/)[1] = first image
 function App() {
   return (
     <Router>

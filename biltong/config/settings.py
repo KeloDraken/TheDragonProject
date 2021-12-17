@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # Third-party apps
     "corsheaders",
+    "markdownfield",
     "rest_framework",
     # Msukwini apps
     "core",
@@ -148,3 +149,5 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.BasicAuthentication",
     ],
 }
+
+SITE_URL = "http://127.0.0.1:8000/"
