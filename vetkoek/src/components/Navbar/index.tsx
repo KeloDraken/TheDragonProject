@@ -41,14 +41,21 @@ const Navbar = () => {
           <Text style={styles.navLinkText}>Profile</Text>
         </span>
       </Link>
-      <Link to="/about/" className="flex px-3 rounded-3xl py-3 navlink">
+      <Link
+        to="/about/"
+        className="flex px-3 rounded-3xl py-3 navlink hidden md:block lg:block xl:block 2xl:block"
+      >
         <i className="material-icons-outlined pl-3 text-black">info</i>
-        <span className="hidden md:block lg:block xl:block 2xl:block">
-          <Text style={styles.navLinkText}>About</Text>
-        </span>
+        <Text style={styles.navLinkText}>About</Text>
       </Link>
-      <Link to="/create/" className="bg-gray-900 rounded-3xl py-3 mt-2 mx-6">
-        <Text style={styles.navBtnText}>Create post</Text>
+      <Link
+        to="/create/"
+        className="flex mt-1 bg-gray-900 px-3 rounded-3xl py-3"
+      >
+        <i className="material-icons-outlined pl-3 text-white">create</i>
+        <span className="hidden md:block lg:block xl:block 2xl:block">
+          <Text style={styles.navBtnText}>Create post</Text>
+        </span>
       </Link>
     </View>
   );

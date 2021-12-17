@@ -27,11 +27,10 @@ export const styles = StyleSheet.create({
         color: "rgba(17, 24, 39, 1)",
     },
     navBtnText: {
-        display: "flex",
-        flexDirection: "column",
-        textAlign: "center",
         fontSize: wp("1.5"),
         fontWeight: "600",
+        marginLeft: "1.5rem",
+        marginTop: "-0.85rem",
         color: "#fff",
     },
     communityLinkText: {
