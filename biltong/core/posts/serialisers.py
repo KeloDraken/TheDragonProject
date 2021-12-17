@@ -9,7 +9,7 @@ class PostListSerialiser(serializers.ModelSerializer):
             "object_id",
             "title",
             "cover_image",
-            "text",
+            "text_rendered",
             "date_created",
             "datetime_created",
         )

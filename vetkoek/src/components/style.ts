@@ -11,14 +11,14 @@ export const styles = StyleSheet.create({
     logoText: {
         fontWeight: "700",
         fontSize: wp("2.5"),
-        color: "#000",
+        color: "rgba(17, 24, 39, 1)",
         fontFamily: 'Lobster',
 
     },
     logoSlogan: {
         fontWeight: "700",
         fontSize: wp("0.5"),
-        color: "#000",
+        color: "rgba(17, 24, 39, 1)",
         fontFamily: 'Lobster',
 
     },
@@ -27,7 +27,7 @@ export const styles = StyleSheet.create({
         fontWeight: "600",
         marginLeft: "1.5rem",
         marginTop: "-0.85rem",
-        color: "#000",
+        color: "rgba(17, 24, 39, 1)",
     },
     communityLinkText: {
         marginLeft: "-0.1rem",
@@ -56,7 +56,7 @@ export const styles = StyleSheet.create({
         borderRadius: wp('2'),
         width: "100%",
         paddingVertical: "0.75rem",
-        color: "#000",
+        color: "rgba(17, 24, 39, 1)",
         backgroundColor: "rgb(216, 216, 216)",
         fontSize: wp("1.2"),
         // borderRadius: wp("1.3"),
@@ -72,18 +72,18 @@ export const styles = StyleSheet.create({
     sidebarCardHeading: {
         fontWeight: "700",
         fontSize: wp("1.6"),
-        color: "#000",
+        color: "rgba(17, 24, 39, 1)",
         paddingHorizontal: "1rem",
         marginBottom: "1rem",
     },
     sidebarLinkInfo: {
         fontSize: wp("1"),
-        color: "#000"
+        color: "rgba(17, 24, 39, 1)"
     },
     sidebarLinkTitle: {
         fontSize: wp("1.2"),
         fontWeight: "700",
-        color: "#000",
+        color: "rgba(17, 24, 39, 1)",
     },
     footerContainer: {
         marginTop: "1rem",
@@ -116,7 +116,7 @@ export const styles = StyleSheet.create({
         display: "flex",
         flexDirection: "column",
         alignSelf: "center",
-        backgroundColor: "#000",
+        backgroundColor: "rgba(17, 24, 39, 1)",
         paddingVertical: hp("2"),
         paddingHorizontal: wp("3"),
         borderRadius: wp("2"),
