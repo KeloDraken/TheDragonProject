@@ -1,19 +1,83 @@
 import MarkdownIt from "markdown-it";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MdEditor from "react-markdown-editor-lite";
 import "react-markdown-editor-lite/lib/index.css";
+import { Text, TouchableOpacity } from "react-native";
 import Navbar from "../../components/Navbar";
+import { styles } from "./style";
 
 const CreatePost = () => {
   const [markdown, setMarkdown] = useState<string>("");
+  const [coverImage, setCoverImage] = useState<string>("");
+  const [title, setTitle] = useState<string>("");
+  const [publishBtnDisabled, setPublishBtnDisabled] = useState<boolean>(true);
+
+  const publishBtnBGColour = {
+    backgroundColor: publishBtnDisabled ? "#50596b" : "rgba(17, 24, 39, 1)",
+  };
+
+  useEffect(() => {
+    if (markdown.length > 100) {
+      setPublishBtnDisabled(false);
+    } else {
+      setPublishBtnDisabled(true);
+    }
+  }, [markdown]);
+
+  const extractImageFromMarkdown = (text: any) => {
+    try {
+      const _coverImage = text.match(/!\[.*?\]\((.*?)\)/)[1];
+      if (_coverImage !== null && _coverImage !== undefined) {
+        return _coverImage;
+      }
+    } catch {
+      return null;
+    }
+  };
+
+  const extractFirstHeadingFromMarkdown = (text: any) => {
+    try {
+      const _title = text.match(/# (.*)/)[1];
+      if (_title !== null && _title !== undefined) {
+        return _title;
+      }
+    } catch {
+      return null;
+    }
+  };
+
+  const getPostInformation = () => {
+    if (markdown.length > 100) {
+      const _coverImage = extractImageFromMarkdown(markdown);
+      if (_coverImage !== null) {
+        setCoverImage(_coverImage);
+      }
+
+      const _title = extractFirstHeadingFromMarkdown(markdown);
+      if (_title !== null) {
+        setTitle(_title);
+      }
+    }
+  };
 
   const handlePublishPost = () => {
-    console.log(markdown);
+    if (markdown.length > 100) {
+      const data = {
+        text: markdown,
+        title: title,
+        coverImage: coverImage,
+      };
+
+      console.log(data);
+    }
   };
+
   const handleEditorChange = ({ html, text }: any) => {
     setMarkdown(text);
+    getPostInformation();
   };
-  const mdParser = new MarkdownIt(/* Markdown-it options */);
+
+  const mdParser = new MarkdownIt();
 
   return (
     <div className="flex">
@@ -22,16 +86,17 @@ const CreatePost = () => {
       </aside>
 
       <main className="w-full overflow-y-scroll h-screen sticky top-0">
-        <div className="flex justify-between py-2 border-l border-gray-300 px-3">
+        <div className="sticky top-0 flex justify-between py-2 border-l border-gray-300 px-3">
           <h1 className="hidden lg:block xl:block 2xl:block text-gray-900 font-bold text-3xl">
             Share your insights...
           </h1>
-          <button
-            onClick={() => handlePublishPost()}
-            className="bg-gray-900 px-3 pb-2 pt-1 text-2xl font-bold text-white rounded-3xl"
+          <TouchableOpacity
+            onPress={() => handlePublishPost()}
+            style={[styles.loadMoreBtn, publishBtnBGColour]}
+            disabled={publishBtnDisabled}
           >
-            publish
-          </button>
+            <Text style={styles.loadMoreBtnText}>publish</Text>
+          </TouchableOpacity>
         </div>
         <MdEditor
           className="h-screen"
