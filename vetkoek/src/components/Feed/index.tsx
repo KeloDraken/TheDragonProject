@@ -11,7 +11,12 @@ const Feed = view(() => {
   const [loading, setLoading] = useState<boolean>(true);
   const [posts, setPosts] = useState([]);
   const [loadingMore, setLoadingMore] = useState<boolean>(false);
-  const [start, setStart] = useState<number>(20);
+  const [hasNext, setHasNext] = useState<boolean>(true);
+  const [start, setStart] = useState<number>(2);
+
+  const moreBtnBGColour = {
+    backgroundColor: hasNext ? "rgba(17, 24, 39, 1)":"#50596b" ,
+  };
 
   useEffect(() => {
     if (postsList.data.length === 0) {
@@ -23,20 +28,23 @@ const Feed = view(() => {
 
   const handleFetchMore = () => {
     setLoadingMore(true);
-    const endpoint = `https://jsonplaceholder.typicode.com/photos?_start=${start}&_limit=20`;
+    const endpoint = `http://127.0.0.1:8000/api/v1/posts/list/?page=${start}`;
     axios.get(endpoint).then((response) => {
-      const newPostList = posts.concat(response.data);
+      const newPostList = posts.concat(response.data.results);
+      if (response.data.next === null) {
+        setHasNext(false);
+      }
       setPosts(newPostList);
       setLoadingMore(false);
-      setStart(start + 20);
+      setStart(start + 1);
     });
   };
 
   const handlePostFetch = (): void => {
-    const endpoint =
-      "https://jsonplaceholder.typicode.com/photos?_start=0&_limit=20";
+    const endpoint = "http://127.0.0.1:8000/api/v1/posts/list/?page=1";
     axios.get(endpoint).then((response) => {
-      setPosts(response.data);
+      setPosts(response.data.results);
+      // console.log(response.data.results);
       setLoading(false);
     });
   };
@@ -70,7 +78,8 @@ const Feed = view(() => {
       )}
       <TouchableOpacity
         onPress={() => handleFetchMore()}
-        style={styles.loadMoreBtn}
+        style={[styles.loadMoreBtn, moreBtnBGColour]}
+        disabled={!hasNext}
       >
         {loadingMore ? (
           <div className="flex justify-center self-center align-center">

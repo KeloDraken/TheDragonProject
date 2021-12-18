@@ -120,7 +120,6 @@ export const styles = StyleSheet.create({
         display: "flex",
         flexDirection: "column",
         alignSelf: "center",
-        backgroundColor: "rgba(17, 24, 39, 1)",
         paddingVertical: hp("2"),
         paddingHorizontal: wp("3"),
         borderRadius: wp("2"),
