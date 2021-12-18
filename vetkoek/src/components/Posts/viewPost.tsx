@@ -28,7 +28,7 @@ const ViewPost: React.FC<ViewPostProps> = ({ item }) => {
       />
       <hr />
       <Text style={styles.postFooter}>
-        <ReactTimeAgo date={item.datetime_created} />
+        <ReactTimeAgo date={Date.parse(item.datetime_created)} />
       </Text>
     </View>
   );
