@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text } from "react-native";
-import { styles } from "../style";
+import { styles } from "./style";
 // import { Link } from "react-router-dom"
 
 interface SidebarProps {

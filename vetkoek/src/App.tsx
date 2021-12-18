@@ -11,7 +11,6 @@ import HomeView from "./views/Home";
 import PostView from "./views/Post";
 import CreatePost from "./views/Post/CreatePost";
 
-// text.match(/!\[.*?\]\((.*?)\)/)[1] = first image
 function App() {
   return (
     <Router>

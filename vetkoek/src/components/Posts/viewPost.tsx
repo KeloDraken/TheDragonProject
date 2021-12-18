@@ -4,7 +4,7 @@ import ReactTimeAgo from "react-time-ago";
 import remarkGfm from "remark-gfm";
 import remarkToc from "remark-toc";
 import slug from "rehype-slug";
-import { styles } from "../style";
+import { styles } from "./style";
 
 import za from "javascript-time-ago/locale/en-ZA.json";
 import gb from "javascript-time-ago/locale/en-GB.json";

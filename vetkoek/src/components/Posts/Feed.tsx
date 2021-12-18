@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Masonry from "react-masonry-css";
 import { Text, TouchableOpacity, View } from "react-native";
 import { postsList } from "../../store";
-import { styles } from "../style";
+import { styles } from "./style";
 import Post from "./Post";
 
 const Feed = view(() => {

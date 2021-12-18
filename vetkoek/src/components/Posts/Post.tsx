@@ -1,7 +1,7 @@
 import { Text, ImageBackground, View } from "react-native";
 import { Link } from "react-router-dom";
 import readingTime from "reading-time";
-import { styles } from "../style";
+import { styles } from "./style";
 
 interface PostProps {
   item: any;
