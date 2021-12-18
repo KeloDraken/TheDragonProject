@@ -1,5 +1,7 @@
+import axios from "axios";
 import MarkdownIt from "markdown-it";
 import { useEffect, useState } from "react";
+// import { useCookies } from "react-cookie";
 import MdEditor from "react-markdown-editor-lite";
 import "react-markdown-editor-lite/lib/index.css";
 import { Text, TouchableOpacity } from "react-native";
@@ -65,10 +67,22 @@ const CreatePost = () => {
       const data = {
         text: markdown,
         title: title,
-        coverImage: coverImage,
+        cover_image: coverImage,
       };
-
-      console.log(data);
+      const endpoint = "http://127.0.0.1:8000/api/v1/posts/create/";
+      const token =
+        "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImRpb24iLCJpYXQiOjE2Mzk4MTk5MzIsImV4cCI6MTY0MDQyNDczMiwianRpIjoiOWJkOTcyYzMtNTQ1ZS00OTY1LTgzY2YtOWJkMDBhZmZiZDMxIiwidXNlcl9pZCI6MSwib3JpZ19pYXQiOjE2Mzk4MTk5MzJ9.ePNdFyxWFD9ewYbcVLK1hpIjiDifh2fXn2ZqQV39xT4";
+      axios
+        .post(endpoint, data, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((response) => {
+          if(response.status===201){
+            window.location.href = "/"
+          }
+        });
     }
   };
 
