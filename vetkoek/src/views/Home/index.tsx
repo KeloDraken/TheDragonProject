@@ -1,6 +1,7 @@
 import Feed from "../../components/Posts/Feed";
 import Navbar from "../../components/Navbar";
 import Sidebar from "../../components/Sidebar";
+import Landing from "../Landing";
 
 const HomeView = () => {
   return (
@@ -10,6 +11,7 @@ const HomeView = () => {
       </aside>
 
       <main className="w-full overflow-y-scroll h-screen sticky top-0">
+        <Landing />
         <Feed />
       </main>
 
