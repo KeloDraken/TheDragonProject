@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
         alignSelf: "center",
         fontWeight: "700",
         fontSize: wp("2.5"),
-        marginVertical: hp("1")
+        marginVertical: hp("3")
     },
     pageContent: {
         fontSize: wp('1.6'),

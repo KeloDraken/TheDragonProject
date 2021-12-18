@@ -22,7 +22,7 @@ const Footer = () => {
           FAQs
         </Link>
       </View>
-      <span className="ml-6 text-gray-500 text-sm my-4">
+      <span className="ml-4 text-gray-500 text-sm mt-3 mb-8">
         © 2021 Samkelo Rocks (Pty) Ltd.
       </span>
     </View>

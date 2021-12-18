@@ -13,7 +13,7 @@ const SearchForm = () => {
         <TextInput
           style={styles.searchTextInput}
           placeholder="Search KeloDraken"
-          placeholderTextColor={"rgba(17, 24, 39, 1)"}
+          placeholderTextColor={"#000"}
           autoCapitalize="none"
           autoCorrect={false}
           autoComplete="off"

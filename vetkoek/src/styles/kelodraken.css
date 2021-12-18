@@ -24,6 +24,14 @@
   background: var(--hover);
 }
 
+.prose code::before {
+  content: none !important;
+}
+
+.prose code::after {
+  content: none !important;
+}
+
 .navlink:hover {
   width: auto;
   background-color: var(--hover);
@@ -57,7 +65,7 @@
   flex-direction: column;
   align-self: center;
   border: 4px solid var(--background);
-  border-top: 4px solid rgba(17, 24, 39, 1);
+  border-top: 4px solid #000;
   border-radius: 50%;
   width: 30px;
   height: 30px;

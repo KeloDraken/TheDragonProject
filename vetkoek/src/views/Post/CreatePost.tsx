@@ -15,7 +15,7 @@ const CreatePost = () => {
   const [publishBtnDisabled, setPublishBtnDisabled] = useState<boolean>(true);
 
   const publishBtnBGColour = {
-    backgroundColor: publishBtnDisabled ? "#50596b" : "rgba(17, 24, 39, 1)",
+    backgroundColor: publishBtnDisabled ? "#4c4c4c" : "#000",
   };
 
   useEffect(() => {
@@ -103,7 +103,7 @@ const CreatePost = () => {
 
       <main className="w-full overflow-y-scroll h-screen sticky top-0">
         <div className="sticky top-0 flex justify-between py-2 border-l border-gray-300 px-3">
-          <h1 className="hidden lg:block xl:block 2xl:block text-gray-900 font-bold text-3xl">
+          <h1 className="hidden text-black lg:block xl:block 2xl:block font-bold text-3xl">
             Share your insights...
           </h1>
           <TouchableOpacity

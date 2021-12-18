@@ -21,7 +21,7 @@ const ViewPost: React.FC<ViewPostProps> = ({ item }) => {
   return (
     <View>
       <ReactMarkdown
-        className="prose my-2 mr-2"
+        className="prose my-3 mr-2"
         children={item.text}
         remarkPlugins={[remarkGfm, remarkToc]}
         rehypePlugins={[slug]}

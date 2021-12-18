@@ -1,23 +1,26 @@
 import { StyleSheet } from "react-native";
-import { widthPercentageToDP as wp } from "react-native-responsive-screen";
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
 
 export const styles = StyleSheet.create({
   footerContainer: {
-    marginTop: "1rem",
-    marginLeft: "0.75rem",
+    marginTop: hp("2"),
+    marginLeft: wp("0.3"),
     display: "flex",
     flexDirection: "row",
-    paddingLeft: "1rem",
+    paddingLeft: wp("1"),
   },
   sidebarSearchFormContainer: {
     backgroundColor: "#fff",
-    marginBottom: "0.75rem",
-    marginTop: "0.5rem",
-    marginHorizontal: "0.75rem",
+    marginBottom: hp("2"),
+    marginTop: hp("3"),
+    marginHorizontal: wp("1"),
   },
   searchForm: {
     position: "relative",
-    color: "rgba(75, 85, 99, 1)",
+    color: "#000",
   },
   searchIconContainer: {
     position: "absolute",
@@ -26,40 +29,39 @@ export const styles = StyleSheet.create({
     left: 0,
     display: "flex",
     alignItems: "center",
-    paddingLeft: "0.75rem",
-    marginTop: "0.45rem",
+    paddingLeft: wp("1"),
+    marginTop: hp("1.2"),
   },
   searchTextInput: {
-    borderRadius: wp("2"),
+    borderRadius: wp("0.5"),
     width: "100%",
-    paddingVertical: "0.75rem",
-    color: "rgba(17, 24, 39, 1)",
+    paddingVertical: hp("1.9"),
+    color: "#000",
     backgroundColor: "rgb(216, 216, 216)",
     fontSize: wp("1.2"),
-    // borderRadius: wp("1.3"),
-    paddingHorizontal: "3.5rem",
+    paddingHorizontal: wp("4"),
   },
   sidebarCardContainer: {
     backgroundColor: "rgb(216, 216, 216)",
-    marginHorizontal: "0.75rem",
-    marginBottom: "0.75rem",
-    paddingTop: "1rem",
-    borderRadius: wp("2"),
+    marginHorizontal: wp("1"),
+    marginBottom: hp("2"),
+    paddingVertical: hp("2"),
+    borderRadius: wp("0.5 "),
   },
   sidebarCardHeading: {
     fontWeight: "700",
     fontSize: wp("1.6"),
-    color: "rgba(17, 24, 39, 1)",
-    paddingHorizontal: "1rem",
-    marginBottom: "1rem",
+    color: "#000",
+    paddingHorizontal: wp("1.4"),
+    marginBottom: hp("2"),
   },
   sidebarLinkInfo: {
     fontSize: wp("1"),
-    color: "rgba(17, 24, 39, 1)",
+    color: "#000",
   },
   sidebarLinkTitle: {
     fontSize: wp("1.2"),
     fontWeight: "700",
-    color: "rgba(17, 24, 39, 1)",
+    color: "#000",
   },
 });

@@ -15,7 +15,7 @@ const Feed = view(() => {
   const [start, setStart] = useState<number>(2);
 
   const moreBtnBGColour = {
-    backgroundColor: hasNext ? "rgba(17, 24, 39, 1)" : "#50596b",
+    backgroundColor: hasNext ? "#000" : "#50596b",
   };
 
   useEffect(() => {
