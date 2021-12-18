@@ -151,6 +151,13 @@ export const styles = StyleSheet.create({
     fontSize: wp("1.1"),
     fontWeight: "500",
   },
+  postFooter: {
+    marginTop: hp("6"),
+    marginBottom: hp("4"),
+    fontWeight: "800",
+    textDecorationLine: "underline",
+    textDecorationStyle: "solid",
+  },
   loadMoreBtn: {
     display: "flex",
     flexDirection: "column",
