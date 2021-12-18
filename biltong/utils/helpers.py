@@ -2,7 +2,7 @@ import random
 import string
 
 from django.db.models.base import Model
-from core.posts.models import Post
+# from core.posts.models import Post
 
 
 def extract_hashtags(text: str):
