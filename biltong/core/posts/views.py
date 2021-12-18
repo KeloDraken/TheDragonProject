@@ -14,6 +14,17 @@ class PostListAPIView(ListAPIView):
 posts_list = PostListAPIView.as_view()
 
 
+class GetPostAPIView(ListAPIView):
+    serializer_class = PostListSerialiser
+
+    def get_queryset(self):
+        post_id = self.kwargs["post_id"]
+        return Post.objects.filter(object_id=post_id)
+
+
+get_post = GetPostAPIView.as_view()
+
+
 class CreatePostAPIView(CreateAPIView):
     serializer_class = PostCreateSerialiser
 

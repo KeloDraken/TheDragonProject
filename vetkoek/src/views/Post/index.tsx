@@ -1,23 +1,25 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import ViewPost from "../../components/Posts/viewPost";
 import Sidebar from "../../components/Sidebar";
 
 const PostView = () => {
+  let { id } = useParams();
   const [post, setPost] = useState<Array<object>>([]);
 
   const handlePostFetch = () => {
-    const endpoint = `http://127.0.0.1:8000/api/v1/posts/list/`;
+    const endpoint = `http://127.0.0.1:8000/api/v1/posts/get/${id}`;
     axios.get(endpoint).then((response) => {
-      setPost(response.data);
-      console.log(post)
+      setPost(response.data.results);
+      console.log(post);
     });
   };
 
   useEffect(() => {
     handlePostFetch();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

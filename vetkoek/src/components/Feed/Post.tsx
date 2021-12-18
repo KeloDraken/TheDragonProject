@@ -10,18 +10,20 @@ interface PostProps {
 const Post: React.FC<PostProps> = ({ item }) => {
   const renderHasImage = () => {
     return (
-      <ImageBackground
-        source={{ uri: item.cover_image }}
-        resizeMode="cover"
-        style={styles.postItemContainer}
-      >
-        <div className="post_caption">
-          <View>
-            <Text style={styles.postCaption}>{item.title}</Text>
-            <Text style={styles.postTime}>{stats.text}</Text>
-          </View>
-        </div>
-      </ImageBackground>
+      <Link to={`/post/${item.object_id}/`}>
+        <ImageBackground
+          source={{ uri: item.cover_image }}
+          resizeMode="cover"
+          style={styles.postItemContainer}
+        >
+          <div className="post_caption">
+            <View>
+              <Text style={styles.postCaption}>{item.title}</Text>
+              <Text style={styles.postTime}>{stats.text}</Text>
+            </View>
+          </div>
+        </ImageBackground>
+      </Link>
     );
   };
 
@@ -29,13 +31,15 @@ const Post: React.FC<PostProps> = ({ item }) => {
 
   const renderHasNoImage = () => {
     return (
-      <View style={styles.postItemContainerHasNoImage}>
-        <Link to="/user">
-          <Text style={styles.postTitleHasNoImage}>PostedByThisUser</Text>
-        </Link>
-        <Text style={styles.postCaptionHasNoImage}>{item.title}</Text>
-        <Text style={styles.postTimeHasNoImage}>{stats.text}</Text>
-      </View>
+      <Link to={`/post/${item.object_id}/`}>
+        <View style={styles.postItemContainerHasNoImage}>
+          <Link to="/user">
+            <Text style={styles.postTitleHasNoImage}>PostedByThisUser</Text>
+          </Link>
+          <Text style={styles.postCaptionHasNoImage}>{item.title}</Text>
+          <Text style={styles.postTimeHasNoImage}>{stats.text}</Text>
+        </View>
+      </Link>
     );
   };
 
