@@ -11,7 +11,7 @@ import { styles } from "./style";
 const CreatePost = () => {
   const [markdown, setMarkdown] = useState<string>("");
   const [coverImage, setCoverImage] = useState<string>("");
-  const [title, setTitle] = useState<string>("");
+  const [title, setTitle] = useState(null);
   const [publishBtnDisabled, setPublishBtnDisabled] = useState<boolean>(true);
 
   const publishBtnBGColour = {
@@ -71,18 +71,20 @@ const CreatePost = () => {
       };
       const endpoint = "http://127.0.0.1:8000/api/v1/posts/create/";
       const token =
-        "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImRpb24iLCJpYXQiOjE2Mzk4MTk5MzIsImV4cCI6MTY0MDQyNDczMiwianRpIjoiOWJkOTcyYzMtNTQ1ZS00OTY1LTgzY2YtOWJkMDBhZmZiZDMxIiwidXNlcl9pZCI6MSwib3JpZ19pYXQiOjE2Mzk4MTk5MzJ9.ePNdFyxWFD9ewYbcVLK1hpIjiDifh2fXn2ZqQV39xT4";
+        "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImRpb24iLCJpYXQiOjE2Mzk4MjIyMDMsImV4cCI6MTY0MDQyNzAwMywianRpIjoiNjMwNmVkOTktZDQyZi00NGY4LTlmZWEtYWM0MTVmODc5MTJiIiwidXNlcl9pZCI6MSwib3JpZ19pYXQiOjE2Mzk4MjIyMDN9.zmyNeY-kLJzxlROQWV9MyWgDeOSPaNf4ew8m1WtSCfU";
       axios
         .post(endpoint, data, {
           headers: {
             Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
           },
         })
         .then((response) => {
-          if(response.status===201){
-            window.location.href = "/"
+          if (response.status === 201) {
+            window.location.href = "/";
           }
-        });
+        })
+        .catch((error) => console.error(error));
     }
   };
 

@@ -9,7 +9,7 @@ from utils.helpers import object_id_generator
 class Post(models.Model):
     object_id = models.CharField(max_length=30, null=True, blank=True)
     title = models.CharField(max_length=140, null=False, blank=False)
-    cover_image = models.CharField(max_length=2000, null=True, blank=False)
+    cover_image = models.CharField(max_length=2000, null=True, blank=True)
     text = MarkdownField(
         rendered_field="text_rendered",
         use_editor=False,

@@ -25,6 +25,7 @@
 }
 
 .navlink:hover {
+  width: auto;
   background-color: var(--hover);
 }
 

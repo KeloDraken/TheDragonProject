@@ -6,7 +6,9 @@ from core.posts.serialisers import PostCreateSerialiser, PostListSerialiser
 
 class PostListAPIView(ListAPIView):
     serializer_class = PostListSerialiser
-    queryset = Post.objects.all().order_by("-datetime_created")
+
+    def get_queryset(self):
+        return Post.objects.all().order_by("-datetime_created")
 
 
 posts_list = PostListAPIView.as_view()
@@ -19,6 +21,9 @@ class CreatePostAPIView(CreateAPIView):
         return Post.objects.all()
 
     def post(self, request, *args, **kwargs):
+        if self.serializer_class.errors:
+            print(self.serializer_class.errors)
         return self.create(request, *args, **kwargs)
+
 
 create_post = CreatePostAPIView.as_view()
