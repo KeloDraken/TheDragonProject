@@ -15,7 +15,7 @@ const Feed = view(() => {
   const [start, setStart] = useState<number>(2);
 
   const moreBtnBGColour = {
-    backgroundColor: hasNext ? "rgba(17, 24, 39, 1)":"#50596b" ,
+    backgroundColor: hasNext ? "rgba(17, 24, 39, 1)" : "#50596b",
   };
 
   useEffect(() => {
@@ -44,7 +44,6 @@ const Feed = view(() => {
     const endpoint = "http://127.0.0.1:8000/api/v1/posts/list/?page=1";
     axios.get(endpoint).then((response) => {
       setPosts(response.data.results);
-      // console.log(response.data.results);
       setLoading(false);
     });
   };

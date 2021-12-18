@@ -13,7 +13,6 @@ const PostView = () => {
     const endpoint = `http://127.0.0.1:8000/api/v1/posts/get/${id}`;
     axios.get(endpoint).then((response) => {
       setPost(response.data.results);
-      console.log(post);
     });
   };
 
