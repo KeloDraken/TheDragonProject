@@ -14,6 +14,16 @@ class PostListAPIView(ListAPIView):
 posts_list = PostListAPIView.as_view()
 
 
+class RecommendedPostsListAPIView(ListAPIView):
+    serializer_class = PostListSerialiser
+
+    def get_queryset(self):
+        return Post.objects.all().order_by("?")[:3]
+
+
+recommended_posts_list = RecommendedPostsListAPIView.as_view()
+
+
 class GetPostAPIView(ListAPIView):
     serializer_class = PostListSerialiser
 
