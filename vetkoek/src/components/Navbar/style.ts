@@ -25,7 +25,6 @@ export const styles = StyleSheet.create({
     fontSize: wp("2"),
     fontWeight: "700",
     marginLeft: "1.5rem",
-    // marginTop: "-1rem",
     color: "#000",
   },
   navBtnText: {
@@ -33,6 +32,5 @@ export const styles = StyleSheet.create({
     fontWeight: "800",
     marginLeft: "1.5rem",
     marginTop: "-0.85rem",
-    // color: "#000",
   },
 });
