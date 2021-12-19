@@ -3,7 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Masonry from "react-masonry-css";
 import { Text, TouchableOpacity, View } from "react-native";
-import { postsList } from "../../store";
+// import { recommendedPostsList } from "../../store";
 import { styles } from "./style";
 import Post from "./Post";
 
@@ -19,11 +19,7 @@ const Feed = view(() => {
   };
 
   useEffect(() => {
-    if (postsList.data.length === 0) {
-      handlePostFetch();
-    } else {
-      setLoading(false);
-    }
+    handlePostFetch();
   }, []);
 
   const handleFetchMore = () => {

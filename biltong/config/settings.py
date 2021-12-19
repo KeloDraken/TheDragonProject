@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'rest_framework_jwt.blacklist',
     # Msukwini apps
     "core",
+    "core.accounts",
     "core.posts",
     "core.products",
 ]

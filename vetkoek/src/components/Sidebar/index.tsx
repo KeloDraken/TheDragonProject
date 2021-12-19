@@ -7,7 +7,7 @@ import Footer from "./Footer";
 import SearchForm from "./SearchForm";
 import SidebarCard from "./SidebarCard";
 
-import { postsList } from "../../store";
+import { recommendedPostsList } from "../../store";
 
 const Sidebar = view(() => {
   const [loading, setLoading] = useState<boolean>(true);
@@ -16,12 +16,12 @@ const Sidebar = view(() => {
     const endpoint = "http://127.0.0.1:8000/api/v1/posts/get/recommended/";
 
     axios.get(endpoint).then((response) => {
-      postsList.data = response.data.results;
+      recommendedPostsList.data = response.data.results;
       setLoading(false);
     });
   };
 
-  const _posts = postsList.data;
+  const _posts = recommendedPostsList.data;
 
   useEffect(() => {
     if (_posts.length === 0) {
@@ -35,7 +35,7 @@ const Sidebar = view(() => {
   return (
     <View>
       <SearchForm />
-      <SidebarCard loading={loading} posts={_posts} cardTitle="For you" />
+      <SidebarCard loading={loading} posts={_posts} cardTitle="Trending now" />
       <Footer />
     </View>
   );

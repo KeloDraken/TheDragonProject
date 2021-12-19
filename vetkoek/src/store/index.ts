@@ -1,6 +1,6 @@
 import { store } from "@risingstack/react-easy-state"
 
-export const postsList = store({
+export const recommendedPostsList = store({
     size: 0,
     data: []
 })
