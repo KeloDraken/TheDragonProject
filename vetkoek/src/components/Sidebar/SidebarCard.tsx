@@ -34,10 +34,10 @@ const SidebarCard: React.FC<SidebarProps> = ({ cardTitle, posts, loading }) => {
       {posts.map((post: any, index: number) => {
         return <View key={index}>{renderPost(post)}</View>;
       })}
-      {loading ? (
-      <div className="flex py-20 justify-center self-center align-center">
-        <div className="loader loading_sidebar" />
-      </div>
+      {loading && posts.length === 0 ? (
+        <div className="flex py-20 justify-center self-center align-center">
+          <div className="loader loading_sidebar" />
+        </div>
       ) : null}
     </View>
   );
