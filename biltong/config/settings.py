@@ -41,10 +41,11 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # Third-party apps
     "corsheaders",
+    "imagekit",
     "markdownfield",
     "rest_framework",
-    'rest_framework_jwt',
-    'rest_framework_jwt.blacklist',
+    "rest_framework_jwt",
+    "rest_framework_jwt.blacklist",
     # Msukwini apps
     "core",
     "core.accounts",
@@ -113,6 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = "accounts.User"
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
@@ -159,7 +161,7 @@ REST_FRAMEWORK = {
         "rest_framework.parsers.JSONParser",
     ],
     "DEFAULT_AUTHENTICATION_CLASSES": [
-        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        "rest_framework_jwt.authentication.JSONWebTokenAuthentication",
         "rest_framework.authentication.SessionAuthentication",
         "rest_framework.authentication.BasicAuthentication",
     ],
