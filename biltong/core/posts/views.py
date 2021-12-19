@@ -42,9 +42,10 @@ class CreatePostAPIView(CreateAPIView):
         return Post.objects.all()
 
     def post(self, request, *args, **kwargs):
-        if self.serializer_class.errors:
-            print(self.serializer_class.errors)
         return self.create(request, *args, **kwargs)
+
+    def perform_create(self, serializer):
+        serializer.save(created_by=self.request.user)
 
 
 create_post = CreatePostAPIView.as_view()
