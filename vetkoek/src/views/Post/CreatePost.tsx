@@ -73,7 +73,7 @@ const CreatePost = () => {
       };
       const endpoint = "http://127.0.0.1:8000/api/v1/posts/create/";
       const token =
-        "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImRpb24iLCJpYXQiOjE2Mzk4MjIyMDMsImV4cCI6MTY0MDQyNzAwMywianRpIjoiNjMwNmVkOTktZDQyZi00NGY4LTlmZWEtYWM0MTVmODc5MTJiIiwidXNlcl9pZCI6MSwib3JpZ19pYXQiOjE2Mzk4MjIyMDN9.zmyNeY-kLJzxlROQWV9MyWgDeOSPaNf4ew8m1WtSCfU";
+        "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImptYW1hMDIxQHN0dWRlbnQud2V0aGlua2NvZGUuY28uemEiLCJpYXQiOjE2Mzk5MTI4OTIsImV4cCI6MTY0MDUxNzY5MiwianRpIjoiZjMzMDZmYzgtZTQxZi00Yjk3LWI0NWEtMGM0MTg2YzdlOTJmIiwidXNlcl9pZCI6MSwib3JpZ19pYXQiOjE2Mzk5MTI4OTJ9.tB2kEh5uHZ-5qhSqDERgwz93-l3h-Vj0_vk_eBojmxk";
       axios
         .post(endpoint, data, {
           headers: {

@@ -1,4 +1,4 @@
-import { view } from "@risingstack/react-easy-state";
+// import { view } from "@risingstack/react-easy-state";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Masonry from "react-masonry-css";
@@ -7,9 +7,9 @@ import { Text, TouchableOpacity, View } from "react-native";
 import { styles } from "./style";
 import Post from "./Post";
 
-const Feed = view(() => {
+const Feed = () => {
   const [loading, setLoading] = useState<boolean>(true);
-  const [posts, setPosts] = useState([]);
+  const [postsList, setPosts] = useState([]);
   const [loadingMore, setLoadingMore] = useState<boolean>(false);
   const [hasNext, setHasNext] = useState<boolean>(true);
   const [start, setStart] = useState<number>(2);
@@ -17,16 +17,11 @@ const Feed = view(() => {
   const moreBtnBGColour = {
     backgroundColor: hasNext ? "#000" : "#50596b",
   };
-
-  useEffect(() => {
-    handlePostFetch();
-  }, []);
-
   const handleFetchMore = () => {
     setLoadingMore(true);
     const endpoint = `http://127.0.0.1:8000/api/v1/posts/list/?page=${start}`;
     axios.get(endpoint).then((response) => {
-      const newPostList = posts.concat(response.data.results);
+      const newPostList = postsList.concat(response.data.results);
       if (response.data.next === null) {
         setHasNext(false);
       }
@@ -35,6 +30,10 @@ const Feed = view(() => {
       setStart(start + 1);
     });
   };
+
+  useEffect(() => {
+    handlePostFetch();
+  }, []);
 
   const handlePostFetch = (): void => {
     const endpoint = "http://127.0.0.1:8000/api/v1/posts/list/?page=1";
@@ -51,7 +50,7 @@ const Feed = view(() => {
         className="my-masonry-grid mt-2"
         columnClassName="my-masonry-grid_column"
       >
-        {posts.map((item: object, index: number) => {
+        {postsList.map((item: object, index: number) => {
           return (
             <View key={index}>
               <Post item={item} />
@@ -86,6 +85,6 @@ const Feed = view(() => {
       </TouchableOpacity>
     </View>
   );
-});
+};
 
 export default Feed;
