@@ -4,10 +4,12 @@ from markdownfield.models import MarkdownField, RenderedMarkdownField
 from markdownfield.validators import VALIDATOR_CLASSY
 
 from utils.helpers import object_id_generator
+from core.accounts.models import User
 
 
 class Post(models.Model):
     object_id = models.CharField(max_length=30, null=True, blank=True)
+    author = models.ForeignKey(User, on_delete=models.DO_NOTHING, null=True, blank=True)
     title = models.CharField(max_length=140, null=False, blank=False)
     cover_image = models.CharField(max_length=2000, null=True, blank=True)
     text = MarkdownField(
