@@ -8,6 +8,8 @@ interface PostProps {
 }
 
 const Post: React.FC<PostProps> = ({ item }) => {
+  const stats = readingTime(item.text);
+
   const renderHasImage = () => {
     return (
       <Link to={`/post/${item.object_id}/`} title={`${item.title}`}>
@@ -27,8 +29,6 @@ const Post: React.FC<PostProps> = ({ item }) => {
       </Link>
     );
   };
-
-  const stats = readingTime(item.text);
 
   const renderHasNoImage = () => {
     return (
