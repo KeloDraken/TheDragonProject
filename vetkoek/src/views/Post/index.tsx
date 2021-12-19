@@ -33,7 +33,7 @@ const PostView = () => {
         })}
       </main>
 
-      <aside className="overflow-y-scroll h-screen hidden md:block lg:block xl:block 2xl:block sticky top-0 w-7/12 pr-7 pl-3">
+      <aside className="overflow-y-scroll h-screen hidden lg:block xl:block 2xl:block sticky top-0 w-7/12 pr-7 pl-3">
         <Sidebar />
       </aside>
     </div>

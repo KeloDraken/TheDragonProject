@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
     backgroundColor: "#3B49DF",
     borderRadius: wp("0.5"),
     height: "auto",
-    marginRight: wp("1"),
+    marginHorizontal: wp("1"),
     marginVertical: hp("3"),
     paddingHorizontal: wp("3"),
     paddingVertical: hp("5"),
