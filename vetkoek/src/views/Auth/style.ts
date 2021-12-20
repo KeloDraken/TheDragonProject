@@ -19,6 +19,15 @@ export const styles = StyleSheet.create({
     paddingHorizontal: wp("3"),
     paddingVertical: hp("5"),
   },
+  _landingContainer: {
+    backgroundColor: "#addd3b",
+    borderRadius: wp("0.5"),
+    height: "auto",
+    marginHorizontal: wp("1"),
+    marginVertical: hp("3"),
+    paddingHorizontal: wp("3"),
+    paddingVertical: hp("5"),
+  },
   logoText: {
     fontFamily: "Lobster",
     fontWeight: "800",
@@ -37,6 +46,24 @@ export const styles = StyleSheet.create({
     color: "#e2e2e2",
     marginBottom: hp("2"),
   },
+  _logoText: {
+    fontFamily: "Lobster",
+    fontWeight: "800",
+    color: "#000",
+    fontSize: wp("3"),
+    marginBottom: hp("7"),
+  },
+  _heroText: {
+    fontSize: wp("2.6"),
+    fontWeight: "800",
+    color: "#000",
+  },
+  _heroSubText: {
+    textTransform: "uppercase",
+    fontWeight: "700",
+    color: "#000",
+    marginBottom: hp("2"),
+  },
   heroBtn: {
     marginVertical: hp("1"),
     borderRadius: wp("0.3"),
@@ -47,7 +74,7 @@ export const styles = StyleSheet.create({
   heroBtnText: {
     fontSize: wp("1"),
     fontWeight: "700",
-    color: "#fff",
+    color: "#000",
   },
   formInput: {
     fontWeight: "700",
@@ -73,5 +100,10 @@ export const styles = StyleSheet.create({
     fontSize: wp("1"),
     fontWeight: "600",
     color: "#fff",
+  },
+  _errorMessage: {
+    fontSize: wp("1"),
+    fontWeight: "600",
+    color: "#000",
   },
 });
