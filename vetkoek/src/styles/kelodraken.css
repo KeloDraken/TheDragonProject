@@ -46,32 +46,6 @@
   background-color: var(--hover);
 }
 
-.loader {
-  flex-direction: column;
-  align-self: center;
-  border: 4px solid var(--background);
-  border-top: 4px solid #000;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  animation: spin 1s linear infinite;
-}
-
-.loading_sidebar {
-  border: 4px solid rgb(116, 116, 116);
-  border-top: 4px solid rgb(235, 235, 235);
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 .my-masonry-grid {
   display: -webkit-box;
   display: -ms-flexbox;

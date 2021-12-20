@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, ActivityIndicator } from "react-native";
 import { styles } from "./style";
 import { Link } from "react-router-dom";
 import readingTime from "reading-time";
@@ -36,7 +36,7 @@ const SidebarCard: React.FC<SidebarProps> = ({ cardTitle, posts, loading }) => {
       })}
       {loading && posts.length === 0 ? (
         <div className="flex py-20 justify-center self-center align-center">
-          <div className="loader loading_sidebar" />
+          <ActivityIndicator color={"#000"} size={30} />
         </div>
       ) : null}
     </View>

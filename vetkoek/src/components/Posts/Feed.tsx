@@ -2,7 +2,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Masonry from "react-masonry-css";
-import { Text, TouchableOpacity, View } from "react-native";
+import { ActivityIndicator, Text, TouchableOpacity, View } from "react-native";
 // import { recommendedPostsList } from "../../store";
 import { styles } from "./style";
 import Post from "./Post";
@@ -65,7 +65,7 @@ const Feed = () => {
     <View>
       {loading ? (
         <div className="flex h-screen justify-center self-center align-center">
-          <div className="loader" />
+          <ActivityIndicator color={"#000"} size={36} />
         </div>
       ) : (
         renderPosts()
@@ -77,7 +77,7 @@ const Feed = () => {
       >
         {loadingMore ? (
           <div className="flex justify-center self-center align-center">
-            <div className="loader" />
+            <ActivityIndicator color={"#fff"} size={30} />
           </div>
         ) : (
           <Text style={styles.loadMoreBtnText}>Load more</Text>
