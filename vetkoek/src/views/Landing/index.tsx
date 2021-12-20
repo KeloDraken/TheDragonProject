@@ -1,4 +1,5 @@
 import { Text, TouchableOpacity, View } from "react-native";
+import { Link } from "react-router-dom";
 import { styles } from "./style";
 
 const Landing = () => {
@@ -10,9 +11,11 @@ const Landing = () => {
       </View>
       <Text style={styles.heroText}>You're now a part of the community!</Text>
       <Text style={styles.heroSubText}>SUGGESTED THINGS YOU CAN DO</Text>
-      <TouchableOpacity style={styles.heroBtn}>
-        <Text style={styles.heroBtnText}>Join the Welcome thread</Text>
-      </TouchableOpacity>
+      <Link title="Create your free account" to="/accounts/register/">
+        <View style={styles.heroBtn}>
+          <Text style={styles.heroBtnText}>Join the Welcome thread</Text>
+        </View>
+      </Link>
       <TouchableOpacity style={styles.heroBtn}>
         <Text style={styles.heroBtnText}>
           Write your first DEV Community post

@@ -16,6 +16,7 @@ function App() {
     <Router>
       <Switch>
         <Route path="/" element={<HomeView />} />
+
         <Route path="/about/" element={<AboutView />} />
         <Route path="/post/:id/" element={<PostView />} />
         <Route path="/create/" element={<CreatePost />} />

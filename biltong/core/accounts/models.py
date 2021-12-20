@@ -45,9 +45,9 @@ class User(AbstractUser):
         help_text=_(
             "Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only."
         ),
-        validators=[
-            UnicodeEmailValidator(),
-        ],
+        # validators=[
+        #     UnicodeEmailValidator(),
+        # ],
         error_messages={
             "unique": _("This username is not available, please try another one."),
         },
