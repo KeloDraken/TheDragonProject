@@ -17,22 +17,27 @@ const Navbar = view(() => {
           <Text style={styles.navLinkText}>Home</Text>
         </span>
       </Link>
-      <Link to="/lists/" className="flex px-3 rounded-lg py-3 navlink">
-        <i className="material-icons-outlined  block lg:hidden xl:hidden 2xl:hidden  pl-3 text-black">
-          library_books
-        </i>
-        <span className="hidden lg:block xl:block 2xl:block">
-          <Text style={styles.navLinkText}>Lists</Text>
-        </span>
-      </Link>
-      <Link to="/tags/" className="flex px-3 rounded-lg py-3 navlink">
-        <i className="material-icons-outlined  block lg:hidden xl:hidden 2xl:hidden  pl-3 text-black">
-          label
-        </i>
-        <span className="hidden lg:block xl:block 2xl:block">
-          <Text style={styles.navLinkText}>Tags</Text>
-        </span>
-      </Link>
+
+      {userAuth.isLoggedIn ? (
+        <View>
+          <Link to="/lists/" className="flex px-3 rounded-lg py-3 navlink">
+            <i className="material-icons-outlined  block lg:hidden xl:hidden 2xl:hidden  pl-3 text-black">
+              library_books
+            </i>
+            <span className="hidden lg:block xl:block 2xl:block">
+              <Text style={styles.navLinkText}>Lists</Text>
+            </span>
+          </Link>
+          <Link to="/tags/" className="flex px-3 rounded-lg py-3 navlink">
+            <i className="material-icons-outlined  block lg:hidden xl:hidden 2xl:hidden  pl-3 text-black">
+              label
+            </i>
+            <span className="hidden lg:block xl:block 2xl:block">
+              <Text style={styles.navLinkText}>Tags</Text>
+            </span>
+          </Link>
+        </View>
+      ) : null}
       <Link to="/news/" className="flex px-3 rounded-lg py-3 navlink">
         <i className="material-icons-outlined  block lg:hidden xl:hidden 2xl:hidden  pl-3 text-black">
           newspaper
@@ -41,14 +46,17 @@ const Navbar = view(() => {
           <Text style={styles.navLinkText}>News</Text>
         </span>
       </Link>
-      <Link to="/account/" className="flex px-3 rounded-lg py-3 navlink">
-        <i className="material-icons-outlined  block lg:hidden xl:hidden 2xl:hidden  pl-3 text-black">
-          account_circle
-        </i>
-        <span className="hidden lg:block xl:block 2xl:block">
-          <Text style={styles.navLinkText}>Profile</Text>
-        </span>
-      </Link>
+
+      {userAuth.isLoggedIn ? (
+        <Link to="/account/" className="flex px-3 rounded-lg py-3 navlink">
+          <i className="material-icons-outlined  block lg:hidden xl:hidden 2xl:hidden  pl-3 text-black">
+            account_circle
+          </i>
+          <span className="hidden lg:block xl:block 2xl:block">
+            <Text style={styles.navLinkText}>Profile</Text>
+          </span>
+        </Link>
+      ) : null}
       <Link
         to="/about/"
         className="flex px-3 rounded-lg py-3 navlink hidden lg:block xl:block 2xl:block"
