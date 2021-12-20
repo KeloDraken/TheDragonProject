@@ -6,7 +6,7 @@ import { Text, View } from "react-native";
 import { styles } from "./style";
 
 const AuthForm = () => {
-  const [view, ] = useState<string>("register");
+  const [view] = useState<string>("register");
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [errorMessage, setErrorMessage] = useState<Array<string>>([""]);
@@ -16,21 +16,16 @@ const AuthForm = () => {
 
   const [, setCookie] = useCookies(["UIDT"]);
 
-  const check_email_is_wtc = (email: string) => {
-    let regex = /[a-zA-Z0-9_.+-].wethinkcode.co.za+/gm;
+  const check_email = (email: string) => {
+    let regex = /[a-zA-Z0-9_.+-]+@student.wethinkcode.co.za+/gm;
+    // let is_email =
+    //   /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
+    // alert(is_email.test(email))
+    // alert(regex.test(email))
     if (regex.test(email) === false) {
       return false;
     } else {
       return true;
-    }
-  };
-
-  const check_email = (email: string) => {
-    let regex = /[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+/gm;
-    if (regex.test(email) === false) {
-      return false;
-    } else {
-      return check_email_is_wtc(email);
     }
   };
 
@@ -58,6 +53,9 @@ const AuthForm = () => {
         if (response.data.status_code === 422) {
           setErrorMessage([response.data.message]);
           setIsLoading(false);
+        } else if (response.data.status_code === 423) {
+          setErrorMessage([response.data.message]);
+          setIsLoading(false);
         } else {
           setUserToken(response.data.token);
         }
@@ -83,7 +81,7 @@ const AuthForm = () => {
 
   const handleBtnPress = (event: any) => {
     event.preventDefault();
-    if (!check_email(username)) {
+    if (check_email(username) === false) {
       setEmailEntryError(true);
       const newError = ["This is not a valid WTC email address."];
       setErrorMessage(newError);

@@ -34,9 +34,7 @@ const Post: React.FC<PostProps> = ({ item }) => {
     return (
       <Link to={`/post/${item.object_id}/`} title={`${item.title}`}>
         <View style={styles.postItemContainerHasNoImage}>
-          <Link to="/user">
-            <Text style={styles.postTitleHasNoImage}>PostedByThisUser</Text>
-          </Link>
+          <Text style={styles.postTitleHasNoImage}>PostedByThisUser</Text>
 
           <Text style={styles.postCaptionHasNoImage}>{item.title}</Text>
           <Text style={styles.postTimeHasNoImage}>{stats.text}</Text>

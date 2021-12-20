@@ -6,7 +6,7 @@ from rest_framework.views import APIView
 
 from rest_framework_jwt.settings import api_settings
 
-from core.accounts.serialisers import CreateUserSerialiser
+from core.accounts.serialisers import CreateUserSerialiser, UserSerialiser
 from core.accounts.models import User
 
 
@@ -52,13 +52,34 @@ class CreateUserAPIView(APIView):
         ):
             data = {
                 "status_code": 422,
-                "message": "This email address is already with an account. Please try logging in.",
+                "message": "This email address already has an an account associated with it. Please try logging in.",
             }
             return Response(data=data, status=status.HTTP_200_OK)
-
+        elif (
+            "Enter a valid WeThinkCode email address."
+            in serialiser.errors.get("username")[-1]
+        ):
+            data = {
+                "status_code": 423,
+                "message": "This is not a valid WTC email address.",
+            }
+            return Response(data=data, status=status.HTTP_200_OK)
         data = {"status_code": 400, "message": serialiser.errors}
         print(serialiser.errors)
         return Response(data=data, status=status.HTTP_400_BAD_REQUEST)
 
 
 user_registration = CreateUserAPIView.as_view()
+
+
+class GetUserObjectID(APIView):
+    def get(self, request: HttpRequest, format=None):
+        if not request.user.is_authenticated:
+            data = {"status_code": 403, "message": "User logged out"}
+            return Response(data=data, status=status.HTTP_200_OK)
+
+        serializer = UserSerialiser(request.user)
+        return Response(serializer.data)
+
+
+get_user_id = GetUserObjectID.as_view()

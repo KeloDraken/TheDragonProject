@@ -9,8 +9,10 @@ import "react-markdown-editor-lite/lib/index.css";
 
 import Navbar from "../../components/Navbar";
 import { styles } from "./style";
+import { userAuth } from "../../store";
+import { view } from "@risingstack/react-easy-state";
 
-const CreatePost = () => {
+const CreatePost = view(() => {
   const [markdown, setMarkdown] = useState<string>("");
   const [coverImage, setCoverImage] = useState<string>("");
   const [title, setTitle] = useState(null);
@@ -21,6 +23,10 @@ const CreatePost = () => {
   };
 
   useEffect(() => {
+    if (!userAuth.isLoggedIn) {
+      window.location.replace("/");
+    }
+
     if (markdown.length > 100) {
       setPublishBtnDisabled(false);
     } else {
@@ -124,5 +130,5 @@ const CreatePost = () => {
       </main>
     </div>
   );
-};
+});
 export default CreatePost;

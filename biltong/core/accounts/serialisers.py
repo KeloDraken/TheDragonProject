@@ -18,3 +18,12 @@ class CreateUserSerialiser(serializers.ModelSerializer):
             "username",
             "password",
         )
+
+
+class UserSerialiser(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = (
+            "object_id",
+            "username",
+        )
