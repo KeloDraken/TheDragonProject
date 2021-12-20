@@ -1,14 +1,16 @@
+import { view } from "@risingstack/react-easy-state";
 import axios from "axios";
 import { ChangeEvent, useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 import { Text, View } from "react-native";
+import { userAuth } from "../../store";
 import { styles } from "./style";
 
 interface RegisterProps {
   isFlipped: boolean;
 }
 
-const Register: React.FC<RegisterProps> = ({ isFlipped }) => {
+const Register: React.FC<RegisterProps> = view(({ isFlipped }) => {
   const [view] = useState<string>("register");
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -123,6 +125,10 @@ const Register: React.FC<RegisterProps> = ({ isFlipped }) => {
     }
   };
 
+  const handleCardFlip = ()=>{
+    userAuth.authCardFlipped = true
+  }
+
   const submitBtnText = view === "login" ? "Sign in" : "Join KeloDraken";
   const pageHeadingText =
     view === "login"
@@ -174,8 +180,9 @@ const Register: React.FC<RegisterProps> = ({ isFlipped }) => {
           {submitBtnText}
         </button>
       </form>
+      <Text onPress={handleCardFlip}>Already have an account? Sign in here</Text>
     </View>
   );
-};
+});
 
 export default Register;

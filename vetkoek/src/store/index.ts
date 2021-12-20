@@ -1,9 +1,10 @@
-import { store } from "@risingstack/react-easy-state"
+import { store } from "@risingstack/react-easy-state";
 
 export const recommendedPostsList = store({
-    size: 0,
-    data: []
-})
-export const userAuth= store({
-    isLoggedIn: false
-})
+  size: 0,
+  data: [],
+});
+export const userAuth = store({
+  isLoggedIn: false,
+  authCardFlipped: false,
+});

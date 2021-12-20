@@ -1,14 +1,16 @@
+import { view } from "@risingstack/react-easy-state";
 import axios from "axios";
 import { ChangeEvent, useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 import { Text, View } from "react-native";
+import { userAuth } from "../../store";
 import { styles } from "./style";
 
 interface LoginProps {
   isFlipped: boolean;
 }
 
-const Login: React.FC<LoginProps> = ({ isFlipped }) => {
+const Login: React.FC<LoginProps> = view(({ isFlipped }) => {
   const [view] = useState<string>("login");
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -123,6 +125,9 @@ const Login: React.FC<LoginProps> = ({ isFlipped }) => {
     }
   };
 
+  const handleCardFlip = () => {
+    userAuth.authCardFlipped = false;
+  };
   const submitBtnText = view === "login" ? "Sign in" : "Join KeloDraken";
   const pageHeadingText =
     view === "login"
@@ -174,8 +179,10 @@ const Login: React.FC<LoginProps> = ({ isFlipped }) => {
           {submitBtnText}
         </button>
       </form>
+      <Text onPress={handleCardFlip}>
+        Don't have an account? Register for free here
+      </Text>
     </View>
   );
-};
-
+});
 export default Login;

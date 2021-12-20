@@ -1,25 +1,26 @@
-import { useState } from "react";
+import { view } from "@risingstack/react-easy-state";
 import ReactCardFlip from "react-card-flip";
 import { View } from "react-native";
+import { userAuth } from "../../store";
 
 import Login from "./Login";
 import Register from "./Register";
 
-const AuthForm = () => {
-  const [isFlipped, setIsFlipped] = useState<boolean>(false);
+const AuthForm = view(() => {
   return (
-    <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
+    <ReactCardFlip
+      isFlipped={userAuth.authCardFlipped}
+      flipDirection="horizontal"
+    >
       <View>
-        <Register isFlipped={isFlipped} />
-        <button onClick={() => setIsFlipped(true)}>Click to flip</button>
+        <Register isFlipped={userAuth.authCardFlipped} />
       </View>
 
       <View>
-        <Login isFlipped={isFlipped} />
-        <button onClick={() => setIsFlipped(false)}>Click to flip</button>
+        <Login isFlipped={userAuth.authCardFlipped} />
       </View>
     </ReactCardFlip>
   );
-};
+});
 
 export default AuthForm;
