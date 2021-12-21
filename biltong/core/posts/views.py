@@ -40,8 +40,6 @@ get_post = GetPostAPIView.as_view()
 class CreatePostAPIView(CreateAPIView):
     serializer_class = PostCreateSerialiser
 
-    # def get_queryset(self, *args, **kwargs):
-    #     return Post.objects.all()
     def perform_create(self, serializer: PostCreateSerialiser):
         return serializer.save(author=self.request.user)
 
@@ -52,10 +50,6 @@ class CreatePostAPIView(CreateAPIView):
         instance_serialiser = PostListSerialiser(instance)
         super().create(request, *args, **kwargs)
         return Response(instance_serialiser.data)
-
-    # def post(self, request, *args, **kwargs):
-    #     return self.create(request, *args, **kwargs)
-
 
 
 create_post = CreatePostAPIView.as_view()
