@@ -20,7 +20,7 @@ const Post: React.FC<PostProps> = ({ item }) => {
         >
           <div className="bg-gradient-to-b from-black pt-2 pb-16 px-3">
             <View>
-              <Text style={styles.postTitle}>PostedByThisUser</Text>
+              <Text style={styles.postTitle}>{item.author.username}</Text>
               <Text style={styles.postCaption}>{item.title}</Text>
               <Text style={styles.postTime}>{stats.text}</Text>
             </View>
@@ -34,7 +34,7 @@ const Post: React.FC<PostProps> = ({ item }) => {
     return (
       <Link to={`/post/${item.object_id}/`} title={`${item.title}`}>
         <View style={styles.postItemContainerHasNoImage}>
-          <Text style={styles.postTitleHasNoImage}>PostedByThisUser</Text>
+          <Text style={styles.postTitleHasNoImage}>{item.author.username}</Text>
 
           <Text style={styles.postCaptionHasNoImage}>{item.title}</Text>
           <Text style={styles.postTimeHasNoImage}>{stats.text}</Text>

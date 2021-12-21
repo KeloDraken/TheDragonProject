@@ -1,4 +1,6 @@
+from rest_framework.request import Request
 from rest_framework.generics import CreateAPIView, ListAPIView
+from rest_framework.response import Response
 
 from core.posts.models import Post
 from core.posts.serialisers import PostCreateSerialiser, PostListSerialiser
@@ -38,14 +40,22 @@ get_post = GetPostAPIView.as_view()
 class CreatePostAPIView(CreateAPIView):
     serializer_class = PostCreateSerialiser
 
-    def get_queryset(self, *args, **kwargs):
-        return Post.objects.all()
+    # def get_queryset(self, *args, **kwargs):
+    #     return Post.objects.all()
+    def perform_create(self, serializer: PostCreateSerialiser):
+        return serializer.save(author=self.request.user)
 
-    def post(self, request, *args, **kwargs):
-        return self.create(request, *args, **kwargs)
+    def create(self, request: Request, *args, **kwargs):
+        serialiser = self.get_serializer(data=request.data)
+        serialiser.is_valid(raise_exception=True)
+        instance = self.perform_create(serialiser)
+        instance_serialiser = PostListSerialiser(instance)
+        super().create(request, *args, **kwargs)
+        return Response(instance_serialiser.data)
 
-    def perform_create(self, serializer):
-        serializer.save(created_by=self.request.user)
+    # def post(self, request, *args, **kwargs):
+    #     return self.create(request, *args, **kwargs)
+
 
 
 create_post = CreatePostAPIView.as_view()

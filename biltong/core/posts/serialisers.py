@@ -1,6 +1,5 @@
 from rest_framework import serializers
-
-from utils.helpers import object_id_generator
+\
 from core.posts.models import Post
 
 

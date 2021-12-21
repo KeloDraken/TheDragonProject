@@ -93,7 +93,7 @@ const Register: React.FC<RegisterProps> = view(({ isFlipped }) => {
     event.preventDefault();
     if (check_email(username) === false) {
       setEmailEntryError(true);
-      const newError = ["This is not a valid WTC email address."];
+      const newError = ["This is not a valid WTC student email address."];
       setErrorMessage(newError);
     } else if (password.length < 8) {
       setPasswordEntryError(true);
@@ -160,7 +160,7 @@ const Register: React.FC<RegisterProps> = view(({ isFlipped }) => {
           autoCapitalize="off"
           autoComplete="none"
           value={username}
-          placeholder="WeThinkCode_ email address"
+          placeholder="WTC student email address"
           onChange={(even) => handleSetUsername(even)}
           style={emailEntryError ? { outline: "2px solid red" } : {}}
           className="form_input bg-pink-500 py-5 px-6 my-1 rounded text-white placeholder-white font-bold w-full"

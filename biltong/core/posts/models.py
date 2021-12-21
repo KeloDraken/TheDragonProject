@@ -10,7 +10,12 @@ from core.accounts.models import User
 class Post(models.Model):
     object_id = models.CharField(max_length=30, null=True, blank=True)
     author = models.ForeignKey(User, on_delete=models.DO_NOTHING, null=True, blank=True)
-    title = models.CharField(max_length=140, null=False, blank=False)
+    title = models.CharField(
+        max_length=140,
+        null=False,
+        blank=False,
+        default="Author was too 'cool' to follow markdown guidelines 🙄",
+    )
     cover_image = models.CharField(max_length=2000, null=True, blank=True)
     text = MarkdownField(
         rendered_field="text_rendered",
