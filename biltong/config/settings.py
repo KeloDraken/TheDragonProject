@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     # Msukwini apps
     "core",
     "core.accounts",
+    "core.lists",
     "core.posts",
     "core.products",
 ]
