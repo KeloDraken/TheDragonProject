@@ -70,7 +70,7 @@ const Navbar = view(() => {
       {userAuth.isLoggedIn ? (
         <Link
           to="/create/"
-          className="flex mt-1 bg-gradient-to-r text-black font-bold text-2xl hover:text-white from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 px-3 rounded-lg py-3"
+          className="flex mt-1 bg-gradient-to-r text-black font-bold text-2xl from-green-400 to-blue-500 px-3 rounded-lg py-3"
         >
           <i className="material-icons-outlined block lg:hidden xl:hidden 2xl:hidden  pl-3 text-2xl">
             create
