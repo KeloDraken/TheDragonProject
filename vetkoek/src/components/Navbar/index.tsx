@@ -20,14 +20,14 @@ const Navbar = view(() => {
 
       {userAuth.isLoggedIn ? (
         <View>
-          <Link to="/lists/" className="flex px-3 rounded-lg py-3 navlink">
+          {/* <Link to="/lists/" className="flex px-3 rounded-lg py-3 navlink">
             <i className="material-icons-outlined  block lg:hidden xl:hidden 2xl:hidden  pl-3 text-black">
               library_books
             </i>
             <span className="hidden lg:block xl:block 2xl:block">
               <Text style={styles.navLinkText}>Lists</Text>
             </span>
-          </Link>
+          </Link> */}
           <Link to="/tags/" className="flex px-3 rounded-lg py-3 navlink">
             <i className="material-icons-outlined  block lg:hidden xl:hidden 2xl:hidden  pl-3 text-black">
               label
@@ -38,14 +38,14 @@ const Navbar = view(() => {
           </Link>
         </View>
       ) : null}
-      <Link to="/news/" className="flex px-3 rounded-lg py-3 navlink">
+      {/* <Link to="/news/" className="flex px-3 rounded-lg py-3 navlink">
         <i className="material-icons-outlined  block lg:hidden xl:hidden 2xl:hidden  pl-3 text-black">
           newspaper
         </i>
         <span className="hidden lg:block xl:block 2xl:block">
           <Text style={styles.navLinkText}>News</Text>
         </span>
-      </Link>
+      </Link> */}
 
       {userAuth.isLoggedIn ? (
         <Link to="/account/" className="flex px-3 rounded-lg py-3 navlink">
