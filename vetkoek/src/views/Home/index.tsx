@@ -1,7 +1,7 @@
 import Feed from "../../components/Posts/Feed";
 import Navbar from "../../components/Navbar";
 import Sidebar from "../../components/Sidebar";
-import AuthForm from "../Auth/Form";
+import AuthForm from "../../components/Auth/Form";
 import { view } from "@risingstack/react-easy-state";
 import { userAuth } from "../../store";
 
