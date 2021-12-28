@@ -1,5 +1,4 @@
 from rest_framework import serializers
-\
 from core.posts.models import Post
 
 
@@ -7,7 +6,7 @@ class PostListSerialiser(serializers.ModelSerializer):
     author = serializers.SerializerMethodField()
 
     def get_author(self, obj):
-        return {"username": obj.author.username}
+        return {"username": obj.author.username, "object_id": obj.author.object_id}
 
     class Meta:
         model = Post

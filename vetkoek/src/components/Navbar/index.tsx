@@ -53,7 +53,7 @@ const Navbar = view(() => {
 
       {userAuth.isLoggedIn ? (
         <Link
-          to={`/u/${object_id}/`}
+          to={`/user/${object_id}/`}
           className="flex px-3 rounded-lg py-3 navlink"
         >
           <i className="material-icons-outlined  block lg:hidden xl:hidden 2xl:hidden  pl-3 text-black">

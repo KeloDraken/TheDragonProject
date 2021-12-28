@@ -9,6 +9,7 @@ import { styles } from "./style";
 import za from "javascript-time-ago/locale/en-ZA.json";
 import gb from "javascript-time-ago/locale/en-GB.json";
 import TimeAgo from "javascript-time-ago";
+import { Link } from "react-router-dom";
 
 TimeAgo.addDefaultLocale(za);
 TimeAgo.addLocale(gb);
@@ -27,9 +28,10 @@ const ViewPost: React.FC<ViewPostProps> = ({ item }) => {
         rehypePlugins={[slug]}
       />
       <hr />
-      <Text style={styles.postFooter}>
-        <ReactTimeAgo date={Date.parse(item.datetime_created)} />
-      </Text>
+      <Link to={`/user/${item.author.object_id}/`}>
+        <Text style={styles.postFooter}>{item.author.username}</Text>
+      </Link>
+      <ReactTimeAgo date={Date.parse(item.datetime_created)} />
     </View>
   );
 };

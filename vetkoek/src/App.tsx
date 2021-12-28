@@ -25,7 +25,7 @@ const App = view(() => {
           <Route path="/about/" element={<AboutView />} />
           <Route path="/post/:id/" element={<PostView />} />
           <Route path="/create/" element={<CreatePost />} />
-          <Route path="/u/:username/" element={<Profile />} />
+          <Route path="/user/:username/" element={<Profile />} />
         </Switch>
       </Router>
     </Suspense>
