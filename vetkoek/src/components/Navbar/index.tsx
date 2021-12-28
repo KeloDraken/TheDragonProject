@@ -1,4 +1,5 @@
 import { view } from "@risingstack/react-easy-state";
+import { useCookies } from "react-cookie";
 import { View, Text } from "react-native";
 import { Link } from "react-router-dom";
 import { userAuth } from "../../store";
@@ -6,6 +7,9 @@ import Logo from "./Logo";
 import { styles } from "./style";
 
 const Navbar = view(() => {
+  const [cookies] = useCookies();
+  let object_id = cookies.UOID;
+
   return (
     <View>
       <Logo />
@@ -48,7 +52,10 @@ const Navbar = view(() => {
       </Link> */}
 
       {userAuth.isLoggedIn ? (
-        <Link to="/account/" className="flex px-3 rounded-lg py-3 navlink">
+        <Link
+          to={`/u/${object_id}/`}
+          className="flex px-3 rounded-lg py-3 navlink"
+        >
           <i className="material-icons-outlined  block lg:hidden xl:hidden 2xl:hidden  pl-3 text-black">
             account_circle
           </i>
