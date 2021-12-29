@@ -1,9 +1,12 @@
+import { view } from "@risingstack/react-easy-state";
+import { Text, View } from "react-native";
+
 import Feed from "../../components/Posts/Feed";
 import Navbar from "../../components/Navbar";
 import Sidebar from "../../components/Sidebar";
 import AuthForm from "../../components/Auth/Form";
-import { view } from "@risingstack/react-easy-state";
 import { userAuth } from "../../store";
+import { styles } from "./styles";
 
 const HomeView = view(() => {
   return (
@@ -14,6 +17,13 @@ const HomeView = view(() => {
 
       <main className="w-full overflow-y-scroll h-screen sticky top-0">
         {userAuth.isLoggedIn === false ? <AuthForm /> : null}
+
+        {userAuth.isLoggedIn === true ? (
+          <View style={styles.pageHeadingContainer}>
+            <Text style={styles.pageHeading}>Latest</Text>
+          </View>
+        ) : null}
+
         <Feed />
       </main>
 
