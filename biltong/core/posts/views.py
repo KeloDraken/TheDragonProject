@@ -10,7 +10,9 @@ class PostListAPIView(ListAPIView):
     serializer_class = PostListSerialiser
 
     def get_queryset(self):
-        return Post.objects.order_by("-datetime_created")
+        return Post.objects.exclude(
+            title="Author was too 'cool' to follow markdown guidelines 🙄"
+        ).order_by("-datetime_created")
 
 
 posts_list = PostListAPIView.as_view()
@@ -20,7 +22,11 @@ class RecommendedPostsListAPIView(ListAPIView):
     serializer_class = PostListSerialiser
 
     def get_queryset(self):
-        return Post.objects.all().order_by("?")[:3]
+        return (
+            Post.objects.all()
+            .exclude(title="Author was too 'cool' to follow markdown guidelines 🙄")
+            .order_by("?")[:3]
+        )
 
 
 recommended_posts_list = RecommendedPostsListAPIView.as_view()
