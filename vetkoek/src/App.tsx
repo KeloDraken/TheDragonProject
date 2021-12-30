@@ -15,6 +15,7 @@ const CreatePost = lazy(() => import("./views/Post/CreatePost"));
 const HomeView = lazy(() => import("./views/Home"));
 const PostView = lazy(() => import("./views/Post"));
 const Profile = lazy(() => import("./views/Profile"));
+const Tags = lazy(() => import("./views/Tags"));
 
 const App = view(() => {
   return (
@@ -25,6 +26,7 @@ const App = view(() => {
           <Route path="/about/" element={<AboutView />} />
           <Route path="/post/:id/" element={<PostView />} />
           <Route path="/create/" element={<CreatePost />} />
+          <Route path="/tags/" element={<Tags />} />
           <Route path="/user/:username/" element={<Profile />} />
         </Switch>
       </Router>
