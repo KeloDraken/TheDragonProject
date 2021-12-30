@@ -52,10 +52,7 @@ class CreatePostAPIView(CreateAPIView):
         It generates new `Tag` instance, if it does not exist, for each of
         of the tags
         """
-        hashtag_list = []
-
-        for word in text.split(","):
-            hashtag_list.append(word)
+        hashtag_list = [tag for tag in text.split(",")]
 
         for hashtag in hashtag_list:
             obj, created = Tag.objects.get_or_create(
@@ -70,7 +67,6 @@ class CreatePostAPIView(CreateAPIView):
         serialiser.is_valid(raise_exception=True)
         instance = self.perform_create(serialiser)
         instance_serialiser = PostListSerialiser(instance)
-        super().create(request, *args, **kwargs)
         tags = instance_serialiser.data.get("tags")
         self.extract_hashtags(tags)
         return Response(instance_serialiser.data)
