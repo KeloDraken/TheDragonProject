@@ -7,6 +7,13 @@ from utils.helpers import object_id_generator
 from core.accounts.models import User
 
 
+class Tag(models.Model):
+    name = models.CharField(unique=True, max_length=2000, null=False, blank=False)
+
+    def __str__(self):
+        return self.name
+
+
 class Post(models.Model):
     object_id = models.CharField(max_length=30, null=True, blank=True)
     author = models.ForeignKey(User, on_delete=models.DO_NOTHING, null=True, blank=True)
@@ -24,6 +31,7 @@ class Post(models.Model):
         validator=VALIDATOR_CLASSY,
     )
     text_rendered = RenderedMarkdownField()
+    tags = models.CharField(max_length=4000, null=True, blank=True)
     date_created = models.DateField(auto_now_add=True)
     datetime_created = models.DateTimeField(auto_now_add=True)
 

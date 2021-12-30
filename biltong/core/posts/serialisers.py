@@ -18,6 +18,7 @@ class PostListSerialiser(serializers.ModelSerializer):
             "text",
             "date_created",
             "datetime_created",
+            "tags",
         )
 
 
@@ -28,4 +29,5 @@ class PostCreateSerialiser(serializers.ModelSerializer):
             "title",
             "cover_image",
             "text",
+            "tags",
         )
