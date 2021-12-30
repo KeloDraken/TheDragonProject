@@ -61,7 +61,7 @@ class CreateUserAPIView(APIView):
         ):
             data = {
                 "status_code": 423,
-                "message": "This is not a valid WTC email address.",
+                "message": "This is not a valid WTC student email address.",
             }
             return Response(data=data, status=status.HTTP_200_OK)
         data = {"status_code": 400, "message": serialiser.errors}

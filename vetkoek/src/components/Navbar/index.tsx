@@ -13,6 +13,7 @@ const Navbar = view(() => {
   return (
     <View>
       <Logo />
+
       <Link to="/" className="flex mt-3 rounded-lg pl-3 py-3 navlink">
         <i className="material-icons-outlined block lg:hidden xl:hidden 2xl:hidden pl-3 text-black">
           home
@@ -22,34 +23,14 @@ const Navbar = view(() => {
         </span>
       </Link>
 
-      {userAuth.isLoggedIn ? (
-        <View>
-          {/* <Link to="/lists/" className="flex px-3 rounded-lg py-3 navlink">
-            <i className="material-icons-outlined  block lg:hidden xl:hidden 2xl:hidden  pl-3 text-black">
-              library_books
-            </i>
-            <span className="hidden lg:block xl:block 2xl:block">
-              <Text style={styles.navLinkText}>Lists</Text>
-            </span>
-          </Link> */}
-          <Link to="/tags/" className="flex px-3 rounded-lg py-3 navlink">
-            <i className="material-icons-outlined  block lg:hidden xl:hidden 2xl:hidden  pl-3 text-black">
-              label
-            </i>
-            <span className="hidden lg:block xl:block 2xl:block">
-              <Text style={styles.navLinkText}>Tags</Text>
-            </span>
-          </Link>
-        </View>
-      ) : null}
-      {/* <Link to="/news/" className="flex px-3 rounded-lg py-3 navlink">
+      <Link to="/tags/" className="flex px-3 rounded-lg py-3 navlink">
         <i className="material-icons-outlined  block lg:hidden xl:hidden 2xl:hidden  pl-3 text-black">
-          newspaper
+          label
         </i>
         <span className="hidden lg:block xl:block 2xl:block">
-          <Text style={styles.navLinkText}>News</Text>
+          <Text style={styles.navLinkText}>Tags</Text>
         </span>
-      </Link> */}
+      </Link>
 
       {userAuth.isLoggedIn ? (
         <Link
@@ -64,6 +45,7 @@ const Navbar = view(() => {
           </span>
         </Link>
       ) : null}
+
       <Link
         to="/about/"
         className="flex px-3 rounded-lg py-3 navlink hidden lg:block xl:block 2xl:block"
