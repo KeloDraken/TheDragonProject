@@ -8,23 +8,43 @@ const About = () => {
       <Text style={styles.pageContent}>
         KeloDraken is a community of software developers getting together to
         help one another out. The software industry relies on collaboration and
-        networked learning. We provide a place for that to happen.
+        networked learning. KeloDraken provides a place for that to happen.
       </Text>
       <Text style={styles.pageContent}>
-        KeloDraken is built on Forem: open source software designed to empower
-        communities. Because our application is open source, you can inspect
-        every little detail of the code, or chip in yourself! Forem is available
-        for anyone interested in creating similar communities in any niche or
-        passion. Visit our meta Forem, forem.dev for more information.
-      </Text>
-      <Text style={styles.pageContent}>
-        We believe in transparency and adding value to the ecosystem. We hope
+        In order for all of us to get better at working on a real-world product,
+        I've decided to open source KeloDraken. Feel free to check out the code
+        or contribute to the project on{" "}
+        <a
+          href="https://github.com/KeloDraken/KeloDrake/"
+          target={"_blank"}
+          className="underline font-bold"
+          rel="noreferrer"
+        >
+          GitHub
+        </a>
+        . I believe in transparency and adding value to the ecosystem. I hope
         you enjoy poking around and participating!
       </Text>
       <Text style={styles.pageContent}>
-        Our team is distributed around the world. We have no office, but we come
-        together online each day to build community and improve the software
-        careers of millions.
+        I have an open door policy. If you discover a bug, want a feature added,
+        or just want to share any feedback, please feel free to DM me on{" "}
+        <a
+          href="https://instagram.com/KeloDraken/"
+          target={"_blank"}
+          className="underline font-bold"
+          rel="noreferrer"
+        >
+          Instagram
+        </a>{" "}
+        or{" "}
+        <a
+          href="https://twitter.com/KeloDraken/"
+          target={"_blank"}
+          className="underline font-bold"
+          rel="noreferrer"
+        >
+          Twitter
+        </a>.
       </Text>
       <Text style={styles.pageContent}>Happy coding ❤️</Text>
     </View>
