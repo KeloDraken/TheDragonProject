@@ -10,13 +10,18 @@ import "react-markdown-editor-lite/lib/index.css";
 
 import Navbar from "../../components/Navbar";
 import { styles } from "./style";
-import { userAuth } from "../../store";
+import { postTags, userAuth } from "../../store";
+import AddTags from "./AddTags";
 
 const CreatePost = view(() => {
-  const [markdown, setMarkdown] = useState<string>("");
-  const [coverImage, setCoverImage] = useState<string>("");
-  const [title, setTitle] = useState(null);
   const [publishBtnDisabled, setPublishBtnDisabled] = useState<boolean>(true);
+
+  const [title, setTitle] = useState(null);
+  const [coverImage, setCoverImage] = useState<string>("");
+
+  const [markdown, setMarkdown] = useState<string>("");
+
+  const [addTags, setAddTags] = useState<boolean>(false);
 
   const [cookies] = useCookies();
 
@@ -83,6 +88,7 @@ const CreatePost = view(() => {
       const _data = {
         text: markdown,
         cover_image: coverImage,
+        tags: postTags.tags,
       };
 
       const data = {
@@ -102,6 +108,7 @@ const CreatePost = view(() => {
         })
         .then((response) => {
           if (response.status === 200) {
+            postTags.tags = "";
             window.location.href = `/post/${response.data.object_id}/`;
           }
         })
@@ -116,32 +123,64 @@ const CreatePost = view(() => {
 
   const mdParser = new MarkdownIt();
 
-  return (
-    <div className="flex">
-      <aside className="pl-1 pr-3 overflow-y-scroll h-screen sticky top-0 w-1/4">
-        <Navbar />
-      </aside>
+  const renderMarkdownForm = () => {
+    return (
+      <div className="flex">
+        <aside className="pl-1 pr-3 overflow-y-scroll h-screen sticky top-0 w-1/4">
+          <Navbar />
+        </aside>
 
-      <main className="w-full overflow-y-scroll h-screen sticky top-0">
-        <div className="sticky top-0 flex justify-between py-2 border-l border-gray-300 px-3">
-          <h1 className="hidden text-black lg:block xl:block 2xl:block font-bold text-3xl">
-            Share your insights...
-          </h1>
-          <TouchableOpacity
-            onPress={() => handlePublishPost()}
-            style={[styles.loadMoreBtn, publishBtnBGColour]}
-            disabled={publishBtnDisabled}
-          >
-            <Text style={styles.loadMoreBtnText}>publish</Text>
-          </TouchableOpacity>
-        </div>
-        <MdEditor
-          className="h-screen"
-          renderHTML={(text) => mdParser.render(text)}
-          onChange={handleEditorChange}
-        />
-      </main>
-    </div>
-  );
+        <main className="w-full overflow-y-scroll h-screen sticky top-0">
+          <div className="sticky top-0 flex justify-between py-2 border-l border-gray-300 px-3">
+            <h1 className="hidden text-black lg:block xl:block 2xl:block font-bold text-3xl">
+              Share your insights...
+            </h1>
+            <TouchableOpacity
+              onPress={() => setAddTags(true)}
+              style={[styles.loadMoreBtn, publishBtnBGColour]}
+              disabled={publishBtnDisabled}
+            >
+              <Text style={styles.loadMoreBtnText}>next</Text>
+            </TouchableOpacity>
+          </div>
+          <MdEditor
+            className="h-screen"
+            renderHTML={(text) => mdParser.render(text)}
+            onChange={handleEditorChange}
+          />
+        </main>
+      </div>
+    );
+  };
+  const renderAddTagsForm = () => {
+    return (
+      <div className="flex">
+        <aside className="pl-1 pr-3 overflow-y-scroll h-screen sticky top-0 w-1/4">
+          <Navbar />
+        </aside>
+        <main className="w-full overflow-y-scroll h-screen sticky border-l border-gray-300 top-0">
+          <div className="sticky top-0 flex justify-between py-2 px-3">
+            <h1 className="hidden text-black lg:block xl:block 2xl:block font-bold text-3xl">
+              Add tags so that people can find your post more easily...
+            </h1>
+            <TouchableOpacity
+              onPress={() => handlePublishPost()}
+              style={[styles.loadMoreBtn, publishBtnBGColour]}
+              disabled={publishBtnDisabled}
+            >
+              <Text style={styles.loadMoreBtnText}>publish</Text>
+            </TouchableOpacity>
+          </div>
+          <AddTags />
+        </main>
+      </div>
+    );
+  };
+
+  if (addTags) {
+    return renderAddTagsForm();
+  } else {
+    return renderMarkdownForm();
+  }
 });
 export default CreatePost;
