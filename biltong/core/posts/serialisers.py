@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from core.posts.models import Post
+from core.posts.models import Post, Tag
 
 
 class PostListSerialiser(serializers.ModelSerializer):
@@ -20,6 +20,12 @@ class PostListSerialiser(serializers.ModelSerializer):
             "datetime_created",
             "tags",
         )
+
+
+class TagListSerialiser(serializers.ModelSerializer):
+    class Meta:
+        model = Tag
+        fields = ("name",)
 
 
 class PostCreateSerialiser(serializers.ModelSerializer):

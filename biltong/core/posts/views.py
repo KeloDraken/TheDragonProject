@@ -3,7 +3,7 @@ from rest_framework.generics import CreateAPIView, ListAPIView
 from rest_framework.response import Response
 
 from core.posts.models import Post, Tag
-from core.posts.serialisers import PostCreateSerialiser, PostListSerialiser
+from core.posts.serialisers import PostCreateSerialiser, PostListSerialiser, TagListSerialiser
 
 
 class PostListAPIView(ListAPIView):
@@ -73,3 +73,12 @@ class CreatePostAPIView(CreateAPIView):
 
 
 create_post = CreatePostAPIView.as_view()
+
+class TagListAPIView(ListAPIView):
+    serializer_class = TagListSerialiser
+
+    def get_queryset(self):
+        return Tag.objects.all().exclude(name="")
+
+
+tag_list = TagListAPIView.as_view()
