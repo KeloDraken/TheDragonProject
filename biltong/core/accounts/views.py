@@ -52,7 +52,7 @@ class CreateUserAPIView(APIView):
         ):
             data = {
                 "status_code": 422,
-                "message": "This email address already has an an account associated with it. Please try logging in.",
+                "message": "This email address already has an account associated with it. Please try logging in.",
             }
             return Response(data=data, status=status.HTTP_200_OK)
         elif (

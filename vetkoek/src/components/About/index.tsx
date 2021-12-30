@@ -22,8 +22,7 @@ const About = () => {
         >
           GitHub
         </a>
-        . I believe in transparency and adding value to the ecosystem. I hope
-        you enjoy poking around and participating!
+        . I hope you enjoy poking around and participating!
       </Text>
       <Text style={styles.pageContent}>
         I have an open door policy. If you discover a bug, want a feature added,
@@ -44,7 +43,8 @@ const About = () => {
           rel="noreferrer"
         >
           Twitter
-        </a>.
+        </a>
+        .
       </Text>
       <Text style={styles.pageContent}>Happy coding ❤️</Text>
     </View>
