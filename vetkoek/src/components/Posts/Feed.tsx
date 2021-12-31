@@ -9,7 +9,7 @@ import Post from "./Post";
 
 const Feed = () => {
   const [loading, setLoading] = useState<boolean>(true);
-  const [postsList, setPosts] = useState([]);
+  const [postsList, setPosts] = useState<Array<object>>([]);
   const [loadingMore, setLoadingMore] = useState<boolean>(false);
   const [hasNext, setHasNext] = useState<boolean>(true);
   const [start, setStart] = useState<number>(2);
