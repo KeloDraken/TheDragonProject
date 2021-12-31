@@ -11,8 +11,7 @@ const About = () => {
         networked learning. KeloDraken provides a place for that to happen.
       </Text>
       <Text style={styles.pageContent}>
-        In order for all of us to get better at working on a real-world product,
-        I've decided to open source KeloDraken. Feel free to check out the code
+        Kelodraken is open-sourced, so feel free to check out the code
         or contribute to the project on{" "}
         <a
           href="https://github.com/KeloDraken/KeloDrake/"
