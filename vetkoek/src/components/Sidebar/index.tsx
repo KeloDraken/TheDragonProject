@@ -21,13 +21,11 @@ const Sidebar = view(() => {
     });
   };
 
-  const _posts = recommendedPostsList.data;
-
   useEffect(() => {
-    if (_posts.length === 0) {
+    if (recommendedPostsList.data.length === 0) {
       handleGetRecommended();
-    }else{
-      setLoading(false)
+    } else {
+      setLoading(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -35,7 +33,16 @@ const Sidebar = view(() => {
   return (
     <View>
       <SearchForm />
-      <SidebarCard loading={loading} posts={_posts} cardTitle="Trending now" />
+      <SidebarCard
+        loading={loading}
+        posts={recommendedPostsList.data}
+        cardTitle="Trending now"
+      />
+      <SidebarCard
+        loading={loading}
+        posts={recommendedPostsList.data}
+        cardTitle="kelodraken updates"
+      />
       <Footer />
     </View>
   );
