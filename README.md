@@ -2,12 +2,11 @@
 
 ## Structure
 
-| Codebase              |      Description          |
-| :-------------------- | :-----------------------: |
-| [vetkoek](vetkoek)    |      React frontend       |
-| [gatsby](gatsby)      |      NextJS app           |
-| [biltong](biltong)    |      Python (django) API  |
-
+| Codebase           |     Description     |
+| :----------------- | :-----------------: |
+| [vetkoek](vetkoek) |   React frontend    |
+| [gatsby](gatsby)   |     NextJS app      |
+| [biltong](biltong) | Python (django) API |
 
 ## Branches
 
