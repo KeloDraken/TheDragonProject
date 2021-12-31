@@ -1,34 +1,41 @@
 import axios from "axios";
+
 import { useEffect, useState } from "react";
 import Masonry from "react-masonry-css";
 import { ActivityIndicator, Text, TouchableOpacity, View } from "react-native";
+
 import Navbar from "../../components/Navbar";
 import Sidebar from "../../components/Sidebar";
+
 import { styles } from "./style";
 
-const Tags = () => {
+const Tags = (): JSX.Element => {
   const [loading, setLoading] = useState<boolean>(true);
-  const [tags, setTags] = useState<Array<object>>([{}]);
   const [loadingMore, setLoadingMore] = useState<boolean>(false);
+
   const [hasNext, setHasNext] = useState<boolean>(true);
   const [start, setStart] = useState<number>(2);
+
+  const [tags, setTags] = useState<Array<object>>([{}]);
 
   const moreBtnBGColour = {
     backgroundColor: hasNext ? "#000" : "#50596b",
   };
 
-  const handleTagFetch = () => {
+  const handleTagFetch = (): void => {
     const endpoint = `http://127.0.0.1:8000/api/v1/posts/tags/list/?page=1`;
-    axios.get(endpoint).then((response) => {
+
+    axios.get(endpoint).then((response): void => {
       setTags(response.data.results);
       setLoading(false);
     });
   };
 
-  const handleFetchMore = () => {
+  const handleFetchMore = (): void => {
     setLoadingMore(true);
     const endpoint = `http://127.0.0.1:8000/api/v1/posts/tags/list/?page=${start}`;
-    axios.get(endpoint).then((response) => {
+
+    axios.get(endpoint).then((response): void => {
       if (response.data.next === null) {
         setHasNext(false);
       }
@@ -38,14 +45,14 @@ const Tags = () => {
     });
   };
 
-  const renderTags = () => {
+  const renderTags = (): JSX.Element => {
     return (
       <Masonry
         breakpointCols={3}
         className="my-masonry-grid"
         columnClassName="my-masonry-grid_column"
       >
-        {tags.map((item: any, index: number) => {
+        {tags.map((item: any, index: number): JSX.Element => {
           return (
             <View key={index} style={styles.tag}>
               <Text style={styles.tagName}>{item.name}</Text>
@@ -56,7 +63,7 @@ const Tags = () => {
     );
   };
 
-  useEffect(() => {
+  useEffect((): void => {
     handleTagFetch();
   }, []);
 

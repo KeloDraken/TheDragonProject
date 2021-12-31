@@ -1,5 +1,6 @@
 import { view } from "@risingstack/react-easy-state";
 import axios from "axios";
+
 import { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 import { Text, TouchableOpacity } from "react-native";
@@ -9,18 +10,18 @@ import MdEditor from "react-markdown-editor-lite";
 import "react-markdown-editor-lite/lib/index.css";
 
 import Navbar from "../../components/Navbar";
-import { styles } from "./style";
 import { postTags, userAuth } from "../../store";
-import AddTags from "./AddTags";
 
-const CreatePost = view(() => {
+import AddTags from "./AddTags";
+import { styles } from "./style";
+
+const CreatePost = view((): JSX.Element => {
   const [publishBtnDisabled, setPublishBtnDisabled] = useState<boolean>(true);
 
   const [title, setTitle] = useState(null);
   const [coverImage, setCoverImage] = useState<string>("");
 
   const [markdown, setMarkdown] = useState<string>("");
-
   const [addTags, setAddTags] = useState<boolean>(false);
 
   const [cookies] = useCookies();
@@ -29,7 +30,7 @@ const CreatePost = view(() => {
     backgroundColor: publishBtnDisabled ? "#4c4c4c" : "#000",
   };
 
-  useEffect(() => {
+  useEffect((): void => {
     if (!userAuth.isLoggedIn) {
       window.location.replace("/");
     }
@@ -41,7 +42,7 @@ const CreatePost = view(() => {
     }
   }, [markdown]);
 
-  const extractImageFromMarkdown = (text: any) => {
+  const extractImageFromMarkdown = (text: any): any => {
     try {
       const _coverImage = text.match(/!\[.*?\]\((.*?)\)/)[1];
       if (_coverImage !== null && _coverImage !== undefined) {
@@ -52,7 +53,7 @@ const CreatePost = view(() => {
     }
   };
 
-  const extractFirstHeadingFromMarkdown = (text: any) => {
+  const extractFirstHeadingFromMarkdown = (text: any): any => {
     try {
       const _title = text.match(/# (.*)/)[1];
       if (_title !== null && _title !== undefined) {
@@ -63,7 +64,7 @@ const CreatePost = view(() => {
     }
   };
 
-  const getPostInformation = () => {
+  const getPostInformation = (): void => {
     if (markdown.length > 100) {
       const _coverImage = extractImageFromMarkdown(markdown);
       if (_coverImage !== null) {
@@ -77,7 +78,7 @@ const CreatePost = view(() => {
     }
   };
 
-  const handlePublishPost = () => {
+  const handlePublishPost = (): void => {
     if (markdown.length > 100) {
       const _title = {
         title:
@@ -106,24 +107,24 @@ const CreatePost = view(() => {
             "Content-Type": "application/json",
           },
         })
-        .then((response) => {
+        .then((response): void => {
           if (response.status === 200) {
             postTags.tags = "";
             window.location.href = `/post/${response.data.object_id}/`;
           }
         })
-        .catch((error) => console.error(error));
+        .catch((error): void => console.error(error));
     }
   };
 
-  const handleEditorChange = ({ html, text }: any) => {
+  const handleEditorChange = ({ html, text }: any): void => {
     setMarkdown(text);
     getPostInformation();
   };
 
   const mdParser = new MarkdownIt();
 
-  const renderMarkdownForm = () => {
+  const renderMarkdownForm = (): JSX.Element => {
     return (
       <div className="flex">
         <aside className="pl-1 pr-3 overflow-y-scroll h-screen sticky top-0 w-1/4">
@@ -152,7 +153,7 @@ const CreatePost = view(() => {
       </div>
     );
   };
-  const renderAddTagsForm = () => {
+  const renderAddTagsForm = (): JSX.Element => {
     return (
       <div className="flex">
         <aside className="pl-1 pr-3 overflow-y-scroll h-screen sticky top-0 w-1/4">

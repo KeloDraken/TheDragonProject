@@ -1,7 +1,7 @@
 import { Text, View } from "react-native";
 import { styles } from "./styles";
 
-const About = () => {
+const About = (): JSX.Element => {
   return (
     <View>
       <Text style={styles.pageHeading}>About KeloDraken</Text>
@@ -11,8 +11,8 @@ const About = () => {
         networked learning. KeloDraken provides a place for that to happen.
       </Text>
       <Text style={styles.pageContent}>
-        Kelodraken is open-sourced, so feel free to check out the code
-        or contribute to the project on{" "}
+        Kelodraken is open-sourced, so feel free to check out the code or
+        contribute to the project on{" "}
         <a
           href="https://github.com/KeloDraken/KeloDrake/"
           target={"_blank"}

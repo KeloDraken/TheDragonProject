@@ -1,16 +1,18 @@
 import { Text, ImageBackground, View } from "react-native";
 import { Link } from "react-router-dom";
+
 import readingTime from "reading-time";
+
 import { styles } from "./style";
 
 interface PostProps {
   item: any;
 }
 
-const Post: React.FC<PostProps> = ({ item }) => {
+const Post: React.FC<PostProps> = ({ item }): JSX.Element => {
   const stats = readingTime(item.text);
 
-  const renderHasImage = () => {
+  const renderHasImage = (): JSX.Element => {
     return (
       <Link to={`/post/${item.object_id}/`} title={`${item.title}`}>
         <ImageBackground
@@ -30,7 +32,7 @@ const Post: React.FC<PostProps> = ({ item }) => {
     );
   };
 
-  const renderHasNoImage = () => {
+  const renderHasNoImage = (): JSX.Element => {
     return (
       <Link to={`/post/${item.object_id}/`} title={`${item.title}`}>
         <View style={styles.postItemContainerHasNoImage}>

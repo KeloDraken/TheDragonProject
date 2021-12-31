@@ -1,6 +1,6 @@
 import Routes from "./routes";
 
-const App = () => {
+const App = (): JSX.Element => {
   return <Routes />;
 };
 

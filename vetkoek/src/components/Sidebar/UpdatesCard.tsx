@@ -1,11 +1,12 @@
 import React from "react";
 import { View, Text, ActivityIndicator } from "react-native";
-import { styles } from "./style";
 import ReactTimeAgo from "react-time-ago";
 
+import TimeAgo from "javascript-time-ago";
 import za from "javascript-time-ago/locale/en-ZA.json";
 import gb from "javascript-time-ago/locale/en-GB.json";
-import TimeAgo from "javascript-time-ago";
+
+import { styles } from "./style";
 
 interface SidebarProps {
   cardTitle: string;
@@ -16,8 +17,12 @@ interface SidebarProps {
 TimeAgo.addDefaultLocale(za);
 TimeAgo.addLocale(gb);
 
-const UpdatesCard: React.FC<SidebarProps> = ({ cardTitle, posts, loading }) => {
-  const renderPost = (post: any) => {
+const UpdatesCard: React.FC<SidebarProps> = ({
+  cardTitle,
+  posts,
+  loading,
+}): JSX.Element => {
+  const renderPost = (post: any): JSX.Element => {
     return (
       <View>
         <div className="link_hover cursor-pointer px-5 py-3">
@@ -35,7 +40,7 @@ const UpdatesCard: React.FC<SidebarProps> = ({ cardTitle, posts, loading }) => {
   return (
     <View style={styles.sidebarCardContainer}>
       <Text style={styles.sidebarCardHeading}>{cardTitle}</Text>
-      {posts.map((post: any, index: number) => {
+      {posts.map((post: object, index: number): JSX.Element => {
         return <View key={index}>{renderPost(post)}</View>;
       })}
       {loading && posts.length === 0 ? (

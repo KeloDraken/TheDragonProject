@@ -1,8 +1,10 @@
 import { view } from "@risingstack/react-easy-state";
 import axios from "axios";
+
 import { ChangeEvent, useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 import { Text, View } from "react-native";
+
 import { userAuth } from "../../store";
 import { styles } from "./style";
 
@@ -10,27 +12,29 @@ interface LoginProps {
   isFlipped: boolean;
 }
 
-const Login: React.FC<LoginProps> = view(({ isFlipped }) => {
-  const [view] = useState<string>("login");
-  const [username, setUsername] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-  const [errorMessage, setErrorMessage] = useState<Array<string>>([""]);
+const Login: React.FC<LoginProps> = view(({ isFlipped }): JSX.Element => {
   const [, setIsLoading] = useState<boolean>(false);
+
+  const [errorMessage, setErrorMessage] = useState<Array<string>>([""]);
+
   const [emailEntryError, setEmailEntryError] = useState<boolean>(false);
   const [passwordEntryError, setPasswordEntryError] = useState<boolean>(false);
 
+  const [username, setUsername] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+
   const [, setCookie] = useCookies(["UIDT"]);
 
-  useEffect(() => {
+  useEffect((): void => {
     setUsername("");
     setPassword("");
     setErrorMessage([""]);
-    setIsLoading(false);
     setEmailEntryError(false);
     setPasswordEntryError(false);
+    setIsLoading(false);
   }, [isFlipped]);
 
-  const check_email = (email: string) => {
+  const check_email = (email: string): boolean => {
     let regex = /[a-zA-Z0-9_.+-]+@student.wethinkcode.co.za+/gm;
     if (regex.test(email) === false) {
       return false;
@@ -39,7 +43,7 @@ const Login: React.FC<LoginProps> = view(({ isFlipped }) => {
     }
   };
 
-  const setUserToken = (token: any) => {
+  const setUserToken = (token: any): void => {
     setCookie("UIDT", token, {
       path: "/",
       maxAge: 2628000,
@@ -47,11 +51,9 @@ const Login: React.FC<LoginProps> = view(({ isFlipped }) => {
     window.location.replace("/");
   };
 
-  const handleSubmit = () => {
-    const endpoint =
-      view === "login"
-        ? "http://127.0.0.1:8000/api/v1/users/login/"
-        : "http://127.0.0.1:8000/api/v1/users/register/";
+  const handleSubmit = (): void => {
+    const endpoint = "http://127.0.0.1:8000/api/v1/users/login/";
+
     const data = {
       username: username,
       password: password,
@@ -59,7 +61,7 @@ const Login: React.FC<LoginProps> = view(({ isFlipped }) => {
 
     axios
       .post(endpoint, data)
-      .then((response) => {
+      .then((response): void => {
         if (response.data.status_code === 422) {
           setErrorMessage([response.data.message]);
           setIsLoading(false);
@@ -70,27 +72,23 @@ const Login: React.FC<LoginProps> = view(({ isFlipped }) => {
           setUserToken(response.data.token);
         }
       })
-      // console.log(response.data)
-      .catch(() => {
-        if (view === "login") {
-          setErrorMessage(["Incorrect log in credentials"]);
-        } else {
-          setErrorMessage(["Bad request"]);
-        }
+      .catch((): void => {
+        setErrorMessage(["Incorrect log in credentials"]);
         setIsLoading(false);
       });
   };
 
-  const handleSetUsername = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleSetUsername = (event: ChangeEvent<HTMLInputElement>): void => {
     setUsername(event.target.value);
   };
 
-  const handleSetPassword = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleSetPassword = (event: ChangeEvent<HTMLInputElement>): void => {
     setPassword(event.target.value);
   };
 
-  const handleBtnPress = (event: any) => {
+  const handleBtnPress = (event: any): void => {
     event.preventDefault();
+
     if (check_email(username) === false) {
       setEmailEntryError(true);
       const newError = ["This is not a valid WTC student email address."];
@@ -125,14 +123,12 @@ const Login: React.FC<LoginProps> = view(({ isFlipped }) => {
     }
   };
 
-  const handleCardFlip = () => {
+  const handleCardFlip = (): void => {
     userAuth.authCardFlipped = false;
   };
-  const submitBtnText = view === "login" ? "Sign in" : "Join KeloDraken";
-  const pageHeadingText =
-    view === "login"
-      ? "Welcome back. Let's get you back inside"
-      : "Welcome to the KeloDraken community";
+
+  const submitBtnText = "Sign in";
+  const pageHeadingText = "Welcome back. Let's get you back inside";
 
   return (
     <View style={styles._landingContainer}>
@@ -144,7 +140,7 @@ const Login: React.FC<LoginProps> = view(({ isFlipped }) => {
         We're a community of over 300 amazing developers
       </Text>
       <form onSubmit={(event) => handleBtnPress(event)}>
-        {errorMessage.map((item: string, index: number) => {
+        {errorMessage.map((item: string, index: number): JSX.Element => {
           return (
             <Text key={index} style={styles._errorMessage}>
               {item}

@@ -1,4 +1,5 @@
 import axios from "axios";
+
 import { useEffect, useState } from "react";
 import { ActivityIndicator } from "react-native";
 import { useParams } from "react-router-dom";
@@ -7,20 +8,21 @@ import Navbar from "../../components/Navbar";
 import ViewPost from "../../components/Posts/viewPost";
 import Sidebar from "../../components/Sidebar";
 
-const PostView = () => {
-  let { id } = useParams();
-  const [post, setPost] = useState<Array<object>>([]);
+const PostView = (): JSX.Element => {
   const [loading, setLoading] = useState<boolean>(true);
+  const [post, setPost] = useState<Array<object>>([]);
 
-  const handlePostFetch = () => {
+  let { id } = useParams();
+
+  const handlePostFetch = (): void => {
     const endpoint = `http://127.0.0.1:8000/api/v1/posts/get/${id}`;
-    axios.get(endpoint).then((response) => {
+    axios.get(endpoint).then((response): void => {
       setPost(response.data.results);
       setLoading(false);
     });
   };
 
-  useEffect(() => {
+  useEffect((): void => {
     handlePostFetch();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
@@ -37,7 +39,7 @@ const PostView = () => {
             <ActivityIndicator color={"#000"} size={36} />
           </div>
         ) : (
-          post.map((item: object, index: number) => {
+          post.map((item: object, index: number): JSX.Element => {
             return <ViewPost key={index} item={item} />;
           })
         )}

@@ -1,7 +1,7 @@
 import { View, TextInput } from "react-native";
 import { styles } from "./style";
 
-const SearchForm = () => {
+const SearchForm = (): JSX.Element => {
   return (
     <View style={styles.sidebarSearchFormContainer}>
       <View style={styles.searchForm}>

@@ -5,10 +5,11 @@ import Feed from "../../components/Posts/Feed";
 import Navbar from "../../components/Navbar";
 import Sidebar from "../../components/Sidebar";
 import AuthForm from "../../components/Auth/Form";
+
 import { userAuth } from "../../store";
 import { styles } from "./styles";
 
-const HomeView = view(() => {
+const HomeView = view((): JSX.Element => {
   return (
     <div className="flex">
       <aside className="pl-1 pr-3 overflow-y-scroll h-screen sticky top-0 w-2/5">

@@ -1,13 +1,17 @@
 import { view } from "@risingstack/react-easy-state";
+
 import { useCookies } from "react-cookie";
 import { View, Text } from "react-native";
 import { Link } from "react-router-dom";
+
 import { userAuth } from "../../store";
+
 import Logo from "./Logo";
 import { styles } from "./style";
 
-const Navbar = view(() => {
+const Navbar = view((): JSX.Element => {
   const [cookies] = useCookies();
+  
   let object_id = cookies.UOID;
 
   return (

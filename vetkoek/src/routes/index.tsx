@@ -15,7 +15,7 @@ const PostView = lazy(() => import("../views/Post"));
 const Profile = lazy(() => import("../views/Profile"));
 const Tags = lazy(() => import("../views/Tags"));
 
-const Routes = () => {
+const Routes = (): JSX.Element => {
   return (
     <Suspense fallback={<LoadingView />}>
       <Router>
@@ -30,6 +30,6 @@ const Routes = () => {
       </Router>
     </Suspense>
   );
-}
+};
 
 export default Routes;

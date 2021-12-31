@@ -1,12 +1,14 @@
 import { view } from "@risingstack/react-easy-state";
+
 import ReactCardFlip from "react-card-flip";
 import { View } from "react-native";
+
 import { userAuth } from "../../store";
 
 import Login from "./Login";
 import Register from "./Register";
 
-const AuthForm = view(() => {
+const AuthForm = view((): JSX.Element => {
   return (
     <ReactCardFlip
       isFlipped={userAuth.authCardFlipped}

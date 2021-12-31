@@ -2,7 +2,7 @@ import About from "../../components/About";
 import Navbar from "../../components/Navbar";
 import Sidebar from "../../components/Sidebar";
 
-const AboutView = () => {
+const AboutView = (): JSX.Element => {
   return (
     <div className="flex">
       <aside className="pl-1 pr-3 overflow-y-scroll h-screen sticky top-0 w-2/5">

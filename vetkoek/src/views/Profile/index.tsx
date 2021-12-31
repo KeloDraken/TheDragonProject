@@ -1,9 +1,10 @@
 import { View } from "react-native";
 import { useParams } from "react-router-dom";
+
 import Navbar from "../../components/Navbar";
 import Sidebar from "../../components/Sidebar";
 
-const Profile = () => {
+const Profile = (): JSX.Element => {
   let { username } = useParams();
 
   return (
