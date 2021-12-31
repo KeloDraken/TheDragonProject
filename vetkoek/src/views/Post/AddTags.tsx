@@ -1,16 +1,19 @@
 import { view } from "@risingstack/react-easy-state";
+
 import { useState } from "react";
 import { TextInput, View } from "react-native";
+
 import { postTags } from "../../store";
 import { styles } from "./style";
 
-const AddTags = view(() => {
+const AddTags = view((): JSX.Element => {
   const [tags, setTags] = useState<string>("");
 
-  const handleTags = (text: string) => {
+  const handleTags = (text: string): void => {
     setTags(text);
     postTags.tags = tags;
   };
+
   return (
     <div className="w-full text-center justify-center mx-auto px-44">
       <h1 className="text-2xl text-center mt-16 mb-5 text-black font-bold">
@@ -36,9 +39,6 @@ const AddTags = view(() => {
             autoComplete="off"
             onChangeText={(tags) => handleTags(tags)}
           />
-          {/* <TouchableOpacity onPress={handleTags} style={styles.setTagsBtn}>
-            <Text style={styles.setTagsBtnText}>Set tags</Text>
-          </TouchableOpacity> */}
         </View>
       </div>
     </div>

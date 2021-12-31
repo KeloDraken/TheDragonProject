@@ -40,6 +40,7 @@ const LoadingView = view((): JSX.Element => {
 
   useEffect((): void => {
     let token = cookies.UIDT;
+
     if (token !== null && token !== undefined) {
       userAuth.isLoggedIn = true;
       const userObjectID = cookies.UOID;
@@ -49,7 +50,6 @@ const LoadingView = view((): JSX.Element => {
     } else {
       userAuth.isLoggedIn = false;
     }
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cookies.UIDT, cookies.UOID]);
 
@@ -58,7 +58,6 @@ const LoadingView = view((): JSX.Element => {
       <View>
         <Text style={styles._logoText}>kelodraken</Text>
         <ActivityIndicator color={"#000"} size={30} />
-        {/* <Text>Ett projekt av Samkelo Drackner</Text> */}
       </View>
     </View>
   );
