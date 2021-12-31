@@ -24,7 +24,7 @@ const About = (): JSX.Element => {
         . I hope you enjoy poking around and participating!
       </Text>
       <Text style={styles.pageContent}>
-        I have an open door policy. If you discover a bug, want a feature added,
+        If you discover a bug, want a feature added,
         or just want to share any feedback, please feel free to DM me on{" "}
         <a
           href="https://instagram.com/KeloDraken/"
