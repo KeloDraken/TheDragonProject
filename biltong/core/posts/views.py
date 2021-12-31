@@ -3,16 +3,24 @@ from rest_framework.generics import CreateAPIView, ListAPIView
 from rest_framework.response import Response
 
 from core.posts.models import Post, Tag
-from core.posts.serialisers import PostCreateSerialiser, PostListSerialiser, TagListSerialiser
+from core.posts.serialisers import (
+    PostCreateSerialiser,
+    PostListSerialiser,
+    TagListSerialiser,
+)
 
 
 class PostListAPIView(ListAPIView):
     serializer_class = PostListSerialiser
 
     def get_queryset(self):
-        return Post.objects.exclude(
-            title="Author was too 'cool' to follow markdown guidelines 🙄"
-        ).order_by("-datetime_created")
+        return (
+            Post.objects.exclude(
+                title="Author was too 'cool' to follow markdown guidelines 🙄"
+            )
+            .exclude(title="Code of Conduct")
+            .order_by("-datetime_created")
+        )
 
 
 posts_list = PostListAPIView.as_view()
@@ -22,11 +30,9 @@ class RecommendedPostsListAPIView(ListAPIView):
     serializer_class = PostListSerialiser
 
     def get_queryset(self):
-        return (
-            Post.objects.all()
-            .exclude(title="Author was too 'cool' to follow markdown guidelines 🙄")
-            .order_by("?")[:3]
-        )
+        return Post.objects.exclude(
+            title="Author was too 'cool' to follow markdown guidelines 🙄"
+        ).exclude(title="Code of Conduct")[:3]
 
 
 recommended_posts_list = RecommendedPostsListAPIView.as_view()
@@ -73,6 +79,7 @@ class CreatePostAPIView(CreateAPIView):
 
 
 create_post = CreatePostAPIView.as_view()
+
 
 class TagListAPIView(ListAPIView):
     serializer_class = TagListSerialiser

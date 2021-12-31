@@ -8,9 +8,9 @@ const Footer = () => {
       <View style={styles.footerContainer}>
         <Link
           className="mr-3 text-gray-500 text-sm hover:underline"
-          to="/rules"
+          to="/post/FtWdvqZF3Ux3qTT/"
         >
-          Rules
+          Code of Conduct
         </Link>
         <Link
           className="mr-3 text-gray-500 text-sm hover:underline"
