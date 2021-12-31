@@ -1,8 +1,11 @@
 import React from "react";
 import { View, Text, ActivityIndicator } from "react-native";
 import { styles } from "./style";
-import { Link } from "react-router-dom";
-import readingTime from "reading-time";
+import ReactTimeAgo from "react-time-ago";
+
+import za from "javascript-time-ago/locale/en-ZA.json";
+import gb from "javascript-time-ago/locale/en-GB.json";
+import TimeAgo from "javascript-time-ago";
 
 interface SidebarProps {
   cardTitle: string;
@@ -10,22 +13,21 @@ interface SidebarProps {
   loading: boolean;
 }
 
-const SidebarCard: React.FC<SidebarProps> = ({ cardTitle, posts, loading }) => {
-  const renderPost = (post: any) => {
-    const stats = readingTime(post.text).text;
+TimeAgo.addDefaultLocale(za);
+TimeAgo.addLocale(gb);
 
+const UpdatesCard: React.FC<SidebarProps> = ({ cardTitle, posts, loading }) => {
+  const renderPost = (post: any) => {
     return (
       <View>
-        <Link to={`/post/${post.object_id}`} className="link_hover px-5 py-3">
-          {post.text ? (
-            <View>
-              <Text style={styles.sidebarLinkInfo}>{stats}</Text>
-            </View>
-          ) : null}
+        <div className="link_hover cursor-pointer px-5 py-3">
+          <Text style={styles.sidebarLinkInfo}>
+            <ReactTimeAgo date={Date.parse(post.datetime_created)} />
+          </Text>
           <View>
             <Text style={styles.sidebarLinkTitle}>{post.title}</Text>
           </View>
-        </Link>
+        </div>
       </View>
     );
   };
@@ -44,4 +46,4 @@ const SidebarCard: React.FC<SidebarProps> = ({ cardTitle, posts, loading }) => {
     </View>
   );
 };
-export default SidebarCard;
+export default UpdatesCard;

@@ -7,25 +7,41 @@ import Footer from "./Footer";
 import SearchForm from "./SearchForm";
 import SidebarCard from "./SidebarCard";
 
-import { recommendedPostsList } from "../../store";
+import { recommendedPostsList, updatesList } from "../../store";
+import UpdatesCard from "./UpdatesCard";
 
 const Sidebar = view(() => {
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loadingRecommended, setRecommendedLoading] = useState<boolean>(true);
+  const [loadingUpdates, setUpdatesLoading] = useState<boolean>(true);
 
   const handleGetRecommended = () => {
     const endpoint = "http://127.0.0.1:8000/api/v1/posts/get/recommended/";
 
     axios.get(endpoint).then((response) => {
       recommendedPostsList.data = response.data.results;
-      setLoading(false);
+      setRecommendedLoading(false);
+    });
+  };
+
+  const handleGetUpdates = () => {
+    const endpoint = "http://127.0.0.1:8000/api/v1/core/updates/";
+
+    axios.get(endpoint).then((response) => {
+      updatesList.data = response.data.results;
+      setUpdatesLoading(false);
     });
   };
 
   useEffect(() => {
-    if (recommendedPostsList.data.length === 0) {
+    if (
+      recommendedPostsList.data.length === 0 ||
+      updatesList.data.length === 0
+    ) {
       handleGetRecommended();
+      handleGetUpdates();
     } else {
-      setLoading(false);
+      setRecommendedLoading(false);
+      setUpdatesLoading(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -34,13 +50,13 @@ const Sidebar = view(() => {
     <View>
       <SearchForm />
       <SidebarCard
-        loading={loading}
+        loading={loadingRecommended}
         posts={recommendedPostsList.data}
         cardTitle="Trending now"
       />
-      <SidebarCard
-        loading={loading}
-        posts={recommendedPostsList.data}
+      <UpdatesCard
+        loading={loadingUpdates}
+        posts={updatesList.data}
         cardTitle="kelodraken updates"
       />
       <Footer />

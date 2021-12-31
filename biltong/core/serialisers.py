@@ -7,6 +7,6 @@ class UpdateListSerialiser(serializers.ModelSerializer):
         model = Update
         fields = (
             "object_id",
-            "content",
+            "title",
             "datetime_created",
         )
