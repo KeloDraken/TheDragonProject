@@ -4,7 +4,7 @@ import string
 from django.db.models.base import Model
 
 
-def object_id_generator(size, model, chars=string.ascii_letters + string.digits):
+def object_id_generator(size, model, chars=string.ascii_letters + string.digits) -> str:
     """
     Generates and returns base64 call id
     """
@@ -12,7 +12,7 @@ def object_id_generator(size, model, chars=string.ascii_letters + string.digits)
     return check_object_id_exists(object_id=object_id, model=model)
 
 
-def check_object_id_exists(object_id: str, model: Model):
+def check_object_id_exists(object_id: str, model: Model) -> str:
     """
     Checks if call id exists. Generates and returns new call id if exists
     """
@@ -21,4 +21,6 @@ def check_object_id_exists(object_id: str, model: Model):
         new_object_id = object_id_generator()
         check_object_id_exists(object_id=new_object_id, model=model)
     except model.DoesNotExist:
+        return object_id
+    except:
         return object_id

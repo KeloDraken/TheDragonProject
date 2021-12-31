@@ -15,7 +15,7 @@ def epoch_seconds(date) -> float:
     return td.days * 86400 + td.seconds + (float(td.microseconds) / 1000000)
 
 
-def score(ups: int, downs: int):
+def score(ups: int, downs: int) -> int:
     """
     Sums upvotes and downvotes
     """

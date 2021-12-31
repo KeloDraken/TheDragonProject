@@ -64,6 +64,7 @@ class CreateUserAPIView(APIView):
                 "message": "This is not a valid WTC student email address.",
             }
             return Response(data=data, status=status.HTTP_200_OK)
+
         data = {"status_code": 400, "message": serialiser.errors}
         print(serialiser.errors)
         return Response(data=data, status=status.HTTP_400_BAD_REQUEST)
@@ -73,7 +74,7 @@ user_registration = CreateUserAPIView.as_view()
 
 
 class GetUserObjectID(APIView):
-    def get(self, request: HttpRequest, format=None):
+    def get(self, request: HttpRequest):
         if not request.user.is_authenticated:
             data = {"status_code": 403, "message": "User logged out"}
             return Response(data=data, status=status.HTTP_200_OK)
