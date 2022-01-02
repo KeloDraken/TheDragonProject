@@ -24,7 +24,7 @@ const Feed = (): JSX.Element => {
   const handleFetchMore = (): void => {
     setLoadingMore(true);
 
-    const endpoint: string = `http://127.0.0.1:8000/api/v1/posts/list/?page=${start}`;
+    const endpoint: string = `http://api.localhost:8000/v1/posts/list/?page=${start}`;
 
     axios.get(endpoint).then((response): void => {
       const newPostList = postsList.concat(response.data.results);
@@ -42,7 +42,7 @@ const Feed = (): JSX.Element => {
   }, []);
 
   const handlePostFetch = (): void => {
-    const endpoint: string = "http://127.0.0.1:8000/api/v1/posts/list/?page=1";
+    const endpoint: string = "http://api.localhost:8000/v1/posts/list/?page=1";
 
     axios.get(endpoint).then((response): void => {
       setPosts(response.data.results);

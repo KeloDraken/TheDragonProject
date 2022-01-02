@@ -52,7 +52,7 @@ const Login: React.FC<LoginProps> = view(({ isFlipped }): JSX.Element => {
   };
 
   const handleSubmit = (): void => {
-    const endpoint: string = "http://127.0.0.1:8000/api/v1/users/login/";
+    const endpoint: string = "http://api.localhost:8000/v1/users/login/";
 
     const data: object = {
       username: username,

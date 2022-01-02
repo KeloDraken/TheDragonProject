@@ -18,7 +18,7 @@ const Sidebar = view((): JSX.Element => {
 
   const handleGetRecommended = (): void => {
     const endpoint: string =
-      "http://127.0.0.1:8000/api/v1/posts/get/recommended/";
+      "http://api.localhost:8000/v1/posts/get/recommended/";
 
     axios.get(endpoint).then((response): void => {
       recommendedPostsList.data = response.data.results;
@@ -27,7 +27,7 @@ const Sidebar = view((): JSX.Element => {
   };
 
   const handleGetUpdates = (): void => {
-    const endpoint: string = "http://127.0.0.1:8000/api/v1/core/updates/";
+    const endpoint: string = "http://api.localhost:8000/v1/core/updates/";
 
     axios.get(endpoint).then((response): void => {
       updatesList.data = response.data.results;
