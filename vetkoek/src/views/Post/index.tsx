@@ -24,6 +24,11 @@ const PostView = (): JSX.Element => {
   };
 
   useEffect((): void => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
     handlePostFetch();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);

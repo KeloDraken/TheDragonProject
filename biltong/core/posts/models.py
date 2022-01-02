@@ -20,7 +20,7 @@ class Post(models.Model):
     title = models.CharField(
         max_length=140,
         null=False,
-        blank=False,
+        blank=True,
         default="Author was too 'cool' to follow markdown guidelines 🙄",
     )
     cover_image = models.CharField(max_length=2000, null=True, blank=True)

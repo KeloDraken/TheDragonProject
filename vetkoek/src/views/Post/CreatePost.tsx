@@ -99,7 +99,7 @@ const CreatePost = view((): JSX.Element => {
     if (markdown.length > 100) {
       const _title: object = {
         title:
-          title !== null && title !== undefined
+          title !== null && title !== undefined && title !== ""
             ? title
             : "Author was too 'cool' to follow markdown guidelines 🙄",
       };
