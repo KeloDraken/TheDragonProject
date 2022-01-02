@@ -11,8 +11,8 @@ import { styles } from "./style";
 
 const Navbar = view((): JSX.Element => {
   const [cookies] = useCookies();
-  
-  let object_id = cookies.UOID;
+
+  let object_id: string = cookies.UOID;
 
   return (
     <View>

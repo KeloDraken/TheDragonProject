@@ -23,7 +23,7 @@ const Tags = (): JSX.Element => {
   };
 
   const handleTagFetch = (): void => {
-    const endpoint = `http://127.0.0.1:8000/api/v1/posts/tags/list/?page=1`;
+    const endpoint: string = `http://127.0.0.1:8000/api/v1/posts/tags/list/?page=1`;
 
     axios.get(endpoint).then((response): void => {
       setTags(response.data.results);
@@ -33,7 +33,7 @@ const Tags = (): JSX.Element => {
 
   const handleFetchMore = (): void => {
     setLoadingMore(true);
-    const endpoint = `http://127.0.0.1:8000/api/v1/posts/tags/list/?page=${start}`;
+    const endpoint: string = `http://127.0.0.1:8000/api/v1/posts/tags/list/?page=${start}`;
 
     axios.get(endpoint).then((response): void => {
       if (response.data.next === null) {

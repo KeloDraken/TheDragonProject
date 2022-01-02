@@ -23,7 +23,7 @@ const LoadingView = view((): JSX.Element => {
   };
 
   const getUserID = (token: string): void => {
-    const endpoint = "http://127.0.0.1:8000/api/v1/users/object_id/";
+    const endpoint: string = "http://127.0.0.1:8000/api/v1/users/object_id/";
     axios
       .get(endpoint, {
         headers: {
@@ -32,18 +32,18 @@ const LoadingView = view((): JSX.Element => {
       })
       .then((response): void => {
         console.log(response.data);
-        const object_id = response.data.object_id;
-        const username = response.data.username;
+        const object_id: string = response.data.object_id;
+        const username: string = response.data.username;
         setUserObjectID(object_id, username);
       });
   };
 
   useEffect((): void => {
-    let token = cookies.UIDT;
+    let token: string = cookies.UIDT;
 
     if (token !== null && token !== undefined) {
       userAuth.isLoggedIn = true;
-      const userObjectID = cookies.UOID;
+      const userObjectID: string = cookies.UOID;
       if (userObjectID === null || userObjectID === undefined) {
         getUserID(token);
       }

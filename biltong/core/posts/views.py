@@ -18,7 +18,9 @@ class PostListAPIView(ListAPIView):
             Post.objects.exclude(
                 title="Author was too 'cool' to follow markdown guidelines 🙄"
             )
-            .exclude(title="Code of Conduct")
+            .exclude(
+                title="Code of Conduct"
+            )  # TODO: exclude by object_id instead of title
             .order_by("-datetime_created")
         )
 

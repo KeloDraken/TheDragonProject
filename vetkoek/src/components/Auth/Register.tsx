@@ -52,8 +52,8 @@ const Register: React.FC<RegisterProps> = view(({ isFlipped }): JSX.Element => {
   };
 
   const handleSubmit = (): void => {
-    const endpoint = "http://127.0.0.1:8000/api/v1/users/register/";
-    const data = {
+    const endpoint: string = "http://127.0.0.1:8000/api/v1/users/register/";
+    const data: object = {
       username: username,
       password: password,
     };
@@ -90,11 +90,13 @@ const Register: React.FC<RegisterProps> = view(({ isFlipped }): JSX.Element => {
 
     if (check_email(username) === false) {
       setEmailEntryError(true);
-      const newError = ["This is not a valid WTC student email address."];
+      const newError: string[] = [
+        "This is not a valid WTC student email address.",
+      ];
       setErrorMessage(newError);
     } else if (password.length < 8) {
       setPasswordEntryError(true);
-      const newError = [
+      const newError: string[] = [
         "This password is too short. Passwords need to be at least 8 characters long.",
       ];
       setErrorMessage(newError);
@@ -104,7 +106,7 @@ const Register: React.FC<RegisterProps> = view(({ isFlipped }): JSX.Element => {
       password === undefined
     ) {
       setPasswordEntryError(true);
-      const newError = ["Please enter a password."];
+      const newError: string[] = ["Please enter a password."];
       setErrorMessage(newError);
     } else {
       setEmailEntryError(false);
@@ -126,8 +128,8 @@ const Register: React.FC<RegisterProps> = view(({ isFlipped }): JSX.Element => {
     userAuth.authCardFlipped = true;
   };
 
-  const submitBtnText = "Join KeloDraken";
-  const pageHeadingText = "Welcome to the KeloDraken community";
+  const submitBtnText: string = "Join KeloDraken";
+  const pageHeadingText: string = "Welcome to the KeloDraken community";
 
   return (
     <View style={styles.landingContainer}>

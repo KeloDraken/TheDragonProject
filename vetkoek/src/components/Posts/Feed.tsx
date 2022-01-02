@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Masonry from "react-masonry-css";
 import { ActivityIndicator, Text, TouchableOpacity, View } from "react-native";
 
@@ -16,14 +16,14 @@ const Feed = (): JSX.Element => {
 
   const [postsList, setPosts] = useState<Array<object>>([]);
 
-  const moreBtnBGColour = {
+  const moreBtnBGColour: object = {
     backgroundColor: hasNext ? "#000" : "#50596b",
   };
 
   const handleFetchMore = (): void => {
     setLoadingMore(true);
 
-    const endpoint = `http://127.0.0.1:8000/api/v1/posts/list/?page=${start}`;
+    const endpoint: string = `http://127.0.0.1:8000/api/v1/posts/list/?page=${start}`;
 
     axios.get(endpoint).then((response): void => {
       const newPostList = postsList.concat(response.data.results);
@@ -41,7 +41,7 @@ const Feed = (): JSX.Element => {
   }, []);
 
   const handlePostFetch = (): void => {
-    const endpoint = "http://127.0.0.1:8000/api/v1/posts/list/?page=1";
+    const endpoint: string = "http://127.0.0.1:8000/api/v1/posts/list/?page=1";
 
     axios.get(endpoint).then((response): void => {
       setPosts(response.data.results);
@@ -58,9 +58,9 @@ const Feed = (): JSX.Element => {
       >
         {postsList.map((item: object, index: number): JSX.Element => {
           return (
-            <View key={index}>
+            <div className="postCard" key={index}>
               <Post item={item} />
-            </View>
+            </div>
           );
         })}
       </Masonry>

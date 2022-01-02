@@ -18,7 +18,7 @@ import { styles } from "./style";
 const CreatePost = view((): JSX.Element => {
   const [publishBtnDisabled, setPublishBtnDisabled] = useState<boolean>(true);
 
-  const [title, setTitle] = useState(null);
+  const [title, setTitle] = useState<string>("");
   const [coverImage, setCoverImage] = useState<string>("");
 
   const [markdown, setMarkdown] = useState<string>("");
@@ -42,37 +42,39 @@ const CreatePost = view((): JSX.Element => {
     }
   }, [markdown]);
 
-  const extractImageFromMarkdown = (text: any): any => {
+  const extractImageFromMarkdown = (text: any): string => {
     try {
-      const _coverImage = text.match(/!\[.*?\]\((.*?)\)/)[1];
+      const _coverImage: string = text.match(/!\[.*?\]\((.*?)\)/)[1];
       if (_coverImage !== null && _coverImage !== undefined) {
         return _coverImage;
       }
+      return "";
     } catch {
-      return null;
+      return "";
     }
   };
 
   const extractFirstHeadingFromMarkdown = (text: any): any => {
     try {
-      const _title = text.match(/# (.*)/)[1];
+      const _title: string = text.match(/# (.*)/)[1];
       if (_title !== null && _title !== undefined) {
         return _title;
       }
+      return "";
     } catch {
-      return null;
+      return "";
     }
   };
 
   const getPostInformation = (): void => {
     if (markdown.length > 100) {
-      const _coverImage = extractImageFromMarkdown(markdown);
-      if (_coverImage !== null) {
+      const _coverImage: string = extractImageFromMarkdown(markdown);
+      if (_coverImage !== "") {
         setCoverImage(_coverImage);
       }
 
-      const _title = extractFirstHeadingFromMarkdown(markdown);
-      if (_title !== null) {
+      const _title: string = extractFirstHeadingFromMarkdown(markdown);
+      if (_title !== "") {
         setTitle(_title);
       }
     }
@@ -80,30 +82,28 @@ const CreatePost = view((): JSX.Element => {
 
   const handlePublishPost = (): void => {
     if (markdown.length > 100) {
-      const _title = {
+      const _title: object = {
         title:
           title !== null && title !== undefined
             ? title
             : "Author was too 'cool' to follow markdown guidelines 🙄",
       };
-      const _data = {
+      const _data: object = {
         text: markdown,
         cover_image: coverImage,
         tags: postTags.tags,
       };
 
-      const data = {
+      const data: object = {
         ..._data,
         ..._title,
       };
-      const endpoint = "http://127.0.0.1:8000/api/v1/posts/create/";
-
-      let token = `Bearer ${cookies.UIDT}`;
+      const endpoint: string = "http://127.0.0.1:8000/api/v1/posts/create/";
 
       axios
         .post(endpoint, data, {
           headers: {
-            Authorization: token,
+            Authorization: `Bearer ${cookies.UIDT}`,
             "Content-Type": "application/json",
           },
         })
