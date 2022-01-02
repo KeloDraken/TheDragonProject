@@ -88,13 +88,14 @@ const CreatePost = view((): JSX.Element => {
   const tagsToString = (): string => {
     if (tags.length !== 0 && tags !== null && tags !== undefined) {
       const tag_list: string[] = [];
-      tags.forEach(function (value, i) {
+      tags.forEach((value, i) => {
         tag_list.push(value.text);
       });
       return tag_list.join(", ");
     }
     return "";
   };
+
   const handlePublishPost = (): void => {
     if (markdown.length > 100) {
       const _title: object = {
@@ -181,7 +182,7 @@ const CreatePost = view((): JSX.Element => {
     setTags(tags.filter((tag, index) => index !== i));
   };
 
-  const handleAddition = (tag: any) => {
+  const handleAddition = (tag: Tag) => {
     setTags([...tags, tag]);
   };
   const renderAddTagsForm = (): JSX.Element => {
