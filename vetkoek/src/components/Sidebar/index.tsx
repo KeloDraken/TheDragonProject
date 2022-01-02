@@ -60,7 +60,7 @@ const Sidebar = view((): JSX.Element => {
       <UpdatesCard
         loading={loadingUpdates}
         posts={updatesList.data}
-        cardTitle="kelodraken updates"
+        cardTitle="dukesoul updates"
       />
       <Footer />
     </View>

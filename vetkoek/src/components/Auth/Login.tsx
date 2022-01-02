@@ -135,7 +135,7 @@ const Login: React.FC<LoginProps> = view(({ isFlipped }): JSX.Element => {
   return (
     <View style={styles._landingContainer}>
       <View style={styles.header}>
-        <Text style={styles._logoText}>kelodraken</Text>
+        <Text style={styles._logoText}>dukesoul</Text>
       </View>
       <Text style={styles._heroText}>{pageHeadingText}</Text>
       <Text style={styles._heroSubText}>

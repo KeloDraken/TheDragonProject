@@ -128,13 +128,13 @@ const Register: React.FC<RegisterProps> = view(({ isFlipped }): JSX.Element => {
     userAuth.authCardFlipped = true;
   };
 
-  const submitBtnText: string = "Join KeloDraken";
-  const pageHeadingText: string = "Welcome to the KeloDraken community";
+  const submitBtnText: string = "Join dukesoul";
+  const pageHeadingText: string = "Welcome to the dukesoul community";
 
   return (
     <View style={styles.landingContainer}>
       <View style={styles.header}>
-        <Text style={styles.logoText}>kelodraken</Text>
+        <Text style={styles.logoText}>dukesoul</Text>
       </View>
       <Text style={styles.heroText}>{pageHeadingText}</Text>
       <Text style={styles.heroSubText}>
