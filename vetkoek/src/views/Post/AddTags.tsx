@@ -1,18 +1,23 @@
 import { view } from "@risingstack/react-easy-state";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { TextInput, View } from "react-native";
-
 import { postTags } from "../../store";
+
 import { styles } from "./style";
 
 const AddTags = view((): JSX.Element => {
   const [tags, setTags] = useState<string>("");
 
   const handleTags = (text: string): void => {
-    setTags(text);
-    postTags.tags = tags;
+    postTags.tags = text;
+    console.log("ran handle tags");
   };
+
+  useEffect(() => {
+    return handleTags(tags);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="w-full text-center justify-center mx-auto px-44">
@@ -21,7 +26,7 @@ const AddTags = view((): JSX.Element => {
       </h1>
       <small className="text-black">
         <span className="font-bold">your tags: </span>
-        {postTags.tags.replaceAll(",", " ")}
+        {tags.replaceAll(",", " ")}
       </small>
       <div className="flex justify-center mt-4 mb-10">
         <View style={styles.searchForm}>
@@ -37,7 +42,7 @@ const AddTags = view((): JSX.Element => {
             autoCapitalize="none"
             autoCorrect={false}
             autoComplete="off"
-            onChangeText={(tags) => handleTags(tags)}
+            onChangeText={(tags) => setTags(tags)}
           />
         </View>
       </div>

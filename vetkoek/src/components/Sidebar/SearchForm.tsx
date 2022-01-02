@@ -17,6 +17,7 @@ const SearchForm = (): JSX.Element => {
       /**
        * cancel old saved debounced functions
        */
+      if (text.length === 0) return;
       if (debouncedFunction && debouncedFunction.cancel)
         debouncedFunction.cancel();
 

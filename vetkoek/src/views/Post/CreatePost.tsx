@@ -4,6 +4,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 import { Text, TouchableOpacity } from "react-native";
+import { WithContext as ReactTags } from "react-tag-input";
 
 import MarkdownIt from "markdown-it";
 import MdEditor from "react-markdown-editor-lite";
@@ -12,8 +13,12 @@ import "react-markdown-editor-lite/lib/index.css";
 import Navbar from "../../components/Navbar";
 import { postTags, userAuth } from "../../store";
 
-import AddTags from "./AddTags";
 import { styles } from "./style";
+
+interface Tag {
+  id: string;
+  text: string;
+}
 
 const CreatePost = view((): JSX.Element => {
   const [publishBtnDisabled, setPublishBtnDisabled] = useState<boolean>(true);
@@ -23,6 +28,7 @@ const CreatePost = view((): JSX.Element => {
 
   const [markdown, setMarkdown] = useState<string>("");
   const [addTags, setAddTags] = useState<boolean>(false);
+  const [tags, setTags] = useState<Array<Tag>>([]);
 
   const [cookies] = useCookies();
 
@@ -79,7 +85,16 @@ const CreatePost = view((): JSX.Element => {
       }
     }
   };
-
+  const tagsToString = (): string => {
+    if (tags.length !== 0 && tags !== null && tags !== undefined) {
+      const tag_list: string[] = [];
+      tags.forEach(function (value, i) {
+        tag_list.push(value.text);
+      });
+      return tag_list.join(", ");
+    }
+    return "";
+  };
   const handlePublishPost = (): void => {
     if (markdown.length > 100) {
       const _title: object = {
@@ -92,7 +107,7 @@ const CreatePost = view((): JSX.Element => {
       const _data: object = {
         text: markdown,
         cover_image: coverImage,
-        tags: postTags.tags,
+        tags: tagsToString(),
       };
 
       const data: object = {
@@ -161,6 +176,14 @@ const CreatePost = view((): JSX.Element => {
       </div>
     );
   };
+
+  const handleDelete = (i: any) => {
+    setTags(tags.filter((tag, index) => index !== i));
+  };
+
+  const handleAddition = (tag: any) => {
+    setTags([...tags, tag]);
+  };
   const renderAddTagsForm = (): JSX.Element => {
     return (
       <div className="flex">
@@ -168,7 +191,7 @@ const CreatePost = view((): JSX.Element => {
           <Navbar />
         </aside>
         <main className="w-full overflow-y-scroll h-screen sticky border-l border-gray-300 top-0">
-          <div className="sticky top-0 flex justify-between py-2 px-3">
+          <div className="sticky top-0 flex mb-20 justify-between py-2 px-3">
             <h1 className="hidden text-black lg:block xl:block 2xl:block font-bold text-3xl">
               Add tags so that people can find your post more easily...
             </h1>
@@ -180,7 +203,19 @@ const CreatePost = view((): JSX.Element => {
               <Text style={styles.loadMoreBtnText}>publish</Text>
             </TouchableOpacity>
           </div>
-          <AddTags />
+          <div className="flex mx-32 justify-center">
+            <ReactTags
+              tags={tags}
+              handleDelete={handleDelete}
+              handleAddition={handleAddition}
+              maxLength={100}
+              classNames={{
+                tag: "bg-gray-300 mx-1 my-4 rounded font-bold text-lg text-black p-1",
+                tagInputField:
+                  "w-full placeholder-black text-2xl px-8 py-4 text-black mt-3 rounded bg-gray-200",
+              }}
+            />
+          </div>
         </main>
       </div>
     );
