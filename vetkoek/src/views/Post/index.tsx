@@ -7,10 +7,11 @@ import { useParams } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import ViewPost from "../../components/Posts/viewPost";
 import Sidebar from "../../components/Sidebar";
+import { PostObject } from "../../types";
 
 const PostView = (): JSX.Element => {
   const [loading, setLoading] = useState<boolean>(true);
-  const [post, setPost] = useState<Array<object>>([]);
+  const [post, setPost] = useState<Array<PostObject>>([]);
 
   let { id } = useParams();
 
@@ -39,7 +40,7 @@ const PostView = (): JSX.Element => {
             <ActivityIndicator color={"#000"} size={36} />
           </div>
         ) : (
-          post.map((item: object, index: number): JSX.Element => {
+          post.map((item: PostObject, index: number): JSX.Element => {
             return <ViewPost key={index} item={item} />;
           })
         )}

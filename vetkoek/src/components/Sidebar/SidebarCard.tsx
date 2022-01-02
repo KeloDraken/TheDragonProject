@@ -3,12 +3,13 @@ import { View, Text, ActivityIndicator } from "react-native";
 import { Link } from "react-router-dom";
 
 import readingTime from "reading-time";
+import { PostObject } from "../../types";
 
 import { styles } from "./style";
 
 interface SidebarProps {
   cardTitle: string;
-  posts: Array<object>;
+  posts: Array<PostObject>;
   loading: boolean;
 }
 
@@ -17,8 +18,8 @@ const SidebarCard: React.FC<SidebarProps> = ({
   posts,
   loading,
 }): JSX.Element => {
-  const renderPost = (post: any): JSX.Element => {
-    const stats = readingTime(post.text).text;
+  const renderPost = (post: PostObject): JSX.Element => {
+    const stats: string = readingTime(post.text).text;
 
     return (
       <View>
@@ -39,7 +40,7 @@ const SidebarCard: React.FC<SidebarProps> = ({
   return (
     <View style={styles.sidebarCardContainer}>
       <Text style={styles.sidebarCardHeading}>{cardTitle}</Text>
-      {posts.map((post: object, index: number): JSX.Element => {
+      {posts.map((post: PostObject, index: number): JSX.Element => {
         return <View key={index}>{renderPost(post)}</View>;
       })}
       {loading && posts.length === 0 ? (

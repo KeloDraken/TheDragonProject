@@ -12,12 +12,13 @@ import gb from "javascript-time-ago/locale/en-GB.json";
 import TimeAgo from "javascript-time-ago";
 
 import { styles } from "./style";
+import { PostObject } from "../../types";
 
 TimeAgo.addDefaultLocale(za);
 TimeAgo.addLocale(gb);
 
 interface ViewPostProps {
-  item: any;
+  item: PostObject;
 }
 
 const ViewPost: React.FC<ViewPostProps> = ({ item }): JSX.Element => {

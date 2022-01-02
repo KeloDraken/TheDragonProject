@@ -2,11 +2,12 @@ import { Text, ImageBackground, View } from "react-native";
 import { Link } from "react-router-dom";
 
 import readingTime from "reading-time";
+import { PostObject } from "../../types";
 
 import { styles } from "./style";
 
 interface PostProps {
-  item: any;
+  item: PostObject;
 }
 
 const Post: React.FC<PostProps> = ({ item }): JSX.Element => {

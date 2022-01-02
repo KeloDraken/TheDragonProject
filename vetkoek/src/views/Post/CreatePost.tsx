@@ -26,7 +26,7 @@ const CreatePost = view((): JSX.Element => {
 
   const [cookies] = useCookies();
 
-  const publishBtnBGColour = {
+  const publishBtnBGColour: object = {
     backgroundColor: publishBtnDisabled ? "#4c4c4c" : "#000",
   };
 
@@ -42,9 +42,9 @@ const CreatePost = view((): JSX.Element => {
     }
   }, [markdown]);
 
-  const extractImageFromMarkdown = (text: any): string => {
+  const extractImageFromMarkdown = (text: string): string => {
     try {
-      const _coverImage: string = text.match(/!\[.*?\]\((.*?)\)/)[1];
+      const _coverImage: string = text.match(/!\[.*?\]\((.*?)\)/)![1];
       if (_coverImage !== null && _coverImage !== undefined) {
         return _coverImage;
       }
@@ -54,9 +54,9 @@ const CreatePost = view((): JSX.Element => {
     }
   };
 
-  const extractFirstHeadingFromMarkdown = (text: any): any => {
+  const extractFirstHeadingFromMarkdown = (text: string): string => {
     try {
-      const _title: string = text.match(/# (.*)/)[1];
+      const _title: string = text.match(/# (.*)/)![1];
       if (_title !== null && _title !== undefined) {
         return _title;
       }
@@ -88,6 +88,7 @@ const CreatePost = view((): JSX.Element => {
             ? title
             : "Author was too 'cool' to follow markdown guidelines 🙄",
       };
+
       const _data: object = {
         text: markdown,
         cover_image: coverImage,
@@ -98,6 +99,7 @@ const CreatePost = view((): JSX.Element => {
         ..._data,
         ..._title,
       };
+
       const endpoint: string = "http://127.0.0.1:8000/api/v1/posts/create/";
 
       axios
@@ -117,7 +119,13 @@ const CreatePost = view((): JSX.Element => {
     }
   };
 
-  const handleEditorChange = ({ html, text }: any): void => {
+  const handleEditorChange = ({
+    html,
+    text,
+  }: {
+    html: string;
+    text: string;
+  }): void => {
     setMarkdown(text);
     getPostInformation();
   };

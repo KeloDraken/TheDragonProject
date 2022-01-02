@@ -6,6 +6,7 @@ import { ActivityIndicator, Text, TouchableOpacity, View } from "react-native";
 
 import Navbar from "../../components/Navbar";
 import Sidebar from "../../components/Sidebar";
+import { TagObject } from "../../types";
 
 import { styles } from "./style";
 
@@ -16,9 +17,9 @@ const Tags = (): JSX.Element => {
   const [hasNext, setHasNext] = useState<boolean>(true);
   const [start, setStart] = useState<number>(2);
 
-  const [tags, setTags] = useState<Array<object>>([{}]);
+  const [tags, setTags] = useState<Array<TagObject>>([]);
 
-  const moreBtnBGColour = {
+  const moreBtnBGColour: object = {
     backgroundColor: hasNext ? "#000" : "#50596b",
   };
 
@@ -52,7 +53,7 @@ const Tags = (): JSX.Element => {
         className="my-masonry-grid"
         columnClassName="my-masonry-grid_column"
       >
-        {tags.map((item: any, index: number): JSX.Element => {
+        {tags.map((item: TagObject, index: number): JSX.Element => {
           return (
             <View key={index} style={styles.tag}>
               <Text style={styles.tagName}>{item.name}</Text>

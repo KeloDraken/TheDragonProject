@@ -6,6 +6,7 @@ import { ActivityIndicator, Text, TouchableOpacity, View } from "react-native";
 
 import { styles } from "./style";
 import Post from "./Post";
+import { PostObject } from "../../types";
 
 const Feed = (): JSX.Element => {
   const [loading, setLoading] = useState<boolean>(true);
@@ -14,7 +15,7 @@ const Feed = (): JSX.Element => {
   const [hasNext, setHasNext] = useState<boolean>(true);
   const [start, setStart] = useState<number>(2);
 
-  const [postsList, setPosts] = useState<Array<object>>([]);
+  const [postsList, setPosts] = useState<Array<PostObject>>([]);
 
   const moreBtnBGColour: object = {
     backgroundColor: hasNext ? "#000" : "#50596b",
@@ -56,7 +57,7 @@ const Feed = (): JSX.Element => {
         className="my-masonry-grid mt-2"
         columnClassName="my-masonry-grid_column"
       >
-        {postsList.map((item: object, index: number): JSX.Element => {
+        {postsList.map((item: PostObject, index: number): JSX.Element => {
           return (
             <div className="postCard" key={index}>
               <Post item={item} />

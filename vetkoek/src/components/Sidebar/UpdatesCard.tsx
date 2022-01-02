@@ -7,10 +7,11 @@ import za from "javascript-time-ago/locale/en-ZA.json";
 import gb from "javascript-time-ago/locale/en-GB.json";
 
 import { styles } from "./style";
+import { PostObject } from "../../types";
 
 interface SidebarProps {
   cardTitle: string;
-  posts: Array<object>;
+  posts: Array<PostObject>;
   loading: boolean;
 }
 
@@ -22,7 +23,7 @@ const UpdatesCard: React.FC<SidebarProps> = ({
   posts,
   loading,
 }): JSX.Element => {
-  const renderPost = (post: any): JSX.Element => {
+  const renderPost = (post: PostObject): JSX.Element => {
     return (
       <View>
         <div className="link_hover cursor-pointer px-5 py-3">
@@ -40,7 +41,7 @@ const UpdatesCard: React.FC<SidebarProps> = ({
   return (
     <View style={styles.sidebarCardContainer}>
       <Text style={styles.sidebarCardHeading}>{cardTitle}</Text>
-      {posts.map((post: object, index: number): JSX.Element => {
+      {posts.map((post: PostObject, index: number): JSX.Element => {
         return <View key={index}>{renderPost(post)}</View>;
       })}
       {loading && posts.length === 0 ? (
