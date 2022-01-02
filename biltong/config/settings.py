@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     "core.accounts",
     "core.posts",
     "core.products",
+    "core.search",
 ]
 
 MIDDLEWARE = [
