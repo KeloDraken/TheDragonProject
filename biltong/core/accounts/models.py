@@ -33,7 +33,7 @@ class User(AbstractUser):
     is_fake_profile: bool = models.BooleanField(default=False)
     is_verified: bool = models.BooleanField(default=False)
     points: int = models.IntegerField(default=0)
-    num_posts: int = models.PositiveIntegerField(default=0)
+    posts: int = models.PositiveIntegerField(default=0)
     username: str = LowercaseCharField(
         # Copying this from AbstractUser code
         _("username"),
@@ -51,6 +51,7 @@ class User(AbstractUser):
     )
     display_name: str = models.CharField(max_length=100, null=True, blank=True)
     profile_pic: str = models.CharField(max_length=3000, null=True, blank=True)
+    cover_pic: str = models.CharField(max_length=3000, null=True, blank=True)
     bio: str = models.TextField(null=True, blank=True, max_length=300)
     subscribers: int = models.PositiveBigIntegerField(default=1)
     # User social media links

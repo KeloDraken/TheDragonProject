@@ -25,4 +25,18 @@ class UserSerialiser(serializers.ModelSerializer):
         fields = (
             "object_id",
             "username",
+            "profile_pic",
+            "cover_pic",
+            "display_name",
+            "posts",
+        )
+
+
+class UserUpdateSerialiser(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = (
+            "profile_pic",
+            "cover_pic",
+            "display_name",
         )

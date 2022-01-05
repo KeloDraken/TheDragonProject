@@ -79,6 +79,9 @@ class CreatePostAPIView(CreateAPIView):
             obj.save()
 
     def perform_create(self, serializer: PostCreateSerialiser):
+        user = self.request.user
+        user.posts += 1
+        user.save()
         return serializer.save(author=self.request.user)
 
     def create(self, request: Request, *args, **kwargs):

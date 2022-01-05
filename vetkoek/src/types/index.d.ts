@@ -4,8 +4,12 @@ export interface TagObject {
 }
 
 export interface UserObject {
-  username: string;
   object_id: string;
+  username: string;
+  display_name?: string;
+  cover_pic?: string;
+  profile_pic?: string;
+  posts?: number;
 }
 
 export interface PostObject {

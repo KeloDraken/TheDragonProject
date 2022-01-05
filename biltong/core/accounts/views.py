@@ -1,12 +1,16 @@
-from typing import Dict
 from rest_framework import status
+from rest_framework.generics import UpdateAPIView
 from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from rest_framework_jwt.settings import api_settings
 
-from core.accounts.serialisers import CreateUserSerialiser, UserSerialiser
+from core.accounts.serialisers import (
+    CreateUserSerialiser,
+    UserSerialiser,
+    UserUpdateSerialiser,
+)
 from core.accounts.models import User
 
 
@@ -73,14 +77,55 @@ class CreateUserAPIView(APIView):
 user_registration = CreateUserAPIView.as_view()
 
 
+class GetUserProfileAPIView(APIView):
+    def get(self, request: Request):
+        queryset = User.objects.all()
+        # if not self.request.user.is_authenticated:
+        #     data = {"status_code": 403, "message": "You're logged out"}
+        #     return Response(data=data, status=status.HTTP_200_OK)
+
+        object_id = self.request.query_params.get("id")
+
+        if object_id is not None and object_id != "":
+            queryset = User.objects.get(object_id=object_id)
+
+        serialiser = UserSerialiser(queryset)
+        return Response(serialiser.data)
+
+
+get_user_profile = GetUserProfileAPIView.as_view()
+
+
+class UpdateUserProfileAPIView(UpdateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserUpdateSerialiser
+    lookup_field = "object_id"
+
+    def update(self, request, *args, **kwargs):
+        instance = self.get_object()
+        serialiser: UserUpdateSerialiser = self.get_serializer(
+            instance, data=request.data, partial=True
+        )
+
+        if serialiser.is_valid():
+            serialiser.save()
+            return Response({"message": "mobile number updated successfully"})
+
+        else:
+            return Response({"message": "failed", "details": serialiser.errors})
+
+
+update_user_profile = UpdateUserProfileAPIView.as_view()
+
+
 class GetUserObjectID(APIView):
     def get(self, request: Request):
         if not self.request.user.is_authenticated:
             data = {"status_code": 403, "message": "User logged out"}
             return Response(data=data, status=status.HTTP_200_OK)
 
-        serializer = UserSerialiser(request.user)
-        return Response(serializer.data)
+        serialiser = UserSerialiser(request.user)
+        return Response(serialiser.data)
 
 
 get_user_id = GetUserObjectID.as_view()
