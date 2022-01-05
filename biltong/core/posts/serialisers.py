@@ -1,11 +1,11 @@
 from rest_framework import serializers
-from core.posts.models import Post, Tag
+from core.posts.models import Post
 
 
 class PostListSerialiser(serializers.ModelSerializer):
     author = serializers.SerializerMethodField()
 
-    def get_author(self, obj):
+    def get_author(self, obj: Post):
         return {"username": obj.author.username, "object_id": obj.author.object_id}
 
     class Meta:
@@ -19,15 +19,6 @@ class PostListSerialiser(serializers.ModelSerializer):
             "date_created",
             "datetime_created",
             "tags",
-        )
-
-
-class TagListSerialiser(serializers.ModelSerializer):
-    class Meta:
-        model = Tag
-        fields = (
-            "name",
-            "posts",
         )
 
 
