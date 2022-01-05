@@ -35,7 +35,7 @@ class RecommendedPostsListAPIView(ListAPIView):
 
     def get_queryset(self):
         return (
-            Post.objects.order_by("-datetime_created")
+            Post.objects.order_by("?")
             .exclude(title="Author was too 'cool' to follow markdown guidelines 🙄")
             .exclude(title="Code of Conduct")[:3]
         )

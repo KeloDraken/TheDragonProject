@@ -26,6 +26,7 @@ const ViewPost: React.FC<ViewPostProps> = ({ item }): JSX.Element => {
     <View>
       <ReactMarkdown
         className="prose my-3"
+        linkTarget={"_blank"}
         children={item.text}
         remarkPlugins={[remarkGfm, remarkToc]}
         rehypePlugins={[slug]}

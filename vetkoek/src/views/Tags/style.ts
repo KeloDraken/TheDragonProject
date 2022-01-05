@@ -24,8 +24,8 @@ export const styles = StyleSheet.create({
   },
   tagHeaderBar: {
     height: hp("2"),
-    borderTopRightRadius: wp("0.5"),
-    borderTopLeftRadius: wp("0.5"),
+    borderTopRightRadius: wp("0.4"),
+    borderTopLeftRadius: wp("0.4"),
   },
   tagName: {
     paddingHorizontal: wp("2"),

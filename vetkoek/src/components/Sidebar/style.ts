@@ -6,7 +6,7 @@ import {
 
 export const styles = StyleSheet.create({
   footerContainer: {
-    marginTop: hp("2"),
+    marginVertical: hp("2"),
     marginLeft: wp("0.3"),
     display: "flex",
     flexDirection: "row",

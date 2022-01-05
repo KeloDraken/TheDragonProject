@@ -9,7 +9,7 @@ const Footer = (): JSX.Element => {
       <View style={styles.footerContainer}>
         <Link
           className="mr-3 text-gray-500 text-sm hover:underline"
-          to="/post/FtWdvqZF3Ux3qTT/"
+          to="/post/eQInw2fFV1AxKzO/"
         >
           Code of Conduct
         </Link>

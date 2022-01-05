@@ -53,7 +53,7 @@ const Tags = (): JSX.Element => {
     return (
       <View style={styles.tag}>
         <View style={[styles.tagHeaderBar, { backgroundColor: colour }]} />
-        <Text style={styles.tagName}>{item.name}</Text>
+        <Text style={styles.tagName}>#{item.name}</Text>
         <Text style={styles.tagPosts}>
           {item.posts} {postsPublished}
         </Text>

@@ -91,12 +91,13 @@ const CreatePost = view((): JSX.Element => {
       tags.forEach((value, i) => {
         tag_list.push(value.text);
       });
-      return tag_list.join(", ");
+      return tag_list.join(",");
     }
     return "";
   };
 
   const handlePublishPost = (): void => {
+    setPublishBtnDisabled(true);
     if (markdown.length > 100) {
       const _title: object = {
         title:
@@ -131,7 +132,12 @@ const CreatePost = view((): JSX.Element => {
             window.location.href = `/post/${response.data.object_id}/`;
           }
         })
-        .catch((error): void => console.error(error));
+        .catch((error): void => {
+          alert(
+            "There was an error while creating your post. Please try again."
+          );
+          setPublishBtnDisabled(false);
+        });
     }
   };
 
