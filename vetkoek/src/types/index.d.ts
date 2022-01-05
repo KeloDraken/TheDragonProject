@@ -1,5 +1,6 @@
 export interface TagObject {
   name: string;
+  posts: number;
 }
 
 export interface UserObject {

@@ -18,16 +18,28 @@ export const styles = StyleSheet.create({
   tag: {
     height: "auto",
     width: "auto",
-    paddingHorizontal: wp("1"),
     borderRadius: wp("0.5"),
     borderColor: "rgba(209, 213, 219, 1)",
     borderWidth: 2,
   },
+  tagHeaderBar: {
+    height: hp("2"),
+    borderTopRightRadius: wp("0.5"),
+    borderTopLeftRadius: wp("0.5"),
+  },
   tagName: {
-    marginVertical: hp("3"),
-    fontSize: wp("1.6"),
-    color: "#000",
+    paddingHorizontal: wp("2"),
+    marginTop: hp("3"),
+    fontSize: wp("1.4"),
+    color: "rgba(0,0,0,0.85)",
     fontWeight: "800",
+  },
+  tagPosts: {
+    paddingHorizontal: wp("2"),
+    marginTop: hp("0.6"),
+    marginBottom: hp("3"),
+    fontSize: wp("1"),
+    color: "rgba(0,0,0,0.7)",
   },
   loadMoreBtn: {
     display: "flex",

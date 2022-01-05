@@ -25,7 +25,10 @@ class PostListSerialiser(serializers.ModelSerializer):
 class TagListSerialiser(serializers.ModelSerializer):
     class Meta:
         model = Tag
-        fields = ("name",)
+        fields = (
+            "name",
+            "posts",
+        )
 
 
 class PostCreateSerialiser(serializers.ModelSerializer):
