@@ -1,4 +1,4 @@
-# dukesoul
+# kelodraken
 
 ## Structure
 
@@ -15,7 +15,7 @@
 
 ## Contributions
 
-dukesoul is open to contributions, but I recommend creating an issue or replying in a comment to let me know what you are working on first that way we don't overwrite each other.
+kelodraken is open to contributions, but I recommend creating an issue or replying in a comment to let me know what you are working on first that way we don't overwrite each other.
 
 ## Code of Conduct
 

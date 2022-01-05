@@ -16,6 +16,7 @@ const PostView = (): JSX.Element => {
   let { id } = useParams();
 
   const handlePostFetch = (): void => {
+    setLoading(true);
     const endpoint = `http://api.localhost:8000/v1/posts/get/${id}`;
     axios.get(endpoint).then((response): void => {
       setPost(response.data.results);

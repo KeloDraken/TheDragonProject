@@ -56,7 +56,7 @@ const LoadingView = view((): JSX.Element => {
   return (
     <View style={styles.header}>
       <View>
-        <Text style={styles._logoText}>dukesoul</Text>
+        <Text style={styles._logoText}>kelodraken</Text>
         <ActivityIndicator color={"#000"} size={30} />
       </View>
     </View>

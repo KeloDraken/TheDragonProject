@@ -20,7 +20,8 @@ class PostListAPIView(ListAPIView):
             )
             .exclude(
                 title="Code of Conduct"
-            )  # TODO: exclude by object_id instead of title
+                # TODO: exclude by object_id instead of title
+            )
             .order_by("-datetime_created")
         )
 
@@ -32,9 +33,11 @@ class RecommendedPostsListAPIView(ListAPIView):
     serializer_class = PostListSerialiser
 
     def get_queryset(self):
-        return Post.objects.exclude(
-            title="Author was too 'cool' to follow markdown guidelines 🙄"
-        ).exclude(title="Code of Conduct")[:3]
+        return (
+            Post.objects.order_by("-datetime_created")
+            .exclude(title="Author was too 'cool' to follow markdown guidelines 🙄")
+            .exclude(title="Code of Conduct")[:3]
+        )
 
 
 recommended_posts_list = RecommendedPostsListAPIView.as_view()
@@ -44,7 +47,7 @@ class GetPostAPIView(ListAPIView):
     serializer_class = PostListSerialiser
 
     def get_queryset(self):
-        post_id = self.kwargs["post_id"]
+        post_id: str = self.kwargs["post_id"]
         return Post.objects.filter(object_id=post_id)
 
 
@@ -63,9 +66,16 @@ class CreatePostAPIView(CreateAPIView):
         hashtag_list = [tag for tag in text.split(",")]
 
         for hashtag in hashtag_list:
+            obj: Tag
             obj, created = Tag.objects.get_or_create(
                 name=hashtag.lower(),
             )
+            if created:
+                obj.creator = self.request.user
+                obj.save()
+
+            obj.posts += 1
+            obj.save()
 
     def perform_create(self, serializer: PostCreateSerialiser):
         return serializer.save(author=self.request.user)
@@ -87,7 +97,7 @@ class TagListAPIView(ListAPIView):
     serializer_class = TagListSerialiser
 
     def get_queryset(self):
-        return Tag.objects.all().exclude(name="")
+        return Tag.objects.all().exclude(name="").order_by("posts")
 
 
 tag_list = TagListAPIView.as_view()

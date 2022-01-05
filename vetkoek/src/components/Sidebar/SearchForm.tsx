@@ -66,7 +66,7 @@ const SearchForm = (): JSX.Element => {
         </View>
         <TextInput
           style={styles.searchTextInput}
-          placeholder="Search dukesoul"
+          placeholder="Search kelodraken"
           placeholderTextColor={"#000"}
           autoCapitalize="none"
           autoCorrect={false}

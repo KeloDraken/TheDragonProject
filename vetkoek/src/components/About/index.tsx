@@ -4,14 +4,14 @@ import { styles } from "./styles";
 const About = (): JSX.Element => {
   return (
     <View>
-      <Text style={styles.pageHeading}>About dukesoul</Text>
+      <Text style={styles.pageHeading}>About kelodraken</Text>
       <Text style={styles.pageContent}>
-        dukesoul is a community of software developers getting together to
+        kelodraken is a community of software developers getting together to
         help one another out. The software industry relies on collaboration and
-        networked learning. dukesoul provides a place for that to happen.
+        networked learning. kelodraken provides a place for that to happen.
       </Text>
       <Text style={styles.pageContent}>
-        dukesoul is open-sourced, so feel free to check out the code or
+        kelodraken is open-sourced, so feel free to check out the code or
         contribute to the project on{" "}
         <a
           href="https://github.com/KeloDraken/KeloDrake/"
