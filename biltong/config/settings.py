@@ -20,7 +20,6 @@ INSTALLED_APPS = [
     # Third-party apps
     "corsheaders",
     "django_hosts",
-    "imagekit",
     "markdownfield",
     "rest_framework",
     "rest_framework_jwt",

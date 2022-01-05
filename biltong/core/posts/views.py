@@ -1,3 +1,4 @@
+from typing import List
 from rest_framework.request import Request
 from rest_framework.generics import CreateAPIView, ListAPIView
 from rest_framework.response import Response
@@ -63,7 +64,7 @@ class CreatePostAPIView(CreateAPIView):
         It generates new `Tag` instance, if it does not exist, for each of
         of the tags
         """
-        hashtag_list = [tag for tag in text.split(",")]
+        hashtag_list: List[str] = [tag for tag in text.split(",")]
 
         for hashtag in hashtag_list:
             obj: Tag

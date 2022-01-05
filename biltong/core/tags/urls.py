@@ -10,6 +10,6 @@ app_name = "tags"
 
 urlpatterns = format_suffix_patterns(
     [
-        path("tags/list/", tag_list, name="tag-list"),
+        path("list/", tag_list, name="tag-list"),
     ]
 )

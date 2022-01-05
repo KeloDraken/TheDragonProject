@@ -1,6 +1,6 @@
-from django.http import HttpRequest
-
+from typing import Dict
 from rest_framework import status
+from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -25,11 +25,11 @@ class CreateUserAPIView(APIView):
         payload = jwt_payload_handler(user)
         return jwt_encode_handler(payload)
 
-    def post(self, request: HttpRequest, *args, **kwargs):
+    def post(self, request: Request, *args, **kwargs):
         """
         Handles post request
         """
-        if request.user.is_authenticated:
+        if self.request.user.is_authenticated:
             data = {"status_code": 403, "message": "You are already have an account"}
             return Response(data=data, status=status.HTTP_403_FORBIDDEN)
 
@@ -37,8 +37,8 @@ class CreateUserAPIView(APIView):
         if serialiser.is_valid():
             serialiser.save()
 
-            username = serialiser.data.get("username")
-            token = self.login_user_after_register(username)
+            username: str = serialiser.data.get("username")
+            token: str = self.login_user_after_register(username)
             data = {
                 "token": token,
                 "status_code": 201,
@@ -74,8 +74,8 @@ user_registration = CreateUserAPIView.as_view()
 
 
 class GetUserObjectID(APIView):
-    def get(self, request: HttpRequest):
-        if not request.user.is_authenticated:
+    def get(self, request: Request):
+        if not self.request.user.is_authenticated:
             data = {"status_code": 403, "message": "User logged out"}
             return Response(data=data, status=status.HTTP_200_OK)
 
