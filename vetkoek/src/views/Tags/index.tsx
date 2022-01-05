@@ -24,7 +24,7 @@ const Tags = (): JSX.Element => {
   };
 
   const handleTagFetch = (): void => {
-    const endpoint: string = `http://api.localhost:8000/v1/posts/tags/list/?page=1`;
+    const endpoint: string = `http://api.localhost:8000/v1/tags/list/?page=1`;
 
     axios.get(endpoint).then((response): void => {
       setTags(response.data.results);
@@ -34,7 +34,7 @@ const Tags = (): JSX.Element => {
 
   const handleFetchMore = (): void => {
     setLoadingMore(true);
-    const endpoint: string = `http://api.localhost:8000/v1/posts/tags/list/?page=${start}`;
+    const endpoint: string = `http://api.localhost:8000/v1/tags/list/?page=${start}`;
 
     axios.get(endpoint).then((response): void => {
       if (response.data.next === null) {
