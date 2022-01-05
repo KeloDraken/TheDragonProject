@@ -46,19 +46,30 @@ const Tags = (): JSX.Element => {
     });
   };
 
+  const tag = (item: TagObject): JSX.Element => {
+    const colour: string = "#000";
+    const postsPublished: string =
+      item.posts === 1 ? "post published" : "posts published";
+    return (
+      <View style={styles.tag}>
+        <View style={[styles.tagHeaderBar, { backgroundColor: colour }]} />
+        <Text style={styles.tagName}>{item.name}</Text>
+        <Text style={styles.tagPosts}>
+          {item.posts} {postsPublished}
+        </Text>
+      </View>
+    );
+  };
+
   const renderTags = (): JSX.Element => {
     return (
       <Masonry
-        breakpointCols={3}
+        breakpointCols={2}
         className="my-masonry-grid"
         columnClassName="my-masonry-grid_column"
       >
         {tags.map((item: TagObject, index: number): JSX.Element => {
-          return (
-            <View key={index} style={styles.tag}>
-              <Text style={styles.tagName}>{item.name}</Text>
-            </View>
-          );
+          return <View key={index}>{tag(item)}</View>;
         })}
       </Masonry>
     );
