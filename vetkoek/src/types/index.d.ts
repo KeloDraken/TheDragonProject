@@ -10,6 +10,8 @@ export interface UserObject {
   cover_pic?: string;
   profile_pic?: string;
   posts?: number;
+  bio?: string;
+  is_verified: boolean | false;
 }
 
 export interface PostObject {

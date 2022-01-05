@@ -14,6 +14,7 @@ export const styles = StyleSheet.create({
     fontWeight: "700",
   },
   pageSubheading: {
-    fontSize: wp("1"),
+    fontSize: wp("0.9"),
+    color: "rgba(0,0,0,0.7)",
   },
 });

@@ -44,8 +44,19 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
           </View>
         ) : null}
       </View>
-      <Text style={styles.displayName}>{item.display_name}</Text>
+      <Text style={styles.displayName}>
+        {item.display_name}{" "}
+        {item.is_verified ? (
+          <span
+            title="creator of kelodraken"
+            className="cursor-pointer text-lg material-icons-outlined"
+          >
+            verified
+          </span>
+        ) : null}
+      </Text>
       <Text style={styles.username}>{item.username}</Text>
+      <Text style={styles.bio}>{item.bio}</Text>
     </View>
   );
 };

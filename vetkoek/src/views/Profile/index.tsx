@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import ProfileHeader from "../../components/Profile/ProfileHeader";
 import Sidebar from "../../components/Sidebar";
-// import { UserObject } from "../../types";
+
 import { styles } from "./styles";
 
 const Profile = (): JSX.Element => {

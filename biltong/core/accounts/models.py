@@ -1,5 +1,8 @@
 from django.contrib.auth.models import AbstractUser
+
 from django.db import models
+from django.db.models.signals import post_save
+
 from django.utils.translation import gettext_lazy as _
 
 from utils.helpers import object_id_generator
@@ -60,6 +63,12 @@ class User(AbstractUser):
     twitter: str = models.URLField(max_length=1000, null=True, blank=True)
     website: str = models.URLField(max_length=1000, null=True, blank=True)
 
-    def save(self, **kwargs):
-        self.object_id = object_id_generator(30, User)
-        return super(User, self).save(**kwargs)
+
+def asign_object_id_on_profile_created(sender, **kwargs):
+    if kwargs["created"]:
+        user: User = kwargs["instance"]
+        user.object_id = object_id_generator(30, User)
+        user.save()
+
+
+post_save.connect(asign_object_id_on_profile_created, sender=User)

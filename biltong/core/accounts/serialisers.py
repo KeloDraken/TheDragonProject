@@ -29,6 +29,8 @@ class UserSerialiser(serializers.ModelSerializer):
             "cover_pic",
             "display_name",
             "posts",
+            "bio",
+            "is_verified",
         )
 
 
@@ -39,4 +41,5 @@ class UserUpdateSerialiser(serializers.ModelSerializer):
             "profile_pic",
             "cover_pic",
             "display_name",
+            "bio",
         )

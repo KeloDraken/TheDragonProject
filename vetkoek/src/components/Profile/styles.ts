@@ -13,7 +13,8 @@ export const styles = StyleSheet.create({
     left: 0,
     right: 0,
     height: hp("30"),
-    marginBottom: hp("2")
+    marginBottom: hp("2"),
+    backgroundColor: "#D8D8D8",
   },
   profileImage: {
     width: wp("10"),
@@ -22,6 +23,7 @@ export const styles = StyleSheet.create({
     borderWidth: wp("0.5"),
     borderColor: "white",
     marginTop: hp("15"),
+    backgroundColor: "#D8D8D8",
     marginLeft: wp("2"),
   },
   empty: {
@@ -46,12 +48,23 @@ export const styles = StyleSheet.create({
     fontWeight: "600",
   },
   username: {
-    fontSize: wp("1.5"),
+    color: "rgba(0,0,0,0.7)",
+    fontSize: wp("1.2"),
     marginLeft: wp("2"),
   },
   displayName: {
-    fontSize: wp("1.6"),
+    display: "flex",
+    flexDirection: "row",
+    textAlign: "center",
+    color: "rgba(0,0,0,0.9)",
+    fontSize: wp("1.4"),
     marginLeft: wp("2"),
     fontWeight: "700",
+  },
+  bio: {
+    fontSize: wp("1.2"),
+    marginLeft: wp("2"),
+    color: "rgba(0,0,0,0.9)",
+    marginVertical: hp("2"),
   },
 });
