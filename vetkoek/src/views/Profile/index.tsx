@@ -23,13 +23,13 @@ const Profile = view((): JSX.Element => {
   useEffect((): void => {
     if (!userAuth.isLoggedIn) {
       window.location.replace("/");
+    } else {
+      const endpoint: string = `http://api.localhost:8000/v1/users/get/?id=${username}`;
+
+      axios.get(endpoint).then((response): void => {
+        setUser(response.data);
+      });
     }
-
-    const endpoint: string = `http://api.localhost:8000/v1/users/get/?id=${username}`;
-
-    axios.get(endpoint).then((response): void => {
-      setUser(response.data);
-    });
   }, [username]);
 
   return (
