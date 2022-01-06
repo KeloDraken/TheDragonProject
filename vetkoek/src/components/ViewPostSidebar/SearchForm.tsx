@@ -51,7 +51,7 @@ const SearchForm = (): JSX.Element => {
 
   const handleOnBlur = () => {
     if (results.length > 0) {
-      setSearching(false);
+    setSearching(false);
     }
     setSearching(true);
   };

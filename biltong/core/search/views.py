@@ -1,10 +1,9 @@
 from django.db.models import Q
-from rest_framework import status
 from rest_framework.generics import ListAPIView
-from rest_framework.response import Response
 
 from core.posts.models import Post
 from core.search.serialisers import SearchQuerySerialiser
+
 
 
 class SearchAPIView(ListAPIView):
@@ -12,7 +11,10 @@ class SearchAPIView(ListAPIView):
 
     def get_queryset(self):
         queryset = Post.objects.all()
-        search_query: str = self.request.query_params.get("q")
+        search_query: str = self.request.GET.get("q")
+
+        if search_query is None or search_query == "" or len(search_query) == 0:
+            return Post.objects.all()[:0]
 
         if search_query is not None and search_query != "":
             queryset = (

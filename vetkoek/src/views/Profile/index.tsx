@@ -1,5 +1,6 @@
 import { view } from "@risingstack/react-easy-state";
 import axios from "axios";
+
 import { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 import { Text, View } from "react-native";
@@ -8,8 +9,8 @@ import { useParams } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import ProfileHeader from "../../components/Profile/ProfileHeader";
 import Sidebar from "../../components/Sidebar";
-import { userAuth } from "../../store";
 
+import { userAuth } from "../../store";
 import { styles } from "./styles";
 
 const Profile = view((): JSX.Element => {
@@ -54,7 +55,12 @@ const Profile = view((): JSX.Element => {
       </main>
 
       <aside className="overflow-y-scroll h-screen hidden md:block lg:block xl:block 2xl:block sticky top-0 w-7/12 pr-7 pl-3">
-        <Sidebar />
+        <Sidebar  />
+        {/* <SidebarCard
+        loading={loadingRecommended}
+        posts={recommendedPostsList.data}
+        cardTitle="Trending now"
+      /> */}
       </aside>
     </div>
   );
