@@ -12,7 +12,11 @@ import SearchForm from "./SearchForm";
 import SidebarCard from "./SidebarCard";
 import UpdatesCard from "./UpdatesCard";
 
-const Sidebar = view((): JSX.Element => {
+interface SidebarProps {
+  viewPost?: boolean | false;
+}
+
+const Sidebar: React.FC<SidebarProps> = view(({ viewPost }): JSX.Element => {
   const [loadingRecommended, setRecommendedLoading] = useState<boolean>(true);
   const [loadingUpdates, setUpdatesLoading] = useState<boolean>(true);
 
@@ -51,7 +55,7 @@ const Sidebar = view((): JSX.Element => {
 
   return (
     <View>
-      <SearchForm />
+      {!viewPost ? <SearchForm /> : null}
       <SidebarCard
         loading={loadingRecommended}
         posts={recommendedPostsList.data}

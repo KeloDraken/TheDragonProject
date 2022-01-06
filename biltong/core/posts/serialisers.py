@@ -11,6 +11,9 @@ class PostListSerialiser(serializers.ModelSerializer):
             "display_name": obj.author.display_name,
             "is_verified": obj.author.is_verified,
             "object_id": obj.author.object_id,
+            "profile_pic": obj.author.profile_pic,
+            "cover_pic": obj.author.cover_pic,
+            "bio": obj.author.bio,
         }
 
     class Meta:

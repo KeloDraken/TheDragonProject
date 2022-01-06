@@ -94,4 +94,46 @@ export const styles = StyleSheet.create({
     textDecorationLine: "underline",
     textDecorationStyle: "solid",
   },
+
+  // Author header
+  headerContainer: {
+    display: "flex",
+    flexDirection: "column",
+  },
+  coverImage: {
+    left: 0,
+    right: 0,
+    height: hp("15"),
+    marginBottom: hp("0.5"),
+    marginHorizontal: wp("0.6"),
+    backgroundColor: "#D8D8D8",
+  },
+  profileImage: {
+    width: wp("5"),
+    height: hp("10"),
+    borderRadius: wp("1"),
+    borderWidth: wp("0.3"),
+    borderColor: "white",
+    marginTop: hp("9"),
+    backgroundColor: "#D8D8D8",
+    marginLeft: wp("2"),
+  },
+  empty: {
+    marginTop: hp("3"),
+    marginBottom: hp("2"),
+  },
+  editProfileContainer: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  displayName: {
+    display: "flex",
+    flexDirection: "row",
+    textAlign: "center",
+    color: "rgba(0,0,0,0.9)",
+    fontSize: wp("1.2"),
+    marginLeft: wp("2"),
+    fontWeight: "700",
+  },
 });
