@@ -79,7 +79,16 @@ const AuthorHeader: React.FC<AuthorHeaderProps> = ({
             date={Date.parse(post.datetime_created)}
           />
         </View>
-      ) : null}
+      ) : (
+        <View>
+          <View style={styles.coverImage}>
+            <View style={styles.profileImage} />
+          </View>
+          <View style={styles.editProfileContainer}>
+            <View style={styles.empty} />
+          </View>
+        </View>
+      )}
     </View>
   );
 };
