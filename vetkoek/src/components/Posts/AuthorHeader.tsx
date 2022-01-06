@@ -42,7 +42,7 @@ const AuthorHeader: React.FC<AuthorHeaderProps> = ({
           <View style={styles.editProfileContainer}>
             <View style={styles.empty} />
           </View>
-          <Link title={item.username} to={`/user/${item.object_id}/`}>
+          <Link to={`/user/${item.object_id}/`}>
             <Text style={styles.displayName}>
               {item.display_name}{" "}
               {item.is_verified ? (

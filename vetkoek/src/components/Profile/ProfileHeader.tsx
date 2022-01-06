@@ -55,8 +55,7 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
           </span>
         ) : null}
       </Text>
-      <Text style={styles.username}>{item.username}</Text>
-      <Text style={styles.bio}>{item.bio}</Text>
+      <Text style={styles.username}>{item.bio}</Text>
     </View>
   );
 };

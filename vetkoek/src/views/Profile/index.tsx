@@ -1,3 +1,4 @@
+import { view } from "@risingstack/react-easy-state";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
@@ -7,10 +8,11 @@ import { useParams } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import ProfileHeader from "../../components/Profile/ProfileHeader";
 import Sidebar from "../../components/Sidebar";
+import { userAuth } from "../../store";
 
 import { styles } from "./styles";
 
-const Profile = (): JSX.Element => {
+const Profile = view((): JSX.Element => {
   const [user, setUser] = useState<any>({});
 
   const [cookies] = useCookies();
@@ -19,6 +21,10 @@ const Profile = (): JSX.Element => {
   const object_id: string = cookies.UOID!;
 
   useEffect((): void => {
+    if (!userAuth.isLoggedIn) {
+      window.location.replace("/");
+    }
+
     const endpoint: string = `http://api.localhost:8000/v1/users/get/?id=${username}`;
 
     axios.get(endpoint).then((response): void => {
@@ -36,7 +42,7 @@ const Profile = (): JSX.Element => {
         <View style={styles.pageHeadingContainer}>
           <View>
             <Text style={styles.pageHeading}>{user.display_name}</Text>
-            <Text style={styles.pageSubheading}>{user.object_id}</Text>
+            <Text style={styles.pageSubheading}>{user.username}</Text>
           </View>
         </View>
         <ProfileHeader
@@ -52,5 +58,5 @@ const Profile = (): JSX.Element => {
       </aside>
     </div>
   );
-};
+});
 export default Profile;

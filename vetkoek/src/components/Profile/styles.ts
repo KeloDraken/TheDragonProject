@@ -48,9 +48,10 @@ export const styles = StyleSheet.create({
     fontWeight: "600",
   },
   username: {
-    color: "rgba(0,0,0,0.7)",
+    color: "rgba(0,0,0,0.8)",
     fontSize: wp("1.2"),
     marginLeft: wp("2"),
+    fontWeight: "500",
   },
   displayName: {
     display: "flex",
@@ -60,11 +61,5 @@ export const styles = StyleSheet.create({
     fontSize: wp("1.4"),
     marginLeft: wp("2"),
     fontWeight: "700",
-  },
-  bio: {
-    fontSize: wp("1.2"),
-    marginLeft: wp("2"),
-    color: "rgba(0,0,0,0.9)",
-    marginVertical: hp("2"),
   },
 });
