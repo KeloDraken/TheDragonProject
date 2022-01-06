@@ -1,4 +1,6 @@
+import random
 from typing import List
+
 from rest_framework.request import Request
 from rest_framework.generics import CreateAPIView, ListAPIView
 from rest_framework.response import Response
@@ -42,6 +44,32 @@ class RecommendedPostsListAPIView(ListAPIView):
 
 
 recommended_posts_list = RecommendedPostsListAPIView.as_view()
+
+
+class GetRecommendedAPIView(ListAPIView):
+    serializer_class = PostListSerialiser
+
+    def get_posts(self, post_id: str, random_tag_choice: str):
+        recommended_posts: Post = Post.objects.exclude(object_id=post_id).filter(
+            tags__icontains=random_tag_choice
+        )[:3]
+        return recommended_posts
+
+    def get_queryset(self):
+        post_id: str = self.kwargs["post_id"]
+        post: Post = Post.objects.get(object_id=post_id)
+        tags: List[str] = post.tags.split(",")
+
+        random_tag_choice: str = random.choice(tags)
+        recommended_posts: Post = self.get_posts(post_id, random_tag_choice)
+
+        while not recommended_posts:
+            random_tag_choice: str = random.choice(tags)
+            recommended_posts: Post = self.get_posts(post_id, random_tag_choice)
+        return recommended_posts
+
+
+get_recommeded_posts = GetRecommendedAPIView.as_view()
 
 
 class GetPostAPIView(ListAPIView):

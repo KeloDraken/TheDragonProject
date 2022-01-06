@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import AuthorHeader from "../../components/Posts/AuthorHeader";
 import ViewPost from "../../components/Posts/viewPost";
-import Sidebar from "../../components/Sidebar";
+import ViewPostSidebar from "../../components/ViewPostSidebar";
 
 const PostView = (): JSX.Element => {
   const [loading, setLoading] = useState<boolean>(true);
@@ -53,7 +53,7 @@ const PostView = (): JSX.Element => {
         ) : (
           <AuthorHeader post={post} loading={false} item={author} />
         )}
-        <Sidebar viewPost={true} />
+        <ViewPostSidebar />
       </aside>
     </div>
   );

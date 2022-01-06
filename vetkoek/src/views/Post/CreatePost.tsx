@@ -39,12 +39,12 @@ const CreatePost = view((): JSX.Element => {
   useEffect((): void => {
     if (!userAuth.isLoggedIn) {
       window.location.replace("/");
-    }
-
-    if (markdown.length > 100) {
-      setPublishBtnDisabled(false);
     } else {
-      setPublishBtnDisabled(true);
+      if (markdown.length > 100) {
+        setPublishBtnDisabled(false);
+      } else {
+        setPublishBtnDisabled(true);
+      }
     }
   }, [markdown]);
 
@@ -184,7 +184,7 @@ const CreatePost = view((): JSX.Element => {
     );
   };
 
-  const handleDelete = (i: any) => {
+  const handleDelete = (i: number) => {
     setTags(tags.filter((tag, index) => index !== i));
   };
 
