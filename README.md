@@ -22,3 +22,5 @@ kelodraken is open to contributions, but I recommend creating an issue or replyi
 Please read [CODE_OF_CONDUCT.md](https://github.com/KeloDraken/KeloDrake/blob/master/CODE_OF_CONDUCT.md) for details on our code of conduct.
 
 ## How to run locally
+
+Check [here](https://github.com/KeloDraken/KeloDrake/blob/master/CONTRIBUTING.md#quickstart-local-development) on how to run locally
