@@ -48,7 +48,7 @@ const AuthorHeader: React.FC<AuthorHeaderProps> = ({
               {item.is_verified ? (
                 <span
                   title="creator of kelodraken"
-                  className="cursor-pointer text-lg material-icons-outlined"
+                  className="cursor-pointer text-base material-icons-outlined"
                 >
                   verified
                 </span>
