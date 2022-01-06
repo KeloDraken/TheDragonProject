@@ -14,7 +14,7 @@ const About = (): JSX.Element => {
         kelodraken is open-sourced, so feel free to check out the code or
         contribute to the project on{" "}
         <a
-          href="https://github.com/KeloDraken/KeloDrake/"
+          href="https://github.com/KeloDraken/KeloDraken.com/"
           target={"_blank"}
           className="underline font-bold"
           rel="noreferrer"

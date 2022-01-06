@@ -1,7 +1,5 @@
 import ReactMarkdown from "react-markdown";
-import { Text, View } from "react-native";
-import { Link } from "react-router-dom";
-import ReactTimeAgo from "react-time-ago";
+import { View } from "react-native";
 
 import remarkGfm from "remark-gfm";
 import remarkToc from "remark-toc";
@@ -11,7 +9,6 @@ import za from "javascript-time-ago/locale/en-ZA.json";
 import gb from "javascript-time-ago/locale/en-GB.json";
 import TimeAgo from "javascript-time-ago";
 
-import { styles } from "./style";
 import { PostObject } from "../../types";
 
 TimeAgo.addDefaultLocale(za);
@@ -26,15 +23,12 @@ const ViewPost: React.FC<ViewPostProps> = ({ item }): JSX.Element => {
     <View>
       <ReactMarkdown
         className="prose my-3"
+        linkTarget={"_blank"}
         children={item.text}
         remarkPlugins={[remarkGfm, remarkToc]}
         rehypePlugins={[slug]}
       />
-      <hr />
-      <Link to={`/user/${item.author.object_id}/`}>
-        <Text style={styles.postFooter}>{item.author.username}</Text>
-      </Link>
-      <ReactTimeAgo date={Date.parse(item.datetime_created)} />
+      <div className="my-7" />
     </View>
   );
 };

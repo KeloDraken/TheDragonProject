@@ -1,12 +1,20 @@
 from rest_framework import serializers
-from core.posts.models import Post, Tag
+from core.posts.models import Post
 
 
 class PostListSerialiser(serializers.ModelSerializer):
     author = serializers.SerializerMethodField()
 
-    def get_author(self, obj):
-        return {"username": obj.author.username, "object_id": obj.author.object_id}
+    def get_author(self, obj: Post):
+        return {
+            "username": obj.author.username,
+            "display_name": obj.author.display_name,
+            "is_verified": obj.author.is_verified,
+            "object_id": obj.author.object_id,
+            "profile_pic": obj.author.profile_pic,
+            "cover_pic": obj.author.cover_pic,
+            "bio": obj.author.bio,
+        }
 
     class Meta:
         model = Post
@@ -19,15 +27,6 @@ class PostListSerialiser(serializers.ModelSerializer):
             "date_created",
             "datetime_created",
             "tags",
-        )
-
-
-class TagListSerialiser(serializers.ModelSerializer):
-    class Meta:
-        model = Tag
-        fields = (
-            "name",
-            "posts",
         )
 
 

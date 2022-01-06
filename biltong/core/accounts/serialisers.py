@@ -1,5 +1,4 @@
 from rest_framework import serializers
-
 from core.accounts.models import User
 
 
@@ -26,4 +25,21 @@ class UserSerialiser(serializers.ModelSerializer):
         fields = (
             "object_id",
             "username",
+            "profile_pic",
+            "cover_pic",
+            "display_name",
+            "posts",
+            "bio",
+            "is_verified",
+        )
+
+
+class UserUpdateSerialiser(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = (
+            "profile_pic",
+            "cover_pic",
+            "display_name",
+            "bio",
         )

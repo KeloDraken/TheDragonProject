@@ -4,8 +4,8 @@ from utils.helpers import object_id_generator
 
 
 class Update(models.Model):
-    object_id = models.CharField(max_length=30, null=True, blank=True)
-    title = models.CharField(max_length=300, null=False, blank=False)
+    object_id: str = models.CharField(max_length=30, null=True, blank=True)
+    title: str = models.CharField(max_length=300, null=False, blank=False)
     datetime_created = models.DateTimeField(auto_now_add=True)
 
     def save(self, **kwargs):

@@ -1,12 +1,13 @@
+from typing import List
 from rest_framework.request import Request
 from rest_framework.generics import CreateAPIView, ListAPIView
 from rest_framework.response import Response
 
-from core.posts.models import Post, Tag
+from core.tags.models import Tag
+from core.posts.models import Post
 from core.posts.serialisers import (
     PostCreateSerialiser,
     PostListSerialiser,
-    TagListSerialiser,
 )
 
 
@@ -34,7 +35,7 @@ class RecommendedPostsListAPIView(ListAPIView):
 
     def get_queryset(self):
         return (
-            Post.objects.order_by("-datetime_created")
+            Post.objects.order_by("?")
             .exclude(title="Author was too 'cool' to follow markdown guidelines 🙄")
             .exclude(title="Code of Conduct")[:3]
         )
@@ -63,7 +64,7 @@ class CreatePostAPIView(CreateAPIView):
         It generates new `Tag` instance, if it does not exist, for each of
         of the tags
         """
-        hashtag_list = [tag for tag in text.split(",")]
+        hashtag_list: List[str] = [tag for tag in text.split(",")]
 
         for hashtag in hashtag_list:
             obj: Tag
@@ -78,6 +79,9 @@ class CreatePostAPIView(CreateAPIView):
             obj.save()
 
     def perform_create(self, serializer: PostCreateSerialiser):
+        user = self.request.user
+        user.posts += 1
+        user.save()
         return serializer.save(author=self.request.user)
 
     def create(self, request: Request, *args, **kwargs):
@@ -91,13 +95,3 @@ class CreatePostAPIView(CreateAPIView):
 
 
 create_post = CreatePostAPIView.as_view()
-
-
-class TagListAPIView(ListAPIView):
-    serializer_class = TagListSerialiser
-
-    def get_queryset(self):
-        return Tag.objects.all().exclude(name="").order_by("posts")
-
-
-tag_list = TagListAPIView.as_view()

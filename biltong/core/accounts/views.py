@@ -1,12 +1,16 @@
-from django.http import HttpRequest
-
 from rest_framework import status
+from rest_framework.generics import UpdateAPIView
+from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from rest_framework_jwt.settings import api_settings
 
-from core.accounts.serialisers import CreateUserSerialiser, UserSerialiser
+from core.accounts.serialisers import (
+    CreateUserSerialiser,
+    UserSerialiser,
+    UserUpdateSerialiser,
+)
 from core.accounts.models import User
 
 
@@ -25,11 +29,11 @@ class CreateUserAPIView(APIView):
         payload = jwt_payload_handler(user)
         return jwt_encode_handler(payload)
 
-    def post(self, request: HttpRequest, *args, **kwargs):
+    def post(self, request: Request, *args, **kwargs):
         """
         Handles post request
         """
-        if request.user.is_authenticated:
+        if self.request.user.is_authenticated:
             data = {"status_code": 403, "message": "You are already have an account"}
             return Response(data=data, status=status.HTTP_403_FORBIDDEN)
 
@@ -37,8 +41,8 @@ class CreateUserAPIView(APIView):
         if serialiser.is_valid():
             serialiser.save()
 
-            username = serialiser.data.get("username")
-            token = self.login_user_after_register(username)
+            username: str = serialiser.data.get("username")
+            token: str = self.login_user_after_register(username)
             data = {
                 "token": token,
                 "status_code": 201,
@@ -73,14 +77,55 @@ class CreateUserAPIView(APIView):
 user_registration = CreateUserAPIView.as_view()
 
 
+class GetUserProfileAPIView(APIView):
+    def get(self, request: Request):
+        queryset = User.objects.all()
+        # if not self.request.user.is_authenticated:
+        #     data = {"status_code": 403, "message": "You're logged out"}
+        #     return Response(data=data, status=status.HTTP_200_OK)
+
+        object_id = self.request.query_params.get("id")
+
+        if object_id is not None and object_id != "":
+            queryset = User.objects.get(object_id=object_id)
+
+        serialiser = UserSerialiser(queryset)
+        return Response(serialiser.data)
+
+
+get_user_profile = GetUserProfileAPIView.as_view()
+
+
+class UpdateUserProfileAPIView(UpdateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserUpdateSerialiser
+    lookup_field = "object_id"
+
+    def update(self, request, *args, **kwargs):
+        instance = self.get_object()
+        serialiser: UserUpdateSerialiser = self.get_serializer(
+            instance, data=request.data, partial=True
+        )
+
+        if serialiser.is_valid():
+            serialiser.save()
+            return Response({"message": "mobile number updated successfully"})
+
+        else:
+            return Response({"message": "failed", "details": serialiser.errors})
+
+
+update_user_profile = UpdateUserProfileAPIView.as_view()
+
+
 class GetUserObjectID(APIView):
-    def get(self, request: HttpRequest):
-        if not request.user.is_authenticated:
+    def get(self, request: Request):
+        if not self.request.user.is_authenticated:
             data = {"status_code": 403, "message": "User logged out"}
             return Response(data=data, status=status.HTTP_200_OK)
 
-        serializer = UserSerialiser(request.user)
-        return Response(serializer.data)
+        serialiser = UserSerialiser(request.user)
+        return Response(serialiser.data)
 
 
 get_user_id = GetUserObjectID.as_view()

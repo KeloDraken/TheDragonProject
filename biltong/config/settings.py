@@ -20,7 +20,6 @@ INSTALLED_APPS = [
     # Third-party apps
     "corsheaders",
     "django_hosts",
-    "imagekit",
     "markdownfield",
     "rest_framework",
     "rest_framework_jwt",
@@ -31,6 +30,7 @@ INSTALLED_APPS = [
     "core.posts",
     "core.products",
     "core.search",
+    "core.tags",
 ]
 
 MIDDLEWARE = [

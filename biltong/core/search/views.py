@@ -11,10 +11,8 @@ class SearchAPIView(ListAPIView):
     serializer_class = SearchQuerySerialiser
 
     def get_queryset(self):
-
         queryset = Post.objects.all()
-
-        search_query = self.request.query_params.get("q")
+        search_query: str = self.request.query_params.get("q")
 
         if search_query is not None and search_query != "":
             queryset = (
