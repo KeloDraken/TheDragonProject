@@ -1,8 +1,7 @@
 import axios from "axios";
 import { debounce } from "lodash";
 
-import { useEffect, useState } from "react";
-import { useCookies } from "react-cookie";
+import { useState } from "react";
 import { View, TextInput, ActivityIndicator } from "react-native";
 import { Link } from "react-router-dom";
 
