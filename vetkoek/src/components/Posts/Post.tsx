@@ -38,7 +38,6 @@ const Post: React.FC<PostProps> = ({ item }): JSX.Element => {
       <View style={styles.postItemContainerHasNoImage}>
         <Link
           to={`/user/${item.author.object_id}/`}
-          title={`${item.author.username}`}
         >
           <View>
             <Text style={styles.postAuthor}>
