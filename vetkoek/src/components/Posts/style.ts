@@ -22,9 +22,9 @@ export const styles = StyleSheet.create({
   postItemContainer: {
     flex: 1,
     height: hp("53%"),
-    borderRadius: wp("0.5"),
+    // borderRadius: wp("0.5"),
     borderColor: "rgba(209, 213, 219, 1)",
-    borderWidth: 2,
+    borderWidth: 1,
     marginHorizontal: wp("1"),
     overflow: "hidden",
   },
@@ -53,9 +53,9 @@ export const styles = StyleSheet.create({
   postItemContainerHasNoImage: {
     display: "flex",
     borderColor: "rgba(209, 213, 219, 1)",
-    borderWidth: 2,
+    borderWidth: 1,
     height: "auto",
-    borderRadius: wp("0.5"),
+    // borderRadius: wp("0.5"),
     marginHorizontal: wp("1"),
     paddingVertical: hp("4"),
     paddingHorizontal: wp("1"),
@@ -78,6 +78,14 @@ export const styles = StyleSheet.create({
     color: "rgba(55, 65, 81, 1)",
     fontSize: wp("1.1"),
     fontWeight: "500",
+  },
+  postAuthor: {
+    display: "flex",
+    flexDirection: "row",
+    textAlign: "center",
+    color: "rgba(55, 65, 81, 1)",
+    fontSize: wp("1.3"),
+    fontWeight: "700",
   },
   postFooter: {
     marginTop: hp("6"),

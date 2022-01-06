@@ -6,7 +6,12 @@ class PostListSerialiser(serializers.ModelSerializer):
     author = serializers.SerializerMethodField()
 
     def get_author(self, obj: Post):
-        return {"username": obj.author.username, "object_id": obj.author.object_id}
+        return {
+            "username": obj.author.username,
+            "display_name": obj.author.display_name,
+            "is_verified": obj.author.is_verified,
+            "object_id": obj.author.object_id,
+        }
 
     class Meta:
         model = Post

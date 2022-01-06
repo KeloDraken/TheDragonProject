@@ -58,11 +58,7 @@ const Feed = (): JSX.Element => {
         columnClassName="my-masonry-grid_column"
       >
         {postsList.map((item: PostObject, index: number): JSX.Element => {
-          return (
-            <div className="postCard" key={index}>
-              <Post item={item} />
-            </div>
-          );
+          return <Post key={index} item={item} />;
         })}
       </Masonry>
     );

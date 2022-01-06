@@ -15,12 +15,12 @@ const Post: React.FC<PostProps> = ({ item }): JSX.Element => {
 
   const renderHasImage = (): JSX.Element => {
     return (
-      <Link to={`/post/${item.object_id}/`} title={`${item.title}`}>
-        <ImageBackground
-          source={{ uri: item.cover_image }}
-          resizeMode="cover"
-          style={styles.postItemContainer}
-        >
+      <ImageBackground
+        source={{ uri: item.cover_image }}
+        resizeMode="cover"
+        style={styles.postItemContainer}
+      >
+        <Link to={`/post/${item.object_id}/`} title={`${item.title}`}>
           <div className="bg-gradient-to-b from-black pt-2 pb-16 px-3">
             <View>
               <View style={styles.postTitle} />
@@ -28,19 +28,43 @@ const Post: React.FC<PostProps> = ({ item }): JSX.Element => {
               <Text style={styles.postTime}>{stats.text}</Text>
             </View>
           </div>
-        </ImageBackground>
-      </Link>
+        </Link>
+      </ImageBackground>
     );
   };
 
   const renderHasNoImage = (): JSX.Element => {
     return (
-      <Link to={`/post/${item.object_id}/`} title={`${item.title}`}>
-        <View style={styles.postItemContainerHasNoImage}>
-          <Text style={styles.postCaptionHasNoImage}>{item.title}</Text>
-          <Text style={styles.postTimeHasNoImage}>{stats.text}</Text>
-        </View>
-      </Link>
+      <View style={styles.postItemContainerHasNoImage}>
+        <Link
+          to={`/user/${item.author.object_id}/`}
+          title={`${item.author.username}`}
+        >
+          <View>
+            <Text style={styles.postAuthor}>
+              {item.author.display_name !== "" &&
+              item.author.display_name !== null &&
+              item.author.display_name !== undefined
+                ? item.author.display_name
+                : item.author.username}
+              {item.author.is_verified ? (
+                <span
+                  title="creator of kelodraken"
+                  className="cursor-pointer ml-1 text-base material-icons-outlined"
+                >
+                  verified
+                </span>
+              ) : null}
+            </Text>
+          </View>
+        </Link>
+        <Link to={`/post/${item.object_id}/`} title={`${item.title}`}>
+          <View>
+            <Text style={styles.postCaptionHasNoImage}>{item.title}</Text>
+            <Text style={styles.postTimeHasNoImage}>{stats.text}</Text>
+          </View>
+        </Link>
+      </View>
     );
   };
 
