@@ -1,7 +1,8 @@
 import axios from "axios";
 import { debounce } from "lodash";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useCookies } from "react-cookie";
 import { View, TextInput, ActivityIndicator } from "react-native";
 import { Link } from "react-router-dom";
 
@@ -51,7 +52,7 @@ const SearchForm = (): JSX.Element => {
 
   const handleOnBlur = () => {
     if (results.length > 0) {
-    setSearching(false);
+      setSearching(false);
     }
     setSearching(true);
   };
