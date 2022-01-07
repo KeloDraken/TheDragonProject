@@ -1,8 +1,7 @@
 import { view } from "@risingstack/react-easy-state";
 import axios from "axios";
 
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { View } from "react-native";
 import { useParams } from "react-router-dom";
 

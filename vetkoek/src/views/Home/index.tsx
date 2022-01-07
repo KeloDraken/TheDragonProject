@@ -1,10 +1,10 @@
 import { view } from "@risingstack/react-easy-state";
 import { Text, View } from "react-native";
 
-import Feed from "../../components/Posts/Feed";
-import Navbar from "../../components/Navbar";
-import Sidebar from "../../components/Sidebar";
 import AuthForm from "../../components/Auth/Form";
+import Navbar from "../../components/Navbar";
+import Feed from "../../components/Posts/Feed";
+import Sidebar from "../../components/Sidebar";
 
 import { userAuth } from "../../store";
 import { styles } from "./styles";

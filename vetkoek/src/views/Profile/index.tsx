@@ -12,6 +12,7 @@ import Sidebar from "../../components/Sidebar";
 
 import { userAuth } from "../../store";
 import { UserObject } from "../../types";
+
 import { styles } from "./styles";
 
 const Profile = view((): JSX.Element => {
@@ -67,11 +68,6 @@ const Profile = view((): JSX.Element => {
 
       <aside className="overflow-y-scroll h-screen hidden md:block lg:block xl:block 2xl:block sticky top-0 w-7/12 pr-7 pl-3">
         <Sidebar />
-        {/* <SidebarCard
-        loading={loadingRecommended}
-        posts={recommendedPostsList.data}
-        cardTitle="Trending now"
-      /> */}
       </aside>
     </div>
   );

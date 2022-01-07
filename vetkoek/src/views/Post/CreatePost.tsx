@@ -1,17 +1,19 @@
 import { view } from "@risingstack/react-easy-state";
 import axios from "axios";
 
+import MarkdownIt from "markdown-it";
+
 import { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
-import { Text, TouchableOpacity } from "react-native";
-import { WithContext as ReactTags } from "react-tag-input";
 
-import MarkdownIt from "markdown-it";
 import MdEditor from "react-markdown-editor-lite";
 import "react-markdown-editor-lite/lib/index.css";
 
+import { Text, TouchableOpacity } from "react-native";
+import { WithContext as ReactTags } from "react-tag-input";
+
 import Navbar from "../../components/Navbar";
-import { postTags, userAuth } from "../../store";
+import { userAuth } from "../../store";
 
 import { styles } from "./style";
 
@@ -85,6 +87,7 @@ const CreatePost = view((): JSX.Element => {
       }
     }
   };
+
   const tagsToString = (): string => {
     if (tags.length !== 0 && tags !== null && tags !== undefined) {
       const tag_list: string[] = [];
@@ -128,7 +131,6 @@ const CreatePost = view((): JSX.Element => {
         })
         .then((response): void => {
           if (response.status === 200) {
-            postTags.tags = "";
             window.location.href = `/post/${response.data.object_id}/`;
           }
         })
@@ -191,6 +193,7 @@ const CreatePost = view((): JSX.Element => {
   const handleAddition = (tag: Tag) => {
     setTags([...tags, tag]);
   };
+
   const renderAddTagsForm = (): JSX.Element => {
     return (
       <div className="flex">

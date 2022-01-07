@@ -5,7 +5,9 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+
 import { UserObject } from "../../types";
+
 import { styles } from "./styles";
 
 interface ProfileHeaderProps {
@@ -17,7 +19,6 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
   object_id,
   item,
 }): JSX.Element => {
-  console.log(item);
   return (
     <View style={styles.headerContainer}>
       <ImageBackground

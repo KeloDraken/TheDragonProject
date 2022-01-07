@@ -6,6 +6,7 @@ import { View, TextInput, ActivityIndicator } from "react-native";
 import { Link } from "react-router-dom";
 
 import { PostObject } from "../../types";
+
 import { styles } from "./style";
 
 let debouncedFunction: any;

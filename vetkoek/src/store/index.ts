@@ -10,6 +10,3 @@ export const userAuth = store({
   isLoggedIn: false,
   authCardFlipped: false,
 });
-export const postTags = {
-  tags: "",
-};

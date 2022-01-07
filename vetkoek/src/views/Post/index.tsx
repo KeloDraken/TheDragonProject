@@ -8,6 +8,7 @@ import Navbar from "../../components/Navbar";
 import AuthorHeader from "../../components/Posts/AuthorHeader";
 import ViewPost from "../../components/Posts/viewPost";
 import ViewPostSidebar from "../../components/ViewPostSidebar";
+
 import { PostObject, UserObject } from "../../types";
 
 const PostView = (): JSX.Element => {

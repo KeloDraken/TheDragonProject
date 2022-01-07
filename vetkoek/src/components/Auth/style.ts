@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   landingContainer: {
-    backgroundColor: "#3B49DF",
+    backgroundColor: "rgb(109, 40, 217)",
     borderRadius: wp("0.5"),
     height: "auto",
     marginHorizontal: wp("1"),
@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
     paddingVertical: hp("5"),
   },
   _landingContainer: {
-    backgroundColor: "#addd3b",
+    backgroundColor: "rgb(59, 130, 246)",
     borderRadius: wp("0.5"),
     height: "auto",
     marginHorizontal: wp("1"),

@@ -1,11 +1,11 @@
 import { Image, ImageBackground, Text, View } from "react-native";
-import ReactTimeAgo from "react-time-ago";
+import { widthPercentageToDP as wp } from "react-native-responsive-screen";
 import { Link } from "react-router-dom";
-import { widthPercentageToDP } from "react-native-responsive-screen";
+import ReactTimeAgo from "react-time-ago";
 
+import TimeAgo from "javascript-time-ago";
 import za from "javascript-time-ago/locale/en-ZA.json";
 import gb from "javascript-time-ago/locale/en-GB.json";
-import TimeAgo from "javascript-time-ago";
 
 import { PostObject, UserObject } from "../../types";
 import { styles } from "./style";
@@ -15,8 +15,8 @@ TimeAgo.addLocale(gb);
 
 interface AuthorHeaderProps {
   item: UserObject;
-  post: PostObject;
   loading: boolean | true;
+  post: PostObject;
 }
 
 const AuthorHeader: React.FC<AuthorHeaderProps> = ({
@@ -60,8 +60,8 @@ const AuthorHeader: React.FC<AuthorHeaderProps> = ({
               style={{
                 color: "rgba(0,0,0,0.7)",
                 fontWeight: "600",
-                marginLeft: widthPercentageToDP("2"),
-                fontSize: widthPercentageToDP("1"),
+                marginLeft: wp("2"),
+                fontSize: wp("1"),
               }}
             >
               {item.bio}
@@ -71,10 +71,10 @@ const AuthorHeader: React.FC<AuthorHeaderProps> = ({
             style={{
               color: "rgba(0,0,0,0.7)",
               fontStyle: "italic",
-              marginTop: widthPercentageToDP("0.4"),
-              marginBottom: widthPercentageToDP("2"),
-              marginLeft: widthPercentageToDP("2"),
-              fontSize: widthPercentageToDP("1"),
+              marginTop: wp("0.4"),
+              marginBottom: wp("2"),
+              marginLeft: wp("2"),
+              fontSize: wp("1"),
             }}
             date={Date.parse(post.datetime_created)}
           />

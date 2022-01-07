@@ -2,6 +2,7 @@ import { Text, ImageBackground, View } from "react-native";
 import { Link } from "react-router-dom";
 
 import readingTime from "reading-time";
+
 import { PostObject } from "../../types";
 
 import { styles } from "./style";

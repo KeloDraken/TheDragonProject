@@ -6,6 +6,7 @@ import { useCookies } from "react-cookie";
 import { Text, View } from "react-native";
 
 import { userAuth } from "../../store";
+import { Input } from "./FormInputs";
 import { styles } from "./style";
 
 interface RegisterProps {
@@ -36,7 +37,7 @@ const Register: React.FC<RegisterProps> = view(({ isFlipped }): JSX.Element => {
 
   const check_email = (email: string): boolean => {
     let regex = /[a-zA-Z0-9_.+-]+@student.wethinkcode.co.za+/gm;
-    if (regex.test(email) === false) {
+    if (regex.test(email.toLowerCase()) === false) {
       return false;
     } else {
       return true;
@@ -149,25 +150,22 @@ const Register: React.FC<RegisterProps> = view(({ isFlipped }): JSX.Element => {
           );
         })}
 
-        <input
+        <Input
           type="text"
-          autoFocus
-          required
-          autoCapitalize="off"
-          autoComplete="none"
-          value={username}
           placeholder="WTC student email address"
-          onChange={(even) => handleSetUsername(even)}
+          value={username}
           style={emailEntryError ? { outline: "2px solid red" } : {}}
-          className="form_input bg-pink-500 py-5 px-6 my-1 rounded text-white placeholder-white font-bold w-full"
+          onChange={(event) => handleSetUsername(event)}
+          className="form_input bg-green-400 py-5 px-6 my-1 rounded text-black placeholder-black font-bold w-full"
         />
-        <input
+        <Input
           type="password"
           placeholder="Password"
-          onChange={(even) => handleSetPassword(even)}
           style={passwordEntryError ? { outline: "2px solid red" } : {}}
-          className="form_input bg-pink-500 py-5 px-6 my-1 rounded text-white placeholder-white font-bold w-full"
+          onChange={(even) => handleSetPassword(even)}
+          className="form_input bg-green-400 py-5 px-6 my-1 rounded text-black placeholder-black font-bold w-full"
         />
+
         <button
           type="submit"
           className="w-full bg-black text-white font-bold py-5 px-6 my-1 rounded"
@@ -175,7 +173,7 @@ const Register: React.FC<RegisterProps> = view(({ isFlipped }): JSX.Element => {
           {submitBtnText}
         </button>
       </form>
-      <Text onPress={handleCardFlip}>
+      <Text style={{ color: "#fff" }} onPress={handleCardFlip}>
         Already have an account? Sign in here
       </Text>
     </View>
