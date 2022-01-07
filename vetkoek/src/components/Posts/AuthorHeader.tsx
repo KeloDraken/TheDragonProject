@@ -2,15 +2,8 @@ import { Image, ImageBackground, Text, View } from "react-native";
 import { widthPercentageToDP as wp } from "react-native-responsive-screen";
 import ReactTimeAgo from "react-time-ago";
 
-import TimeAgo from "javascript-time-ago";
-import za from "javascript-time-ago/locale/en-ZA.json";
-import gb from "javascript-time-ago/locale/en-GB.json";
-
 import { PostObject, UserObject } from "../../types";
 import { styles } from "./style";
-
-TimeAgo.addDefaultLocale(za);
-TimeAgo.addLocale(gb);
 
 interface AuthorHeaderProps {
   item: UserObject;

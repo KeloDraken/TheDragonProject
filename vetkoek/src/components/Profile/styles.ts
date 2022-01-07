@@ -33,9 +33,9 @@ export const styles = StyleSheet.create({
   },
   profileImage: {
     width: wp("10"),
-    height: hp("20"),
-    borderRadius: wp("1"),
-    borderWidth: wp("0.5"),
+    height: hp("21%"),
+    borderRadius: wp("50%"),
+    borderWidth: wp("0.3"),
     borderColor: "white",
     marginTop: hp("15"),
     backgroundColor: "#D8D8D8",

@@ -6,14 +6,7 @@ import remarkToc from "remark-toc";
 
 import slug from "rehype-slug";
 
-import TimeAgo from "javascript-time-ago";
-import za from "javascript-time-ago/locale/en-ZA.json";
-import gb from "javascript-time-ago/locale/en-GB.json";
-
 import { PostObject } from "../../types";
-
-TimeAgo.addDefaultLocale(za);
-TimeAgo.addLocale(gb);
 
 interface ViewPostProps {
   item: PostObject;
