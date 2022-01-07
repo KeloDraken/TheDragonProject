@@ -1,6 +1,5 @@
 import { Image, ImageBackground, Text, View } from "react-native";
 import { widthPercentageToDP as wp } from "react-native-responsive-screen";
-import { Link } from "react-router-dom";
 import ReactTimeAgo from "react-time-ago";
 
 import TimeAgo from "javascript-time-ago";
@@ -42,19 +41,17 @@ const AuthorHeader: React.FC<AuthorHeaderProps> = ({
           <View style={styles.editProfileContainer}>
             <View style={styles.empty} />
           </View>
-          <Link to={`/user/${item.object_id}/`}>
-            <Text style={styles.displayName}>
-              {item.display_name !== "" ? item.display_name : item.username}{" "}
-              {item.is_verified ? (
-                <span
-                  title="creator of kelodraken"
-                  className="cursor-pointer text-base material-icons-outlined"
-                >
-                  verified
-                </span>
-              ) : null}
-            </Text>
-          </Link>
+          <Text style={styles.displayName}>
+            {item.display_name !== "" ? item.display_name : item.username}{" "}
+            {item.is_verified ? (
+              <span
+                title="creator of kelodraken"
+                className="cursor-pointer text-base material-icons-outlined"
+              >
+                verified
+              </span>
+            ) : null}
+          </Text>
           {item.bio !== null && item.bio !== undefined && item.bio !== "" ? (
             <Text
               style={{

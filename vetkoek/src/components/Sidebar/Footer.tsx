@@ -19,8 +19,11 @@ const Footer = (): JSX.Element => {
         >
           Privacy Policy
         </Link>
-        <Link className="mr-3 text-gray-500 text-sm hover:underline" to="/faqs">
-          FAQs
+        <Link
+          className="mr-3 text-gray-500 text-sm hover:underline"
+          to="/about/"
+        >
+          About
         </Link>
       </View>
     </View>

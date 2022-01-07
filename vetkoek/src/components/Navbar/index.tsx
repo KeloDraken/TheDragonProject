@@ -45,20 +45,10 @@ const Navbar = view((): JSX.Element => {
             account_circle
           </i>
           <span className="hidden lg:block xl:block 2xl:block">
-            <Text style={styles.navLinkText}>Profile</Text>
+            <Text style={styles.navLinkText}>Account</Text>
           </span>
         </Link>
       ) : null}
-
-      <Link
-        to="/about/"
-        className="flex px-3 rounded-lg py-3 navlink hidden lg:block xl:block 2xl:block"
-      >
-        <i className="material-icons-outlined  block lg:hidden xl:hidden 2xl:hidden  pl-3 text-black">
-          info
-        </i>
-        <Text style={styles.navLinkText}>About</Text>
-      </Link>
 
       {userAuth.isLoggedIn ? (
         <Link
