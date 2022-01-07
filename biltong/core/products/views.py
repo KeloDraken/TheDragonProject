@@ -8,4 +8,5 @@ class ProductListAPIView(ListAPIView):
     serializer_class = PostListSerialiser
     queryset = Product.objects.all()
 
+
 product_list = ProductListAPIView.as_view()

@@ -1,5 +1,10 @@
 from django.urls import path
-from core.accounts.views import get_user_id,get_user_profile, user_registration, update_user_profile 
+from core.accounts.views import (
+    get_user_id,
+    get_user_profile,
+    user_registration,
+    update_user_profile,
+)
 
 app_name = "accounts"
 

@@ -5,7 +5,6 @@ from core.posts.models import Post
 from core.search.serialisers import SearchQuerySerialiser
 
 
-
 class SearchAPIView(ListAPIView):
     serializer_class = SearchQuerySerialiser
 
