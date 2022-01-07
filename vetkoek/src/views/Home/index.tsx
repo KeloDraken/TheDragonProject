@@ -1,7 +1,7 @@
 import { view } from "@risingstack/react-easy-state";
 import { Text, View } from "react-native";
 
-import AuthForm from "../../components/Auth/Form";
+import AuthForm from "../../components/Auth/AuthFormContainer";
 import Navbar from "../../components/Navbar";
 import Feed from "../../components/Posts/Feed";
 import Sidebar from "../../components/Sidebar";

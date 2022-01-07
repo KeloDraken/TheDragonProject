@@ -106,4 +106,10 @@ export const styles = StyleSheet.create({
     fontWeight: "600",
     color: "#000",
   },
+  nextPageBtnText: {
+    color: "#000",
+  },
+  _nextPageBtnText: {
+    color: "#fff",
+  },
 });
