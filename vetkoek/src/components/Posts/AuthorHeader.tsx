@@ -44,7 +44,7 @@ const AuthorHeader: React.FC<AuthorHeaderProps> = ({
           </View>
           <Link to={`/user/${item.object_id}/`}>
             <Text style={styles.displayName}>
-              {item.display_name}{" "}
+              {item.display_name !== "" ? item.display_name : item.username}{" "}
               {item.is_verified ? (
                 <span
                   title="creator of kelodraken"

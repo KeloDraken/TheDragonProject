@@ -4,9 +4,11 @@ interface InputProps {
   type: HTMLInputTypeAttribute;
   placeholder: string | undefined;
   value?: string | undefined;
-  onChange: (event: any) => void;
-  style: CSSProperties | undefined;
+  onChange?: (event: any) => void;
+  style?: CSSProperties | undefined;
   className?: string | undefined;
+  autoFocus?: boolean | undefined;
+  required?: boolean | undefined;
 }
 
 export const Input: FC<InputProps> = ({
@@ -16,12 +18,19 @@ export const Input: FC<InputProps> = ({
   value,
   onChange,
   style,
+  autoFocus,
+  required,
 }): JSX.Element => {
+  autoFocus = false;
+  if (required === undefined) {
+    required = true;
+  }
+
   return (
     <input
       type={type}
-      autoFocus
-      required
+      autoFocus={autoFocus}
+      required={required}
       autoCapitalize="off"
       autoComplete="none"
       value={value}

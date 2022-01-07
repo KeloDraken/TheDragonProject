@@ -1,12 +1,15 @@
+import { useState } from "react";
 import {
   Image,
   ImageBackground,
   Text,
   TouchableOpacity,
+  Modal,
   View,
 } from "react-native";
 
 import { UserObject } from "../../types";
+import FormInputs from "./EditProfileFormInputs";
 
 import { styles } from "./styles";
 
@@ -19,6 +22,22 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
   object_id,
   item,
 }): JSX.Element => {
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+
+  const EditProfileModal = (): JSX.Element => {
+    return (
+      <Modal
+        onRequestClose={() => setIsVisible(false)}
+        transparent
+        visible={isVisible}
+      >
+        <View style={styles.containeralt}>
+          <FormInputs onCancel={() => setIsVisible(false)} item={item} />
+        </View>
+      </Modal>
+    );
+  };
+
   return (
     <View style={styles.headerContainer}>
       <ImageBackground
@@ -39,14 +58,18 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
         object_id !== null &&
         object_id === item.object_id ? (
           <View>
-            <TouchableOpacity style={styles.editProfileBtn}>
+            <TouchableOpacity
+              onPress={() => setIsVisible(true)}
+              style={styles.editProfileBtn}
+            >
               <Text style={styles.editProfileBtnText}>Edit profile</Text>
             </TouchableOpacity>
+            <EditProfileModal />
           </View>
         ) : null}
       </View>
       <Text style={styles.displayName}>
-        {item.display_name}{" "}
+        {item.display_name !== "" ? item.display_name : item.username}{" "}
         {item.is_verified ? (
           <span
             title="creator of kelodraken"

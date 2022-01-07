@@ -54,7 +54,9 @@ const Profile = view((): JSX.Element => {
       <main className="w-full overflow-y-scroll h-screen sticky top-0">
         <View style={styles.pageHeadingContainer}>
           <View>
-            <Text style={styles.pageHeading}>{user.display_name}</Text>
+            <Text style={styles.pageHeading}>
+              {user.display_name !== "" ? user.display_name : user.username}
+            </Text>
             <Text style={styles.pageSubheading}>{user.username}</Text>
           </View>
         </View>

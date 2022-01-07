@@ -5,6 +5,21 @@ import {
 } from "react-native-responsive-screen";
 
 export const styles = StyleSheet.create({
+  // edit profile modal
+  container: {
+    flex: 1,
+  },
+  containeralt: {
+    width: wp("50"),
+    backgroundColor: "white",
+    borderColor: "rgba(0,0,0,0.5)",
+    borderRadius: wp("0.5"),
+    borderWidth: 2,
+    marginTop: 7+"%",
+    marginLeft: 25+"%",
+    padding: wp("1"),
+  },
+
   headerContainer: {
     display: "flex",
     flexDirection: "column",
