@@ -11,14 +11,25 @@ import ProfileHeader from "../../components/Profile/ProfileHeader";
 import Sidebar from "../../components/Sidebar";
 
 import { userAuth } from "../../store";
+import { UserObject } from "../../types";
 import { styles } from "./styles";
 
 const Profile = view((): JSX.Element => {
-  const [user, setUser] = useState<any>({});
+  const [user, setUser] = useState<UserObject>({
+    is_verified: false,
+    object_id: "",
+    username: "",
+    bio: "",
+    cover_pic: "",
+    display_name: "",
+    posts: 0,
+    profile_pic: "",
+  });
 
   const [cookies] = useCookies();
 
   let { username } = useParams();
+
   const object_id: string = cookies.UOID!;
 
   useEffect((): void => {
@@ -55,7 +66,7 @@ const Profile = view((): JSX.Element => {
       </main>
 
       <aside className="overflow-y-scroll h-screen hidden md:block lg:block xl:block 2xl:block sticky top-0 w-7/12 pr-7 pl-3">
-        <Sidebar  />
+        <Sidebar />
         {/* <SidebarCard
         loading={loadingRecommended}
         posts={recommendedPostsList.data}

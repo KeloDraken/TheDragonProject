@@ -8,11 +8,26 @@ import Navbar from "../../components/Navbar";
 import AuthorHeader from "../../components/Posts/AuthorHeader";
 import ViewPost from "../../components/Posts/viewPost";
 import ViewPostSidebar from "../../components/ViewPostSidebar";
+import { PostObject, UserObject } from "../../types";
 
 const PostView = (): JSX.Element => {
   const [loading, setLoading] = useState<boolean>(true);
-  const [post, setPost] = useState<any>({});
-  const [author, setAuthor] = useState<any>({});
+
+  const [post, setPost] = useState<PostObject>({
+    cover_image: "",
+    date_created: "",
+    datetime_created: "",
+    object_id: "",
+    tags: "",
+    text: "",
+    title: "",
+  });
+
+  const [author, setAuthor] = useState<UserObject>({
+    is_verified: false,
+    object_id: "",
+    username: "",
+  });
 
   let { id } = useParams();
 

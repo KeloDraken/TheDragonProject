@@ -1,7 +1,7 @@
 import { view } from "@risingstack/react-easy-state";
 import axios from "axios";
 
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 import { Text, View } from "react-native";
 
@@ -43,7 +43,7 @@ const Register: React.FC<RegisterProps> = view(({ isFlipped }): JSX.Element => {
     }
   };
 
-  const setUserToken = (token: any): void => {
+  const setUserToken = (token: string): void => {
     setCookie("UIDT", token, {
       path: "/",
       maxAge: 2628000,
@@ -85,7 +85,7 @@ const Register: React.FC<RegisterProps> = view(({ isFlipped }): JSX.Element => {
     setPassword(event.target.value);
   };
 
-  const handleBtnPress = (event: any): void => {
+  const handleBtnPress = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
 
     if (check_email(username) === false) {
@@ -170,7 +170,6 @@ const Register: React.FC<RegisterProps> = view(({ isFlipped }): JSX.Element => {
         />
         <button
           type="submit"
-          onClick={(event) => handleBtnPress(event)}
           className="w-full bg-black text-white font-bold py-5 px-6 my-1 rounded"
         >
           {submitBtnText}

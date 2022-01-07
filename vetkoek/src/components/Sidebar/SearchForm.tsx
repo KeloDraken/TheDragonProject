@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import { debounce } from "lodash";
 
 import { useState } from "react";
@@ -34,7 +34,7 @@ const SearchForm = (): JSX.Element => {
 
       debouncedFunction = debounce(async () => {
         // use event value if you want in request
-        const response: any = await axios.get(
+        const response: AxiosResponse = await axios.get(
           `http://api.localhost:8000/v1/search/?q=${text}`
         );
 

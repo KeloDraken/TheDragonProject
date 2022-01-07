@@ -15,7 +15,7 @@ export interface UserObject {
 }
 
 export interface PostObject {
-  author: UserObject;
+  author?: UserObject;
   object_id: string;
   title: string;
   cover_image: string;
