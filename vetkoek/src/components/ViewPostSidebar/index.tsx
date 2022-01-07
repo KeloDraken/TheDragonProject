@@ -9,9 +9,9 @@ import { useParams } from "react-router-dom";
 import { updatesList } from "../../store";
 import { PostObject } from "../../types";
 
-import Footer from "./Footer";
-import SidebarCard from "./SidebarCard";
-import UpdatesCard from "./UpdatesCard";
+import Footer from "../Sidebar/Footer";
+import SidebarCard from "../Sidebar/SidebarCard";
+import UpdatesCard from "../Sidebar/UpdatesCard";
 
 const ViewPostSidebar = view((): JSX.Element => {
   const [similarPosts, setSimilarPosts] = useState<Array<PostObject>>([]);
