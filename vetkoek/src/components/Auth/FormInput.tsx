@@ -23,7 +23,7 @@ export const Input: FC<InputProps> = ({
 }): JSX.Element => {
   autoFocus = false;
   if (required === undefined) {
-    required = true;
+    required = false;
   }
 
   return (
