@@ -97,6 +97,7 @@ export const styles = StyleSheet.create({
 
   // Author header
   headerContainer: {
+    marginHorizontal: wp("2"),
     display: "flex",
     flexDirection: "column",
   },
@@ -105,7 +106,6 @@ export const styles = StyleSheet.create({
     right: 0,
     height: hp("15"),
     marginBottom: hp("0.5"),
-    marginHorizontal: wp("0.6"),
     backgroundColor: "#D8D8D8",
   },
   profileImage: {
@@ -133,7 +133,6 @@ export const styles = StyleSheet.create({
     textAlign: "center",
     color: "rgba(0,0,0,0.9)",
     fontSize: wp("1.2"),
-    marginLeft: wp("2"),
     fontWeight: "700",
   },
 });
