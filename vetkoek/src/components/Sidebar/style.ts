@@ -6,6 +6,7 @@ import {
 
 export const styles = StyleSheet.create({
   footerContainer: {
+    width:100+"%",
     marginVertical: hp("2"),
     marginLeft: wp("0.3"),
     display: "flex",

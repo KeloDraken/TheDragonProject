@@ -62,12 +62,26 @@ const AuthorHeader: React.FC<AuthorHeaderProps> = ({
               color: "rgba(0,0,0,0.7)",
               fontStyle: "italic",
               marginTop: wp("0.4"),
-              marginBottom: wp("2"),
               marginLeft: wp("2"),
               fontSize: wp("1"),
             }}
             date={Date.parse(post.datetime_created)}
           />
+          <div className="flex flex-row ml-6 mt-2 ">
+            <span
+              title="Report post"
+              className="cursor-pointer text-xl text-gray-500 mr-2 material-icons-outlined"
+            >
+              report
+            </span>
+            <span
+              title={post.tags.replaceAll(",",", ")}
+              className="cursor-pointer text-xl text-gray-500 mr-2 material-icons-outlined"
+            >
+              topic
+            </span>
+          </div>
+          <hr className="ml-6 mr-4 mt-3 mb-5" />
         </View>
       ) : (
         <View>

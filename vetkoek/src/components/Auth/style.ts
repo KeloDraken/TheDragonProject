@@ -36,6 +36,7 @@ export const styles = StyleSheet.create({
     marginBottom: hp("7"),
   },
   heroText: {
+    marginBottom: hp("2"),
     fontSize: wp("2.6"),
     fontWeight: "800",
     color: "#fff",
@@ -54,6 +55,7 @@ export const styles = StyleSheet.create({
     marginBottom: hp("7"),
   },
   _heroText: {
+    marginBottom: hp("2"),
     fontSize: wp("2.6"),
     fontWeight: "800",
     color: "#000",

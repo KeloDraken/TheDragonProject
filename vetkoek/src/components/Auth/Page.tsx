@@ -165,11 +165,6 @@ const Page: React.FC<AuthPageProps> = view(
         <Text style={view === "login" ? styles._heroText : styles.heroText}>
           {pageHeadingText}
         </Text>
-        <Text
-          style={view === "login" ? styles._heroSubText : styles.heroSubText}
-        >
-          We're a community of over 300 amazing developers
-        </Text>
         <form onSubmit={(event) => handleBtnPress(event)}>
           {errorMessage.map((item: string, index: number): JSX.Element => {
             return (

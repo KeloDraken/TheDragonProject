@@ -26,6 +26,24 @@ const Footer = (): JSX.Element => {
           About
         </Link>
       </View>
+      <View style={styles.footerContainer}>
+        <a
+          href="https://instagram.com/KeloDraken/"
+          className="mr-3 text-gray-500 text-sm hover:underline"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Instagram
+        </a>
+        <a
+          href="https://twitter.com/KeloDraken/"
+          className="mr-3 text-gray-500 text-sm hover:underline"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Twitter
+        </a>
+      </View>
     </View>
   );
 };
