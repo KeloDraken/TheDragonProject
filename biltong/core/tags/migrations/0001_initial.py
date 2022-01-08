@@ -15,16 +15,40 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Tag',
+            name="Tag",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=2000, unique=True)),
-                ('followers', models.PositiveIntegerField(default=0)),
-                ('about', models.TextField(blank=True, null=True)),
-                ('accent_colour', models.CharField(blank=True, default='ffffff', max_length=2000, null=True)),
-                ('cover_image', models.CharField(blank=True, max_length=2000, null=True)),
-                ('posts', models.PositiveIntegerField(default=0)),
-                ('creator', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.DO_NOTHING, to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=2000, unique=True)),
+                ("followers", models.PositiveIntegerField(default=0)),
+                ("about", models.TextField(blank=True, null=True)),
+                (
+                    "accent_colour",
+                    models.CharField(
+                        blank=True, default="ffffff", max_length=2000, null=True
+                    ),
+                ),
+                (
+                    "cover_image",
+                    models.CharField(blank=True, max_length=2000, null=True),
+                ),
+                ("posts", models.PositiveIntegerField(default=0)),
+                (
+                    "creator",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.DO_NOTHING,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
     ]

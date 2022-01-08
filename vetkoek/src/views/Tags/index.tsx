@@ -6,6 +6,7 @@ import { ActivityIndicator, Text, TouchableOpacity, View } from "react-native";
 
 import Navbar from "../../components/Navbar";
 import Sidebar from "../../components/Sidebar";
+
 import { TagObject } from "../../types";
 
 import { styles } from "./style";
@@ -14,7 +15,7 @@ const Tags = (): JSX.Element => {
   const [loading, setLoading] = useState<boolean>(true);
   const [loadingMore, setLoadingMore] = useState<boolean>(false);
 
-  const [hasNext, setHasNext] = useState<boolean>(true);
+  const [hasNext, setHasNext] = useState<boolean>(false);
   const [start, setStart] = useState<number>(2);
 
   const [tags, setTags] = useState<Array<TagObject>>([]);
@@ -27,6 +28,11 @@ const Tags = (): JSX.Element => {
     const endpoint: string = `http://api.localhost:8000/v1/tags/list/?page=1`;
 
     axios.get(endpoint).then((response): void => {
+      if (response.data.next === null) {
+        setHasNext(false);
+      } else {
+        setHasNext(true);
+      }
       setTags(response.data.results);
       setLoading(false);
     });
@@ -39,8 +45,13 @@ const Tags = (): JSX.Element => {
     axios.get(endpoint).then((response): void => {
       if (response.data.next === null) {
         setHasNext(false);
+      } else {
+        setHasNext(true);
       }
-      setTags(response.data.results);
+
+      const newTagsList: TagObject[] = tags.concat(response.data.results);
+      setTags(newTagsList);
+
       setLoadingMore(false);
       setStart(start + 1);
     });
@@ -50,6 +61,7 @@ const Tags = (): JSX.Element => {
     const colour: string = "#000";
     const postsPublished: string =
       item.posts === 1 ? "post published" : "posts published";
+      
     return (
       <View style={styles.tag}>
         <View style={[styles.tagHeaderBar, { backgroundColor: colour }]} />
@@ -98,19 +110,21 @@ const Tags = (): JSX.Element => {
             renderTags()
           )}
 
-          <TouchableOpacity
-            onPress={() => handleFetchMore()}
-            style={[styles.loadMoreBtn, moreBtnBGColour]}
-            disabled={!hasNext}
-          >
-            {loadingMore ? (
-              <div className="flex justify-center self-center align-center">
-                <ActivityIndicator color={"#fff"} size={30} />
-              </div>
-            ) : (
-              <Text style={styles.loadMoreBtnText}>Load more</Text>
-            )}
-          </TouchableOpacity>
+          {hasNext ? (
+            <TouchableOpacity
+              onPress={() => handleFetchMore()}
+              style={[styles.loadMoreBtn, moreBtnBGColour]}
+              disabled={!hasNext}
+            >
+              {loadingMore ? (
+                <div className="flex justify-center self-center align-center">
+                  <ActivityIndicator color={"#fff"} size={30} />
+                </div>
+              ) : (
+                <Text style={styles.loadMoreBtnText}>Load more</Text>
+              )}
+            </TouchableOpacity>
+          ) : null}
         </View>
       </main>
 

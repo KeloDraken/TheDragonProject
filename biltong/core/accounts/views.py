@@ -1,5 +1,6 @@
 from rest_framework import status
 from rest_framework.generics import UpdateAPIView
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -99,10 +100,10 @@ get_user_profile = GetUserProfileAPIView.as_view()
 class UpdateUserProfileAPIView(UpdateAPIView):
     queryset = User.objects.all()
     serializer_class = UserUpdateSerialiser
-    lookup_field = "object_id"
+    permission_classes = [IsAuthenticated]
 
     def update(self, request, *args, **kwargs):
-        instance = self.get_object()
+        instance = User.objects.get(object_id=request.user.object_id)
         serialiser: UserUpdateSerialiser = self.get_serializer(
             instance, data=request.data, partial=True
         )

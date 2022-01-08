@@ -6,6 +6,7 @@ import { useCookies } from "react-cookie";
 import { ActivityIndicator, Text, View } from "react-native";
 
 import { userAuth } from "../../store";
+
 import { styles } from "./style";
 
 const LoadingView = view((): JSX.Element => {

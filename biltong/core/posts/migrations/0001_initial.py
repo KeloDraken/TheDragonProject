@@ -16,18 +16,49 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Post',
+            name="Post",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('object_id', models.CharField(blank=True, max_length=30, null=True)),
-                ('title', models.CharField(blank=True, default="Author was too 'cool' to follow markdown guidelines 🙄", max_length=140)),
-                ('cover_image', models.CharField(blank=True, max_length=2000, null=True)),
-                ('text', markdownfield.models.MarkdownField(rendered_field='text_rendered', use_editor=False)),
-                ('text_rendered', markdownfield.models.RenderedMarkdownField()),
-                ('tags', models.CharField(blank=True, max_length=4000, null=True)),
-                ('date_created', models.DateField(auto_now_add=True)),
-                ('datetime_created', models.DateTimeField(auto_now_add=True)),
-                ('author', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.DO_NOTHING, to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("object_id", models.CharField(blank=True, max_length=30, null=True)),
+                (
+                    "title",
+                    models.CharField(
+                        blank=True,
+                        default="Author was too 'cool' to follow markdown guidelines 🙄",
+                        max_length=140,
+                    ),
+                ),
+                (
+                    "cover_image",
+                    models.CharField(blank=True, max_length=2000, null=True),
+                ),
+                (
+                    "text",
+                    markdownfield.models.MarkdownField(
+                        rendered_field="text_rendered", use_editor=False
+                    ),
+                ),
+                ("text_rendered", markdownfield.models.RenderedMarkdownField()),
+                ("tags", models.CharField(blank=True, max_length=4000, null=True)),
+                ("date_created", models.DateField(auto_now_add=True)),
+                ("datetime_created", models.DateTimeField(auto_now_add=True)),
+                (
+                    "author",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.DO_NOTHING,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
     ]

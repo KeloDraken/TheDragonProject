@@ -4,18 +4,18 @@ export interface TagObject {
 }
 
 export interface UserObject {
-  object_id: string;
-  username: string;
+  object_id?: string;
+  username?: string;
   display_name?: string;
   cover_pic?: string;
   profile_pic?: string;
   posts?: number;
   bio?: string;
-  is_verified: boolean | false;
+  is_verified?: boolean | false;
 }
 
 export interface PostObject {
-  author: UserObject;
+  author?: UserObject;
   object_id: string;
   title: string;
   cover_image: string;

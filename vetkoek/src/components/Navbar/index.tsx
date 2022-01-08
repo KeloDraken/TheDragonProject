@@ -45,31 +45,21 @@ const Navbar = view((): JSX.Element => {
             account_circle
           </i>
           <span className="hidden lg:block xl:block 2xl:block">
-            <Text style={styles.navLinkText}>Profile</Text>
+            <Text style={styles.navLinkText}>Account</Text>
           </span>
         </Link>
       ) : null}
 
-      <Link
-        to="/about/"
-        className="flex px-3 rounded-lg py-3 navlink hidden lg:block xl:block 2xl:block"
-      >
-        <i className="material-icons-outlined  block lg:hidden xl:hidden 2xl:hidden  pl-3 text-black">
-          info
-        </i>
-        <Text style={styles.navLinkText}>About</Text>
-      </Link>
-
       {userAuth.isLoggedIn ? (
         <Link
           to="/create/"
-          className="flex mt-1 bg-gradient-to-r text-black font-bold text-2xl from-green-400 to-blue-500 px-3 rounded-lg py-3"
+          className="flex mt-1 bg-gradient-to-r font-bold from-green-400 to-blue-500 px-3 rounded-lg py-4"
         >
-          <i className="material-icons-outlined block lg:hidden xl:hidden 2xl:hidden  pl-3 text-2xl">
+          <i className="material-icons-outlined text-black block lg:hidden xl:hidden 2xl:hidden  pl-3 text-2xl">
             create
           </i>
-          <span className="hidden ml-7 text-2xl lg:block xl:block 2xl:block">
-            Create post
+          <span className="hidden ml-7 text-black text-2xl lg:block xl:block 2xl:block">
+            Contribute
           </span>
         </Link>
       ) : null}

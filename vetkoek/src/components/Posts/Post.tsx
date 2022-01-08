@@ -2,6 +2,7 @@ import { Text, ImageBackground, View } from "react-native";
 import { Link } from "react-router-dom";
 
 import readingTime from "reading-time";
+
 import { PostObject } from "../../types";
 
 import { styles } from "./style";
@@ -36,27 +37,6 @@ const Post: React.FC<PostProps> = ({ item }): JSX.Element => {
   const renderHasNoImage = (): JSX.Element => {
     return (
       <View style={styles.postItemContainerHasNoImage}>
-        <Link
-          to={`/user/${item.author.object_id}/`}
-        >
-          <View>
-            <Text style={styles.postAuthor}>
-              {item.author.display_name !== "" &&
-              item.author.display_name !== null &&
-              item.author.display_name !== undefined
-                ? item.author.display_name
-                : item.author.username}
-              {item.author.is_verified ? (
-                <span
-                  title="creator of kelodraken"
-                  className="cursor-pointer ml-1 text-base material-icons-outlined"
-                >
-                  verified
-                </span>
-              ) : null}
-            </Text>
-          </View>
-        </Link>
         <Link to={`/post/${item.object_id}/`} title={`${item.title}`}>
           <View>
             <Text style={styles.postCaptionHasNoImage}>{item.title}</Text>

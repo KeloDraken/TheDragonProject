@@ -5,8 +5,7 @@ import { View } from "react-native";
 
 import { userAuth } from "../../store";
 
-import Login from "./Login";
-import Register from "./Register";
+import Page from "./Page";
 
 const AuthForm = view((): JSX.Element => {
   return (
@@ -15,11 +14,11 @@ const AuthForm = view((): JSX.Element => {
       flipDirection="horizontal"
     >
       <View>
-        <Register isFlipped={userAuth.authCardFlipped} />
+        <Page view="register" isFlipped={userAuth.authCardFlipped} />
       </View>
 
       <View>
-        <Login isFlipped={userAuth.authCardFlipped} />
+        <Page view="login" isFlipped={userAuth.authCardFlipped} />
       </View>
     </ReactCardFlip>
   );

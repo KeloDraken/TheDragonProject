@@ -9,7 +9,9 @@ from core.accounts.models import User
 
 class Post(models.Model):
     object_id: str = models.CharField(max_length=30, null=True, blank=True)
-    author: User = models.ForeignKey(User, on_delete=models.DO_NOTHING, null=True, blank=True)
+    author: User = models.ForeignKey(
+        User, on_delete=models.DO_NOTHING, null=True, blank=True
+    )
     title: str = models.CharField(
         max_length=140,
         null=False,

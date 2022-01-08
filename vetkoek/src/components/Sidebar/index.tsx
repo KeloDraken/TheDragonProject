@@ -1,8 +1,7 @@
 import { view } from "@risingstack/react-easy-state";
 import axios from "axios";
 
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { View } from "react-native";
 
 import { recommendedPostsList, updatesList } from "../../store";
@@ -13,12 +12,16 @@ import SidebarCard from "./SidebarCard";
 import UpdatesCard from "./UpdatesCard";
 
 interface SidebarProps {
-  viewPost?: boolean | false;
+  viewPost?: boolean;
 }
 
 const Sidebar: React.FC<SidebarProps> = view(({ viewPost }): JSX.Element => {
   const [loadingRecommended, setRecommendedLoading] = useState<boolean>(true);
   const [loadingUpdates, setUpdatesLoading] = useState<boolean>(true);
+
+  if (viewPost === undefined) {
+    viewPost = false;
+  }
 
   const handleGetRecommended = (): void => {
     const endpoint: string =
@@ -50,7 +53,6 @@ const Sidebar: React.FC<SidebarProps> = view(({ viewPost }): JSX.Element => {
       setRecommendedLoading(false);
       setUpdatesLoading(false);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

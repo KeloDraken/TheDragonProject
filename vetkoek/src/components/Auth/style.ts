@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   landingContainer: {
-    backgroundColor: "#3B49DF",
+    backgroundColor: "rgb(109, 40, 217)",
     borderRadius: wp("0.5"),
     height: "auto",
     marginHorizontal: wp("1"),
@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
     paddingVertical: hp("5"),
   },
   _landingContainer: {
-    backgroundColor: "#addd3b",
+    backgroundColor: "rgb(59, 130, 246)",
     borderRadius: wp("0.5"),
     height: "auto",
     marginHorizontal: wp("1"),
@@ -36,6 +36,7 @@ export const styles = StyleSheet.create({
     marginBottom: hp("7"),
   },
   heroText: {
+    marginBottom: hp("2"),
     fontSize: wp("2.6"),
     fontWeight: "800",
     color: "#fff",
@@ -54,6 +55,7 @@ export const styles = StyleSheet.create({
     marginBottom: hp("7"),
   },
   _heroText: {
+    marginBottom: hp("2"),
     fontSize: wp("2.6"),
     fontWeight: "800",
     color: "#000",
@@ -105,5 +107,11 @@ export const styles = StyleSheet.create({
     fontSize: wp("1"),
     fontWeight: "600",
     color: "#000",
+  },
+  nextPageBtnText: {
+    color: "#000",
+  },
+  _nextPageBtnText: {
+    color: "#fff",
   },
 });
