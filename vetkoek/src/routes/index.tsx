@@ -8,6 +8,7 @@ import {
 import LoadingView from "../views/Loading";
 import "../styles/kelodraken.css";
 
+const PrivacyView = lazy(() => import("../views/Privacy"));
 const AboutView = lazy(() => import("../views/About"));
 const CreatePost = lazy(() => import("../views/Post/CreatePost"));
 const HomeView = lazy(() => import("../views/Home"));
@@ -22,6 +23,7 @@ const Routes = (): JSX.Element => {
         <Switch>
           <Route path="/" element={<HomeView />} />
           <Route path="/about/" element={<AboutView />} />
+          <Route path="/privacy/" element={<PrivacyView />} />
           <Route path="/post/:id/" element={<PostView />} />
           <Route path="/create/" element={<CreatePost />} />
           <Route path="/tags/" element={<Tags />} />

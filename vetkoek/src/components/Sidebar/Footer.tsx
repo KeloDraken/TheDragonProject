@@ -1,12 +1,10 @@
 import { View } from "react-native";
 import { Link } from "react-router-dom";
 
-import { styles } from "./style";
-
 const Footer = (): JSX.Element => {
   return (
     <View>
-      <View style={styles.footerContainer}>
+      <div className="ml-5 mt-3">
         <Link
           className="mr-3 text-gray-500 text-sm hover:underline"
           to="/post/eQInw2fFV1AxKzO/"
@@ -25,8 +23,8 @@ const Footer = (): JSX.Element => {
         >
           About
         </Link>
-      </View>
-      <View style={styles.footerContainer}>
+      </div>
+      <div className="ml-5 mb-5 mt-3">
         <a
           href="https://instagram.com/KeloDraken/"
           className="mr-3 text-gray-500 text-sm hover:underline"
@@ -36,14 +34,34 @@ const Footer = (): JSX.Element => {
           Instagram
         </a>
         <a
-          href="https://twitter.com/KeloDraken/"
+          href="https://twitter.com/intent/follow?screen_name=KeloDraken&tw_p=followbutton"
           className="mr-3 text-gray-500 text-sm hover:underline"
           target="_blank"
           rel="noreferrer"
         >
           Twitter
         </a>
-      </View>
+      </div>
+      <hr className="mx-4" />
+      <div className="ml-5 mt-3 mb-10">
+        <p className="text-black text-sm mt-3 font-bold">My other projects</p>
+        <a
+          href="https://matstad.com/"
+          className="mr-3 text-gray-500 text-sm hover:underline"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Matstad
+        </a>
+        <a
+          href="https://play.google.com/store/apps/details?id=com.ndlovukazi"
+          className="mr-3 text-gray-500 text-sm hover:underline"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Sága
+        </a>
+      </div>
     </View>
   );
 };
