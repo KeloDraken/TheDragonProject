@@ -23,7 +23,7 @@ const Feed = (): JSX.Element => {
   };
 
   const handlePostFetch = (): void => {
-    const endpoint: string = "http://api.localhost:8000/v1/posts/list/?page=1";
+    const endpoint: string = "http://kelodraken.api.localhost:8000/v1/posts/list/?page=1";
 
     axios.get(endpoint).then((response): void => {
       if (response.data.next === null) {
@@ -39,7 +39,7 @@ const Feed = (): JSX.Element => {
   const handleFetchMore = (): void => {
     setLoadingMore(true);
 
-    const endpoint: string = `http://api.localhost:8000/v1/posts/list/?page=${start}`;
+    const endpoint: string = `http://kelodraken.api.localhost:8000/v1/posts/list/?page=${start}`;
 
     axios.get(endpoint).then((response): void => {
       const newPostList: PostObject[] = postsList.concat(response.data.results);

@@ -120,7 +120,7 @@ const CreatePost = view((): JSX.Element => {
         ..._title,
       };
 
-      const endpoint: string = "http://api.localhost:8000/v1/posts/create/";
+      const endpoint: string = "http://kelodraken.api.localhost:8000/v1/posts/create/";
 
       axios
         .post(endpoint, data, {

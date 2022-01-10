@@ -31,7 +31,7 @@ const FormInputs: FC<FormInputProps> = ({ item, onCancel }): JSX.Element => {
 
     let token: string = cookies.UIDT;
 
-    const endpoint = "http://api.localhost:8000/v1/users/update/";
+    const endpoint = "http://kelodraken.api.localhost:8000/v1/users/update/";
 
     axios
       .patch(endpoint, data, {
