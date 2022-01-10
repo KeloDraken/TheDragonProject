@@ -2,7 +2,7 @@
 
 ## What is this folder?
 
-This folder is called vetkoek ([/ˈfɛtkʊk/](https://en.wikipedia.org/wiki/Vetkoek)), it is currently used for our React frontend (CRA).
+This folder is called vetkoek ([/ˈfɛtkʊk/](https://en.wikipedia.org/wiki/Vetkoek)), it is currently used for our React frontend.
 
 It's live on 👉 [kelodraken.com](https://www.kelodraken.com)
 
