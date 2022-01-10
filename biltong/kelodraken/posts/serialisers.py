@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from kelodraken.posts.models import Post
+from kelodraken.posts.models import Post, Report
 
 
 class PostListSerialiser(serializers.ModelSerializer):
@@ -39,3 +39,9 @@ class PostCreateSerialiser(serializers.ModelSerializer):
             "text",
             "tags",
         )
+
+
+class ReportPostSerialiser(serializers.ModelSerializer):
+    class Meta:
+        model = Report
+        fields = ("text",)

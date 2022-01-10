@@ -33,3 +33,14 @@ class Post(models.Model):
     def save(self, **kwargs):
         self.object_id = object_id_generator(15, Post)
         return super(Post, self).save(**kwargs)
+
+
+class Report(models.Model):
+    post: Post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    user: User = models.ForeignKey(
+        User,
+        on_delete=models.DO_NOTHING,
+        null=True,
+        blank=True,
+    )
+    text: str = models.TextField(null=False, blank=False)
