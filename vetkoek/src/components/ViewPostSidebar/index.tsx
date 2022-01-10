@@ -20,7 +20,7 @@ const ViewPostSidebar = view((): JSX.Element => {
   let { id } = useParams();
 
   const handleGetUpdates = (): void => {
-    const endpoint: string = "http://kelodraken.api.localhost:8000/v1/core/updates/";
+    const endpoint: string = `${process.env.API_HOST_NAME}/v1/core/updates/`;
 
     axios.get(endpoint).then((response): void => {
       updatesList.data = response.data.results;
@@ -36,7 +36,7 @@ const ViewPostSidebar = view((): JSX.Element => {
       setUpdatesLoading(false);
     }
 
-    const endpoint: string = `http://kelodraken.api.localhost:8000/v1/posts/get/similar/${id}/`;
+    const endpoint: string = `${process.env.API_HOST_NAME}/v1/posts/get/similar/${id}/`;
 
     axios.get(endpoint).then((response): void => {
       setSimilarPosts(response.data.results);

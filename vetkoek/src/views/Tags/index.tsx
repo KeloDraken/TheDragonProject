@@ -25,7 +25,7 @@ const Tags = (): JSX.Element => {
   };
 
   const handleTagFetch = (): void => {
-    const endpoint: string = `http://kelodraken.api.localhost:8000/v1/tags/list/?page=1`;
+    const endpoint: string = `${process.env.API_HOST_NAME}/v1/tags/list/?page=1`;
 
     axios.get(endpoint).then((response): void => {
       if (response.data.next === null) {
@@ -40,7 +40,7 @@ const Tags = (): JSX.Element => {
 
   const handleFetchMore = (): void => {
     setLoadingMore(true);
-    const endpoint: string = `http://kelodraken.api.localhost:8000/v1/tags/list/?page=${start}`;
+    const endpoint: string = `${process.env.API_HOST_NAME}/v1/tags/list/?page=${start}`;
 
     axios.get(endpoint).then((response): void => {
       if (response.data.next === null) {

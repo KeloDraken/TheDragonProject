@@ -24,7 +24,7 @@ const LoadingView = view((): JSX.Element => {
   };
 
   const getUserID = (token: string): void => {
-    const endpoint: string = "http://kelodraken.api.localhost:8000/v1/users/object_id/";
+    const endpoint: string = `${process.env.API_HOST_NAME}/v1/users/object_id/`;
     axios
       .get(endpoint, {
         headers: {

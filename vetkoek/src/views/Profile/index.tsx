@@ -37,7 +37,7 @@ const Profile = view((): JSX.Element => {
     if (!userAuth.isLoggedIn) {
       window.location.replace("/");
     } else {
-      const endpoint: string = `http://kelodraken.api.localhost:8000/v1/users/get/?id=${username}`;
+      const endpoint: string = `${process.env.API_HOST_NAME}/v1/users/get/?id=${username}`;
 
       axios.get(endpoint).then((response): void => {
         setUser(response.data);
