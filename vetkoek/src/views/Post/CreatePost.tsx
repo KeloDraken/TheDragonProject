@@ -92,7 +92,7 @@ const CreatePost = view((): JSX.Element => {
     if (tags.length !== 0 && tags !== null && tags !== undefined) {
       const tag_list: string[] = [];
       tags.forEach((value, i) => {
-        tag_list.push(value.text.toString());
+        tag_list.push(value.text.toString().toLowerCase());
       });
       return tag_list.join(",");
     }
