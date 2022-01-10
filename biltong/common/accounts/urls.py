@@ -1,5 +1,5 @@
 from django.urls import path
-from kelodraken.accounts.views import (
+from common.accounts.views import (
     get_user_id,
     get_user_profile,
     user_registration,

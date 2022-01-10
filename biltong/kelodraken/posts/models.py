@@ -4,7 +4,7 @@ from markdownfield.models import MarkdownField, RenderedMarkdownField
 from markdownfield.validators import VALIDATOR_CLASSY
 
 from utils.helpers import object_id_generator
-from kelodraken.accounts.models import User
+from common.accounts.models import User
 
 
 class Post(models.Model):

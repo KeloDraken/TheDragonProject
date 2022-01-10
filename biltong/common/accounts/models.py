@@ -6,7 +6,7 @@ from django.db.models.signals import post_save
 from django.utils.translation import gettext_lazy as _
 
 from utils.helpers import object_id_generator
-from kelodraken.accounts.validators import UnicodeEmailValidator
+from common.accounts.validators import UnicodeEmailValidator
 
 
 class LowercaseCharField(models.CharField):

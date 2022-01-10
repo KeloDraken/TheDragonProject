@@ -24,9 +24,11 @@ INSTALLED_APPS = [
     "rest_framework",
     "rest_framework_jwt",
     "rest_framework_jwt.blacklist",
+    # Shared apps
+    "common",
+    "common.accounts",
     # Kelodraken apps
     "kelodraken",
-    "kelodraken.accounts",
     "kelodraken.posts",
     "kelodraken.search",
     "kelodraken.tags",
@@ -91,7 +93,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 AUTH_USER_MODEL = "accounts.User"
 
-AUTHENTICATION_BACKENDS = ["kelodraken.accounts.backends.EmailBackend"]
+AUTHENTICATION_BACKENDS = ["common.accounts.backends.EmailBackend"]
 
 LANGUAGE_CODE = "en-us"
 
