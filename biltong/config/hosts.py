@@ -2,7 +2,6 @@ from django_hosts import patterns, host
 
 host_patterns = patterns(
     "",
-    host(r"api", "config.api_urls", name="api"),
-    # host(r"(\w+)", "config.urls", name="admin"),
+    host(r"kelodraken.api", "config.kelodraken_urls", name="kelodraken"),
     host(r"admin", "config.urls", name="admin"),
 )

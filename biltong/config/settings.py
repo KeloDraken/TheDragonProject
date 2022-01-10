@@ -24,12 +24,12 @@ INSTALLED_APPS = [
     "rest_framework",
     "rest_framework_jwt",
     "rest_framework_jwt.blacklist",
-    # Msukwini apps
-    "core",
-    "core.accounts",
-    "core.posts",
-    "core.search",
-    "core.tags",
+    # Kelodraken apps
+    "kelodraken",
+    "kelodraken.accounts",
+    "kelodraken.posts",
+    "kelodraken.search",
+    "kelodraken.tags",
 ]
 
 MIDDLEWARE = [
@@ -91,7 +91,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 AUTH_USER_MODEL = "accounts.User"
 
-AUTHENTICATION_BACKENDS = ["core.accounts.backends.EmailBackend"]
+AUTHENTICATION_BACKENDS = ["kelodraken.accounts.backends.EmailBackend"]
 
 LANGUAGE_CODE = "en-us"
 

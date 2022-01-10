@@ -34,7 +34,7 @@ const PostView = (): JSX.Element => {
 
   const handlePostFetch = (): void => {
     setLoading(true);
-    const endpoint = `http://api.localhost:8000/v1/posts/get/${id}`;
+    const endpoint = `http://kelodraken.api.localhost:8000/v1/posts/get/${id}`;
     axios.get(endpoint).then((response): void => {
       setPost(response.data.results[0]);
       setAuthor(response.data.results[0].author);
