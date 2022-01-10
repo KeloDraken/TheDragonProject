@@ -28,7 +28,6 @@ INSTALLED_APPS = [
     "core",
     "core.accounts",
     "core.posts",
-    "core.products",
     "core.search",
     "core.tags",
 ]
