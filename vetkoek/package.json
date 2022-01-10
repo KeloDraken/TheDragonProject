@@ -1,6 +1,7 @@
 {
   "name": "kelodraken",
   "version": "0.1.0",
+  "homepage": "https://foxstraat.pythonanywhere.com/",
   "private": true,
   "dependencies": {
     "@risingstack/react-easy-state": "^6.3.0",

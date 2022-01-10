@@ -44,9 +44,9 @@ const Footer = (): JSX.Element => {
       </div>
       <hr className="mx-4" />
       <div className="ml-5 mt-3 mb-10">
-        <p className="text-black text-sm mt-3 font-bold">My other projects</p>
+        <p className="text-black text-sm mt-3 font-bold">Drakenprojektet</p>
         <a
-          href="https://matstad.com/"
+          href="https://matstad.kelodraken.com/"
           className="mr-3 text-gray-500 text-sm hover:underline"
           target="_blank"
           rel="noreferrer"
