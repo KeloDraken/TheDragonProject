@@ -4,11 +4,12 @@
 
 ## Structure
 
-| Codebase                 |                Description                 |
-| :----------------------- | :----------------------------------------: |
-| [config](config)         |                Site config                 |
-| [kelodraken](kelodraken) |           Blogging community API           |
-| [utils](utils)           | A bunch of functions that make life easier |
+| Codebase                 |                    Description                     |
+| :----------------------- | :------------------------------------------------: |
+| [common](common)         | Apps that are shared throughout The Dragon Project |
+| [config](config)         |                    Site config                     |
+| [kelodraken](kelodraken) |               Blogging community API               |
+| [utils](utils)           |     A bunch of functions that make life easier     |
 
 ## Running as Development
 
