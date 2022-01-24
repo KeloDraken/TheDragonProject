@@ -1,4 +1,6 @@
 from django.contrib import admin
+from django.contrib.auth.models import Group
+
 from django.urls import include, path
 
 from rest_framework_jwt.views import obtain_jwt_token
@@ -13,3 +15,8 @@ urlpatterns = [
     path("v1/search/", include("kelodraken.search.urls", namespace="search")),
     path("v1/tags/", include("kelodraken.tags.urls", namespace="tags")),
 ]
+
+admin.site.site_header = "KeloDraken Site Admin"
+admin.site.site_title = "KeloDraken Site Admin"
+
+admin.site.unregister(Group)
