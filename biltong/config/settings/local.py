@@ -2,7 +2,7 @@ import datetime
 
 from pathlib import Path
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 SECRET_KEY = "django-insecure-igmlx$sp#%d6qz7#md)1_b$$%0h)k&+a=7=pp%8dm%87=n(xb_"
 
@@ -19,7 +19,6 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # Third-party apps
     "corsheaders",
-    "django_hosts",
     "markdownfield",
     "rest_framework",
     "rest_framework_jwt",
