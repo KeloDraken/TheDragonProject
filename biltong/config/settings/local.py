@@ -8,7 +8,7 @@ SECRET_KEY = "django-insecure-igmlx$sp#%d6qz7#md)1_b$$%0h)k&+a=7=pp%8dm%87=n(xb_
 
 DEBUG = True
 
-ALLOWED_HOSTS = ["kgosiemang.pythonanywhere.com"]
+ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
