@@ -8,6 +8,8 @@ import {
 import LoadingView from "../views/Loading";
 import "../styles/kelodraken.css";
 
+import PageNotFoundView from "../views/NotFound";
+
 const PrivacyView = lazy(() => import("../views/Privacy"));
 const AboutView = lazy(() => import("../views/About"));
 const CreatePost = lazy(() => import("../views/Post/CreatePost"));
@@ -28,6 +30,7 @@ const Routes = (): JSX.Element => {
           <Route path="/create/" element={<CreatePost />} />
           <Route path="/tags/" element={<Tags />} />
           <Route path="/user/:username/" element={<Profile />} />
+          <Route element={<PageNotFoundView />} />
         </Switch>
       </Router>
     </Suspense>
