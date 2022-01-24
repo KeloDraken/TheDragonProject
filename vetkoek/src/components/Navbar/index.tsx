@@ -27,14 +27,14 @@ const Navbar = view((): JSX.Element => {
         </span>
       </Link>
 
-      <Link to="/tags/" className="flex px-3 rounded-lg py-3 navlink">
+      {/* <Link to="/tags/" className="flex px-3 rounded-lg py-3 navlink">
         <i className="material-icons-outlined  block lg:hidden xl:hidden 2xl:hidden  pl-3 text-black">
           tag
         </i>
         <span className="hidden lg:block xl:block 2xl:block">
           <Text style={styles.navLinkText}>Tags</Text>
         </span>
-      </Link>
+      </Link> */}
 
       {userAuth.isLoggedIn ? (
         <Link
