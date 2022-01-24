@@ -25,7 +25,7 @@ const Sidebar: React.FC<SidebarProps> = view(({ viewPost }): JSX.Element => {
 
   const handleGetRecommended = (): void => {
     const endpoint: string =
-      "http://kelodraken.api.localhost:8000/v1/posts/get/recommended/";
+    `${process.env.REACT_APP_API_HOST_NAME}/v1/posts/get/recommended/`;
 
     axios.get(endpoint).then((response): void => {
       recommendedPostsList.data = response.data.results;
@@ -34,7 +34,7 @@ const Sidebar: React.FC<SidebarProps> = view(({ viewPost }): JSX.Element => {
   };
 
   const handleGetUpdates = (): void => {
-    const endpoint: string = "http://kelodraken.api.localhost:8000/v1/core/updates/";
+    const endpoint: string = `${process.env.REACT_APP_API_HOST_NAME}/v1/core/updates/`;
 
     axios.get(endpoint).then((response): void => {
       updatesList.data = response.data.results;

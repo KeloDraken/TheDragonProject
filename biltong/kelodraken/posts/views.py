@@ -1,15 +1,18 @@
 import random
 from typing import List
 
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.request import Request
 from rest_framework.generics import CreateAPIView, ListAPIView
 from rest_framework.response import Response
 
+from common.accounts.models import User
 from kelodraken.tags.models import Tag
 from kelodraken.posts.models import Post
 from kelodraken.posts.serialisers import (
     PostCreateSerialiser,
     PostListSerialiser,
+    ReportPostSerialiser,
 )
 
 
@@ -85,6 +88,7 @@ get_post = GetPostAPIView.as_view()
 
 class CreatePostAPIView(CreateAPIView):
     serializer_class = PostCreateSerialiser
+    permission_classes = [IsAuthenticated]
 
     def extract_hashtags(self, text: str):
         """
@@ -107,10 +111,10 @@ class CreatePostAPIView(CreateAPIView):
             obj.save()
 
     def perform_create(self, serializer: PostCreateSerialiser):
-        user = self.request.user
+        user: User = self.request.user
         user.posts += 1
         user.save()
-        return serializer.save(author=self.request.user)
+        return serializer.save(author=user)
 
     def create(self, request: Request, *args, **kwargs):
         serialiser = self.get_serializer(data=request.data)
@@ -123,3 +127,16 @@ class CreatePostAPIView(CreateAPIView):
 
 
 create_post = CreatePostAPIView.as_view()
+
+
+class ReportPostAPIView(CreateAPIView):
+    serializer_class = ReportPostSerialiser
+    permission_classes = [IsAuthenticated]
+
+    def perform_create(self, serializer: PostCreateSerialiser):
+        post_id: str = self.kwargs["post_id"]
+        post: Post = Post.objects.get(object_id=post_id)
+        return serializer.save(user=self.request.user, post=post)
+
+
+report_post = ReportPostAPIView.as_view()

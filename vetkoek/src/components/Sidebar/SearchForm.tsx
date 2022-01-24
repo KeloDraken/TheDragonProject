@@ -36,7 +36,7 @@ const SearchForm = (): JSX.Element => {
       debouncedFunction = debounce(async () => {
         // use event value if you want in request
         const response: AxiosResponse = await axios.get(
-          `http://kelodraken.api.localhost:8000/v1/search/?q=${text}`
+          `${process.env.REACT_APP_API_HOST_NAME}/v1/search/?q=${text}`
         );
 
         if (response.data) {

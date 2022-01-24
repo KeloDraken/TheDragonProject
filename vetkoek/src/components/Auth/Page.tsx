@@ -56,7 +56,7 @@ const Page: React.FC<AuthPageProps> = view(
     };
 
     const handleSubmit = (): void => {
-      const endpoint: string = `http://kelodraken.api.localhost:8000/v1/users/${view}/`;
+      const endpoint: string = `${process.env.REACT_APP_API_HOST_NAME}/v1/users/${view}/`;
 
       const data: object = {
         username: username,

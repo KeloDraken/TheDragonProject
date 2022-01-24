@@ -7,12 +7,12 @@ from rest_framework.views import APIView
 
 from rest_framework_jwt.settings import api_settings
 
-from kelodraken.accounts.serialisers import (
+from common.accounts.serialisers import (
     CreateUserSerialiser,
     UserSerialiser,
     UserUpdateSerialiser,
 )
-from kelodraken.accounts.models import User
+from common.accounts.models import User
 
 
 class CreateUserAPIView(APIView):

@@ -92,7 +92,7 @@ const CreatePost = view((): JSX.Element => {
     if (tags.length !== 0 && tags !== null && tags !== undefined) {
       const tag_list: string[] = [];
       tags.forEach((value, i) => {
-        tag_list.push(value.text.toString());
+        tag_list.push(value.text.toString().toLowerCase());
       });
       return tag_list.join(",");
     }
@@ -120,7 +120,7 @@ const CreatePost = view((): JSX.Element => {
         ..._title,
       };
 
-      const endpoint: string = "http://kelodraken.api.localhost:8000/v1/posts/create/";
+      const endpoint: string = `${process.env.REACT_APP_API_HOST_NAME}/v1/posts/create/`;
 
       axios
         .post(endpoint, data, {

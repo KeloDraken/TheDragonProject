@@ -1,6 +1,15 @@
 # Biltong - Python (Django) Backend
+
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
+## Structure
+
+| Codebase                 |                    Description                     |
+| :----------------------- | :------------------------------------------------: |
+| [common](common)         | Apps that are shared throughout The Dragon Project |
+| [config](config)         |                    Site config                     |
+| [kelodraken](kelodraken) |               Blogging community API               |
+| [utils](utils)           |     A bunch of functions that make life easier     |
 
 ## Running as Development
 
@@ -25,4 +34,4 @@ General conventions:
 - `snake_case` for function and variable names, `PascalCase` for class names.
 - Never use globals.
 - Functions should have return types.
-- Never use catch-all `except`. Always catch specific errors e.g. `except IndexError` 
+- Never use catch-all `except`. Always catch specific errors e.g. `except IndexError`

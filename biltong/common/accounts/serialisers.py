@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from kelodraken.accounts.models import User
+from common.accounts.models import User
 
 
 class CreateUserSerialiser(serializers.ModelSerializer):

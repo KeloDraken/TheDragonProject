@@ -7,6 +7,7 @@ from kelodraken.posts.views import (
     get_recommeded_posts,
     posts_list,
     recommended_posts_list,
+    report_post,
 )
 
 
@@ -18,6 +19,7 @@ urlpatterns = format_suffix_patterns(
         path("create/", create_post, name="post-create"),
         path("get/recommended/", recommended_posts_list, name="recommended-posts"),
         path("get/similar/<post_id>/", get_recommeded_posts, name="get-similar-posts"),
+        path("report/<post_id>/", report_post, name="report-post"),
         path("get/<post_id>/", get_post, name="get-post"),
     ]
 )

@@ -1,5 +1,5 @@
 from django.db import models
-from kelodraken.accounts.models import User
+from common.accounts.models import User
 
 
 class Tag(models.Model):

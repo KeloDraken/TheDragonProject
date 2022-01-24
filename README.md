@@ -17,11 +17,11 @@
 
 ## Structure
 
-| Codebase           |                  Description                   |
-| :----------------- | :--------------------------------------------: |
-| [vetkoek](vetkoek) |     Blogging community (Create React App)      |
-| [gatsby](gatsby)   |             WTC Job site (NextJS)              |
-| [biltong](biltong) | KeloDraken platform monorepo (Python (django)) |
+| Codebase           |                  Description                  |
+| :----------------- | :-------------------------------------------: |
+| [vetkoek](vetkoek) |     Blogging community (Create React App)     |
+| [gatsby](gatsby)   |             WTC Job site (NextJS)             |
+| [biltong](biltong) | The Dragon Project monorepo (Python (django)) |
 
 ## Branches
 
