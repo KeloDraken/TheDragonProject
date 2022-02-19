@@ -22,15 +22,9 @@ export const styles = StyleSheet.create({
     fontFamily: "Lobster",
   },
   navLinkText: {
-    fontSize: wp("2"),
+    fontSize: 27,
     fontWeight: "700",
     marginLeft: "1.5rem",
     color: "#000",
-  },
-  navBtnText: {
-    fontSize: wp("1.5"),
-    fontWeight: "800",
-    marginLeft: "1.5rem",
-    marginTop: "-0.85rem",
   },
 });
