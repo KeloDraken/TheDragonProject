@@ -39,7 +39,7 @@ export const styles = StyleSheet.create({
     paddingVertical: hp("1.9"),
     color: "#000",
     backgroundColor: "rgb(216, 216, 216)",
-    fontSize: wp("1.2"),
+    fontSize: 17,
     paddingHorizontal: wp("4"),
   },
   sidebarCardContainer: {
@@ -51,17 +51,17 @@ export const styles = StyleSheet.create({
   },
   sidebarCardHeading: {
     fontWeight: "700",
-    fontSize: wp("1.6"),
+    fontSize: 20,
     color: "#000",
     paddingHorizontal: wp("1.4"),
     marginBottom: hp("2"),
   },
   sidebarLinkInfo: {
-    fontSize: wp("1"),
+    fontSize: 15,
     color: "#000",
   },
   sidebarLinkTitle: {
-    fontSize: wp("1.2"),
+    fontSize: 16,
     fontWeight: "700",
     color: "#000",
   },
