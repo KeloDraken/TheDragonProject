@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 import { Text, View } from "react-native";
 import { useParams } from "react-router-dom";
+import About from "../../components/About";
 
 import Navbar from "../../components/Navbar";
 import ProfileHeader from "../../components/Profile/ProfileHeader";
@@ -66,6 +67,8 @@ const Profile = view((): JSX.Element => {
           }
           item={user}
         />
+        <hr className="mt-10 mx-4" />
+        <About />
       </main>
 
       <aside className="overflow-y-scroll h-screen hidden md:block lg:block xl:block 2xl:block sticky top-0 w-7/12 pr-7 pl-3">
