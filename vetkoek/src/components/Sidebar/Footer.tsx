@@ -5,12 +5,12 @@ const Footer = (): JSX.Element => {
   return (
     <View>
       <div className="ml-5 mt-3">
-        <Link
+        {/* <Link
           className="mr-3 text-gray-500 text-sm hover:underline"
           to="/post/mdCbCegZJo99qki/"
         >
           Code of Conduct
-        </Link>
+        </Link> */}
         <Link
           className="mr-3 text-gray-500 text-sm hover:underline"
           to="/privacy"
