@@ -7,7 +7,7 @@ const Footer = (): JSX.Element => {
       <div className="ml-5 mt-3">
         <Link
           className="mr-3 text-gray-500 text-sm hover:underline"
-          to="/post/eQInw2fFV1AxKzO/"
+          to="/post/mdCbCegZJo99qki/"
         >
           Code of Conduct
         </Link>
