@@ -11,8 +11,7 @@
   <a href="https://github.com/KeloDraken/KeloDraken.com/blob/master/CONTRIBUTING.md">Contribute</a>
   <span> · </span>
   <a href="https://twitter.com/kelodraken/">Twitter</a>
-  <span> · </span>
-  <a href="https://instagram.com/kelodraken/">Instagram</a>
+  <span>
 </h3>
 
 ## Structure
